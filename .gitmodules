@@ -1,0 +1,10 @@
+[submodule "Carthage/Checkouts/Curry"]
+	url = https://github.com/thoughtbot/Curry.git
+[submodule "Carthage/Checkouts/Result"]
+	url = https://github.com/antitypical/Result.git
+[submodule "Carthage/Checkouts/ReactiveSwift"]
+	url = https://github.com/ReactiveCocoa/ReactiveSwift.git
+[submodule "Carthage/Checkouts/Runes"]
+	url = https://github.com/thoughtbot/Runes.git
+[submodule "Carthage/Checkouts/Argo"]
+	url = https://github.com/thoughtbot/Argo.git
