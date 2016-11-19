@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E130E781DDFE98A00DA4F28 /* Argo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E130E731DDFE98A00DA4F28 /* Argo.framework */; };
+		6E130E791DDFE98A00DA4F28 /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E130E741DDFE98A00DA4F28 /* Curry.framework */; };
+		6E130E7A1DDFE98A00DA4F28 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E130E751DDFE98A00DA4F28 /* ReactiveSwift.framework */; };
+		6E130E7B1DDFE98A00DA4F28 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E130E761DDFE98A00DA4F28 /* Result.framework */; };
+		6E130E7C1DDFE98A00DA4F28 /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E130E771DDFE98A00DA4F28 /* Runes.framework */; };
 		6EA5D05C1DDDF33C00D3713C /* EsaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA5D0521DDDF33C00D3713C /* EsaKit.framework */; };
 		6EA5D0611DDDF33C00D3713C /* EsaKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5D0601DDDF33C00D3713C /* EsaKitTests.swift */; };
 		6EA5D0631DDDF33C00D3713C /* EsaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EA5D0551DDDF33C00D3713C /* EsaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +28,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E130E731DDFE98A00DA4F28 /* Argo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Argo.framework; path = Carthage/Build/iOS/Argo.framework; sourceTree = "<group>"; };
+		6E130E741DDFE98A00DA4F28 /* Curry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Curry.framework; path = Carthage/Build/iOS/Curry.framework; sourceTree = "<group>"; };
+		6E130E751DDFE98A00DA4F28 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
+		6E130E761DDFE98A00DA4F28 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		6E130E771DDFE98A00DA4F28 /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/iOS/Runes.framework; sourceTree = "<group>"; };
 		6EA5D0521DDDF33C00D3713C /* EsaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EsaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA5D0551DDDF33C00D3713C /* EsaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EsaKit.h; sourceTree = "<group>"; };
 		6EA5D0561DDDF33C00D3713C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,6 +46,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E130E781DDFE98A00DA4F28 /* Argo.framework in Frameworks */,
+				6E130E791DDFE98A00DA4F28 /* Curry.framework in Frameworks */,
+				6E130E7A1DDFE98A00DA4F28 /* ReactiveSwift.framework in Frameworks */,
+				6E130E7B1DDFE98A00DA4F28 /* Result.framework in Frameworks */,
+				6E130E7C1DDFE98A00DA4F28 /* Runes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,12 +65,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E130E721DDFE98A00DA4F28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E130E731DDFE98A00DA4F28 /* Argo.framework */,
+				6E130E741DDFE98A00DA4F28 /* Curry.framework */,
+				6E130E751DDFE98A00DA4F28 /* ReactiveSwift.framework */,
+				6E130E761DDFE98A00DA4F28 /* Result.framework */,
+				6E130E771DDFE98A00DA4F28 /* Runes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6EA5D0481DDDF33C00D3713C = {
 			isa = PBXGroup;
 			children = (
 				6EA5D0541DDDF33C00D3713C /* EsaKit */,
 				6EA5D05F1DDDF33C00D3713C /* EsaKitTests */,
 				6EA5D0531DDDF33C00D3713C /* Products */,
+				6E130E721DDFE98A00DA4F28 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -328,6 +356,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = EsaKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -348,6 +380,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = EsaKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -402,6 +438,7 @@
 				6EA5D0681DDDF33C00D3713C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6EA5D0691DDDF33C00D3713C /* Build configuration list for PBXNativeTarget "EsaKitTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +447,7 @@
 				6EA5D06B1DDDF33C00D3713C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
