@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6E130F381DE1659300DA4F28"
+               BuildableName = "EsaKit-OSXTests.xctest"
+               BlueprintName = "EsaKit-OSXTests"
+               ReferencedContainer = "container:EsaKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6E130F301DE1659300DA4F28"
+            BuildableName = "EsaKit-OSX.framework"
+            BlueprintName = "EsaKit-OSX"
+            ReferencedContainer = "container:EsaKit.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
