@@ -1,0 +1,4 @@
+included:
+  - EsaKit
+line_length:
+  warning: 120

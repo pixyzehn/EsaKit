@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6EA5D0511DDDF33C00D3713C"
                BuildableName = "EsaKit.framework"
-               BlueprintName = "EsaKit"
+               BlueprintName = "EsaKit-iOS"
                ReferencedContainer = "container:EsaKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,7 +47,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6EA5D0511DDDF33C00D3713C"
             BuildableName = "EsaKit.framework"
-            BlueprintName = "EsaKit"
+            BlueprintName = "EsaKit-iOS"
             ReferencedContainer = "container:EsaKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,7 +65,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6EA5D0511DDDF33C00D3713C"
             BuildableName = "EsaKit.framework"
-            BlueprintName = "EsaKit"
+            BlueprintName = "EsaKit-iOS"
             ReferencedContainer = "container:EsaKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
