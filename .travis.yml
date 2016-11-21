@@ -13,6 +13,3 @@ matrix:
     - xcode_scheme: EsaKit-iOS
       env: XCODE_ACTION="build-for-testing test-without-building"
       osx_image: xcode8
-    - xcode_scheme: EsaKit-OSX
-      env: XCODE_ACTION="build-for-testing test-without-building"
-      osx_image: xcode8
