@@ -188,7 +188,6 @@
 				6E6D064C1DE31D580071FFA9 /* Sources */,
 				6E6D064D1DE31D580071FFA9 /* Frameworks */,
 				6E6D064E1DE31D580071FFA9 /* Headers */,
-				6E6D06AF1DE3CB0F0071FFA9 /* carthage copy-frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,7 +223,6 @@
 				6E6D066A1DE322CA0071FFA9 /* Sources */,
 				6E6D066B1DE322CA0071FFA9 /* Frameworks */,
 				6E6D066C1DE322CA0071FFA9 /* Headers */,
-				6E6D06A81DE3C5950071FFA9 /* carthage copy-frameworks */,
 			);
 			buildRules = (
 			);
@@ -324,43 +322,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		6E6D06A81DE3C5950071FFA9 /* carthage copy-frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Curry.framework",
-			);
-			name = "carthage copy-frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		6E6D06AF1DE3CB0F0071FFA9 /* carthage copy-frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/Mac/ReactiveSwift.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/Result.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/Curry.framework",
-			);
-			name = "carthage copy-frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6E6D064C1DE31D580071FFA9 /* Sources */ = {
@@ -690,6 +651,7 @@
 				6E6D06641DE31D580071FFA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6E6D06651DE31D580071FFA9 /* Build configuration list for PBXNativeTarget "EsaKit-OSXTests" */ = {
 			isa = XCConfigurationList;
@@ -698,6 +660,7 @@
 				6E6D06671DE31D580071FFA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6E6D06801DE322CA0071FFA9 /* Build configuration list for PBXNativeTarget "EsaKit-iOS" */ = {
 			isa = XCConfigurationList;
@@ -706,6 +669,7 @@
 				6E6D06821DE322CA0071FFA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6E6D06831DE322CA0071FFA9 /* Build configuration list for PBXNativeTarget "EsaKit-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -714,6 +678,7 @@
 				6E6D06851DE322CA0071FFA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6EA5D04C1DDDF33C00D3713C /* Build configuration list for PBXProject "EsaKit" */ = {
 			isa = XCConfigurationList;
