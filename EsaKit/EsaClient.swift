@@ -110,7 +110,7 @@ public final class EsaClient {
 
         /// - Member
         /// https://docs.esa.io/posts/102#6-1-0
-        case members
+        case members(teamName: String)
 
         /// - Post
         /// https://docs.esa.io/posts/102#7-1-0
@@ -152,18 +152,170 @@ public final class EsaClient {
 
         /// - Watch
         /// https://docs.esa.io/posts/102#10-1-0
-        case watchersInPost(teamName: String, postNumber: Int)
+        case watchers(teamName: String, postNumber: Int)
         /// https://docs.esa.io/posts/102#10-2-0
-        case addWatchInPost(teamName: String, postNumber: Int)
+        case addWatch(teamName: String, postNumber: Int)
         /// https://docs.esa.io/posts/102#10-3-0
-        case deleteWatchInPost(teamName: String, postNumber: Int)
+        case deleteWatch(teamName: String, postNumber: Int)
 
         /// - User
         /// https://docs.esa.io/posts/102#11-1-0
         case user
 
+        var method: HTTPMethod {
+            switch self {
+            /// - OAuth
+            case .oauthAuthorize:
+                return .get
+            case .oauthToken:
+                return .post
+            case .oaauthTokenInfo:
+                return .get
+            case .oauthRevoke:
+                return .post
+
+            /// - Team
+            case .teams:
+                return .get
+            case .team(_):
+                return .get
+
+            /// - Stats
+            case .teamStats(_):
+                return .get
+
+            /// - Member
+            case .members(_):
+                return .get
+
+            /// - Post
+            case .posts(_):
+                return .get
+            case .post(_, _):
+                return .get
+            case .createPost(_):
+                return .post
+            case .updatePost(_, _):
+                return .patch
+            case .deletePost(_, _):
+                return .delete
+
+            /// - Comment
+            case .comments(_, _):
+                return .get
+            case .comment(_, _):
+                return .get
+            case .createComment(_, _):
+                return .post
+            case .updateComment(_, _):
+                return .patch
+            case .deleteComment(_, _):
+                return .delete
+
+            /// - Star
+            case .stargazersInPost(_, _):
+                return .get
+            case .addStarInPost(_, _):
+                return .post
+            case .removeStarInPost(_, _):
+                return .delete
+            case .stargazersInComment(_, _):
+                return .get
+            case .addStarInComment(_, _):
+                return .post
+            case .removeStarInComment(_, _):
+                return .delete
+
+            /// - Watch
+            case .watchers(_, _):
+                return .get
+            case .addWatch(_, _):
+                return .post
+            case .deleteWatch(_, _):
+                return .delete
+
+            /// - User
+            case .user:
+                return .get
+            }
+        }
+
         internal var path: String {
-            return ""
+            switch self {
+            /// - OAuth
+            case .oauthAuthorize:
+                return "/oauth/authorize"
+            case .oauthToken:
+                return "/oauth/token"
+            case .oaauthTokenInfo:
+                return "/oauth/token/info"
+            case .oauthRevoke:
+                return "/oauth/revoke"
+
+            /// - Team
+            case .teams:
+                return "/v1/teams"
+            case let .team(teamName):
+                return "/v1/teams/\(teamName)"
+
+            /// - Stats
+            case let .teamStats(teamName):
+                return "/v1/teams/\(teamName)/stats"
+
+            /// - Member
+            case let .members(teamName):
+                return "/v1/teams/\(teamName)/members"
+
+            /// - Post
+            case let .posts(teamName):
+                return "/v1/teams/\(teamName)/posts"
+            case let .post(teamName, postNumber):
+                return "/v1/teams/\(teamName)/posts/\(postNumber)"
+            case let .createPost(teamName):
+                return "/v1/teams/\(teamName)/posts"
+            case let .updatePost(teamName, postNumber):
+                return "/v1/teams/\(teamName)/posts/\(postNumber)"
+            case let .deletePost(teamName, postNumber):
+                return "/v1/teams/\(teamName)/posts/\(postNumber)"
+
+            /// - Comment
+            case let .comments(teamName, postNumber):
+                return "/v1/teams/\(teamName)/posts/\(postNumber)/comments"
+            case let .comment(teamName, commentId):
+                return "/v1/teams/\(teamName)/comments/\(commentId)"
+            case let .createComment(teamName, postNumber):
+                return "/v1/teams/\(teamName)/posts/\(postNumber)/comments"
+            case let .updateComment(teamName, commentId):
+                return "/v1/teams/\(teamName)/comments/\(commentId)"
+            case let .deleteComment(teamName, commentId):
+                return "/v1/teams/\(teamName)/comments/\(commentId)"
+
+            /// - Star
+            case let .stargazersInPost(teamName, postNumber):
+                return "/v1/teams/\(teamName)/posts/\(postNumber)/stargazers"
+            case let .addStarInPost(teamName, postNumber):
+                return "/v1/teams/\(teamName)/posts/\(postNumber)/star"
+            case let .removeStarInPost(teamName, postNumber):
+                return "/v1/teams/\(teamName)/posts/\(postNumber)/star"
+            case let .stargazersInComment(teamName, commentId):
+                return "/v1/teams/\(teamName)/comments/\(commentId)/stargazers"
+            case let .addStarInComment(teamName, commentId):
+                return "/v1/teams/\(teamName)/comments/\(commentId)/star"
+            case let .removeStarInComment(teamName, commentId):
+                return "/v1/teams/\(teamName)/comments/\(commentId)/star"
+
+            /// - Watch
+            case let .watchers(teamName, postNumber):
+                return "/v1/teams/\(teamName)/posts/\(postNumber)/watchers"
+            case let .addWatch(teamName, postNumber):
+                return "/v1/teams/\(teamName)/posts/\(postNumber)/watch"
+            case let .deleteWatch(teamName, postNumber):
+                return "/v1/teams/\(teamName)/posts/\(postNumber)/watch"
+
+            /// - User
+            case .user:
+                return "/v1/user"
+            }
         }
 
         internal var queryItems: [URLQueryItem] {
@@ -188,19 +340,16 @@ public final class EsaClient {
     /// The `URLSession` instance to use.
     private let urlSession: URLSession
 
-    /// Create an unauthenticated client for the given Server.
-    public init(_ server: Server, urlSession: URLSession = .shared) {
-        self.server = server
-        self.credentials = nil
-        self.urlSession = urlSession
-    }
-
     /// Create an authenticated client for the given Server with a token.
-    public init(_ server: Server, token: String, urlSession: URLSession = .shared) {
-        self.server = server
+    public init(token: String, urlSession: URLSession = .shared) {
+        self.server = Server()
         self.credentials = .token(token)
         self.urlSession = urlSession
     }
 
-    // Esa APIs ... like fetch...
+    /// Esa APIs
 }
+
+let client = EsaClient(token: "hogehoge")
+
+
