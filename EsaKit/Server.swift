@@ -8,23 +8,14 @@
 
 import Foundation
 
-public enum Server: CustomStringConvertible {
-    /// An esa.io server.
-    case dotIo
-
+public struct Server: CustomStringConvertible {
     /// The URL of the server.
     public var url: URL {
-        switch self {
-        case .dotIo:
-            return URL(string: "https://esa.io")!
-        }
+        return URL(string: "https://esa.io")!
     }
 
     internal var endpoint: String {
-        switch self {
-        case .dotIo:
-            return "https://api.esa.io"
-        }
+        return "https://api.esa.io"
     }
 
     public var description: String {

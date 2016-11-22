@@ -26,6 +26,9 @@
 		6E6D06B21DE4110F0071FFA9 /* EsaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D06B11DE4110F0071FFA9 /* EsaError.swift */; };
 		6E6D06B51DE412AE0071FFA9 /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06B41DE412AE0071FFA9 /* Himotoki.framework */; };
 		6E6D06B71DE412C80071FFA9 /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06B61DE412C80071FFA9 /* Himotoki.framework */; };
+		6E6D06B91DE417BA0071FFA9 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D06B81DE417BA0071FFA9 /* FoundationExtensions.swift */; };
+		6E6D06BB1DE41C760071FFA9 /* EsaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D06B11DE4110F0071FFA9 /* EsaError.swift */; };
+		6E6D06BC1DE41C7A0071FFA9 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D06B81DE417BA0071FFA9 /* FoundationExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,7 @@
 		6E6D06B11DE4110F0071FFA9 /* EsaError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EsaError.swift; sourceTree = "<group>"; };
 		6E6D06B41DE412AE0071FFA9 /* Himotoki.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Himotoki.framework; path = Carthage/Build/iOS/Himotoki.framework; sourceTree = "<group>"; };
 		6E6D06B61DE412C80071FFA9 /* Himotoki.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Himotoki.framework; path = Carthage/Build/Mac/Himotoki.framework; sourceTree = "<group>"; };
+		6E6D06B81DE417BA0071FFA9 /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		6EA5D0551DDDF33C00D3713C /* EsaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EsaKit.h; sourceTree = "<group>"; };
 		6EA5D0561DDDF33C00D3713C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +128,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6E6D06BA1DE418A30071FFA9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6E6D06B81DE417BA0071FFA9 /* FoundationExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		6EA5D0481DDDF33C00D3713C = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +160,7 @@
 		6EA5D0541DDDF33C00D3713C /* EsaKit */ = {
 			isa = PBXGroup;
 			children = (
+				6E6D06BA1DE418A30071FFA9 /* Extensions */,
 				6E130EAC1DDFFF0600DA4F28 /* Server.swift */,
 				6E130E8C1DDFF5EC00DA4F28 /* EsaClient.swift */,
 				6E6D06B11DE4110F0071FFA9 /* EsaError.swift */,
@@ -314,7 +327,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6D06BC1DE41C7A0071FFA9 /* FoundationExtensions.swift in Sources */,
 				6E6D06691DE31D6B0071FFA9 /* EsaClient.swift in Sources */,
+				6E6D06BB1DE41C760071FFA9 /* EsaError.swift in Sources */,
 				6E6D06681DE31D680071FFA9 /* Server.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6D06B91DE417BA0071FFA9 /* FoundationExtensions.swift in Sources */,
 				6E6D06871DE323190071FFA9 /* EsaClient.swift in Sources */,
 				6E6D06B21DE4110F0071FFA9 /* EsaError.swift in Sources */,
 				6E6D06861DE323150071FFA9 /* Server.swift in Sources */,
