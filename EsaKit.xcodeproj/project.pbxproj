@@ -20,9 +20,6 @@
 		6E6D069A1DE348270071FFA9 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06951DE348270071FFA9 /* ReactiveSwift.framework */; };
 		6E6D069B1DE348270071FFA9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06961DE348270071FFA9 /* Result.framework */; };
 		6E6D06A11DE34C530071FFA9 /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D069E1DE34C530071FFA9 /* Curry.framework */; };
-		6E6D06A41DE34C610071FFA9 /* Curry.framework in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D069E1DE34C530071FFA9 /* Curry.framework */; };
-		6E6D06A61DE34C610071FFA9 /* ReactiveSwift.framework in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D06951DE348270071FFA9 /* ReactiveSwift.framework */; };
-		6E6D06A71DE34C610071FFA9 /* Result.framework in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D06961DE348270071FFA9 /* Result.framework */; };
 		6E6D06AC1DE3CB050071FFA9 /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06A91DE3CB050071FFA9 /* Curry.framework */; };
 		6E6D06AD1DE3CB050071FFA9 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06AA1DE3CB050071FFA9 /* ReactiveSwift.framework */; };
 		6E6D06AE1DE3CB050071FFA9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06AB1DE3CB050071FFA9 /* Result.framework */; };
@@ -204,7 +201,6 @@
 			buildPhases = (
 				6E6D06551DE31D580071FFA9 /* Sources */,
 				6E6D06561DE31D580071FFA9 /* Frameworks */,
-				6E6D06571DE31D580071FFA9 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -239,7 +235,6 @@
 			buildPhases = (
 				6E6D06731DE322CA0071FFA9 /* Sources */,
 				6E6D06741DE322CA0071FFA9 /* Frameworks */,
-				6E6D06751DE322CA0071FFA9 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -302,26 +297,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		6E6D06571DE31D580071FFA9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6E6D06751DE322CA0071FFA9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6E6D06A41DE34C610071FFA9 /* Curry.framework in Resources */,
-				6E6D06A61DE34C610071FFA9 /* ReactiveSwift.framework in Resources */,
-				6E6D06A71DE34C610071FFA9 /* Result.framework in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6E6D064C1DE31D580071FFA9 /* Sources */ = {
