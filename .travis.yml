@@ -6,10 +6,13 @@ before_install:
   - brew outdated carthage || brew upgrade carthage
 before_script:
   - carthage bootstrap --use-submodules --no-build
-script: script/cibuild "$TRAVIS_XCODE_WORKSPACE" "$TRAVIS_XCODE_SCHEME" "$XCODE_ACTION"
+script: script/cibuild "$TRAVIS_XCODE_WORKSPACE" "$TRAVIS_XCODE_SCHEME" "$XCODE_ACTION" | xcpretty --color
 xcode_workspace: EsaKit.xcworkspace
 matrix:
   include:
     - xcode_scheme: EsaKit-iOS
       env: XCODE_ACTION="build-for-testing test-without-building"
-      osx_image: xcode8
+      osx_image: xcode8.1
+    - xcode_scheme: EsaKit-OSX
+      env: XCODE_ACTION="build-for-testing test-without-building"
+      osx_image: xcode8.1

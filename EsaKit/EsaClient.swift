@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Argo
 import ReactiveSwift
 import Result
 

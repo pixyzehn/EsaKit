@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6E6D066E1DE322CA0071FFA9"
+               BlueprintIdentifier = "6E6D06501DE31D580071FFA9"
                BuildableName = "EsaKit.framework"
-               BlueprintName = "EsaKit-iOS"
+               BlueprintName = "EsaKit-OSX"
                ReferencedContainer = "container:EsaKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6E6D06761DE322CA0071FFA9"
-               BuildableName = "EsaKit-iOSTests.xctest"
-               BlueprintName = "EsaKit-iOSTests"
+               BlueprintIdentifier = "6E6D06581DE31D580071FFA9"
+               BuildableName = "EsaKit-OSXTests.xctest"
+               BlueprintName = "EsaKit-OSXTests"
                ReferencedContainer = "container:EsaKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E6D066E1DE322CA0071FFA9"
+            BlueprintIdentifier = "6E6D06501DE31D580071FFA9"
             BuildableName = "EsaKit.framework"
-            BlueprintName = "EsaKit-iOS"
+            BlueprintName = "EsaKit-OSX"
             ReferencedContainer = "container:EsaKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E6D066E1DE322CA0071FFA9"
+            BlueprintIdentifier = "6E6D06501DE31D580071FFA9"
             BuildableName = "EsaKit.framework"
-            BlueprintName = "EsaKit-iOS"
+            BlueprintName = "EsaKit-OSX"
             ReferencedContainer = "container:EsaKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E6D066E1DE322CA0071FFA9"
+            BlueprintIdentifier = "6E6D06501DE31D580071FFA9"
             BuildableName = "EsaKit.framework"
-            BlueprintName = "EsaKit-iOS"
+            BlueprintName = "EsaKit-OSX"
             ReferencedContainer = "container:EsaKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

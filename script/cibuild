@@ -4,13 +4,16 @@ use strict;
 
 my ($WORKSPACE, $SCHEME, $ACTION) = @ARGV;
 
-my $buildSettings = qx{xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -showBuildSettings};
+my $buildSettings = qx{xcodebuild -workspace "WORKSPACE" -scheme "$SCHEME"};
 
-my @args = ("-workspace", $WORKSPACE, "-scheme", $SCHEME, split(/\s+/, $ACTION), "CODE_SIGNING_REQUIRED=NO", "CODE_SIGN_IDENTITY=");
+my @args = ("-workspace", $WORKSPACE, "-scheme", $SCHEME, split(/\s+/, $ACTION));
 
-if ($buildSettings =~ /\bPLATFORM_NAME = iphoneos/i) {
-  unshift @args, "-destination", "name=iPhone 7";
-  unshift @args, "-sdk", "iphonesimulator";
+if ($SCHEME =~ /iOS/) {
+    unshift @args, "-destination", "platform=iOS Simulator,name=iPhone 7,OS=10.1";
+}
+
+if ($SCHEME =~ /OSX/) {
+    unshift @args, "-destination", "platform=macOS,arch=x86_64";
 }
 
 print "xcodebuild @args\n";
