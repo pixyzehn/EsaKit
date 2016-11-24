@@ -14,6 +14,9 @@
       location = "group:Carthage/Checkouts/Curry/Curry.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../EsaKitExample/EsaKitExample.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:EsaKit.xcodeproj">
    </FileRef>
 </Workspace>

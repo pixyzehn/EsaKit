@@ -14,7 +14,7 @@
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6F74D106-B8AC-43BC-96F0-91EAB941D77C",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "892A392662EFD968ECAC00BEDD3BE4AF0F19F413" : "EsaKit\/Carthage\/Checkouts\/Himotoki\/",
-    "E084C86B03F81D63323C9E7510697EA528A758C7" : "EsaKit\/Carthage\/Checkouts\/ReactiveSwift\/Carthage\/Checkouts\/xcconfigs\/",
+    "E084C86B03F81D63323C9E7510697EA528A758C7" : "EsaKit\/Carthage\/Checkouts\/Himotoki\/Carthage\/Checkouts\/xcconfigs\/",
     "0C64C41E1AF962409667A74985206F80E125883E" : "EsaKit\/",
     "51B210D0D41486D3ADD6940D57E4480BBD4DE4C5" : "EsaKit\/Carthage\/Checkouts\/ReactiveSwift\/",
     "956D2B21DD155C49504BB67697A67F7C5351A353" : "EsaKit\/Carthage\/Checkouts\/Result\/",

@@ -9,16 +9,16 @@
 import Foundation
 import Himotoki
 
-struct User: Decodable {
-    var id: Int
-    var name: String
-    var screenName: String
-    var createdAt: String
-    var updatedAt: String
-    var icon: String
-    var email: String
+public struct User: Decodable {
+    public var id: Int
+    public var name: String
+    public var screenName: String
+    public var createdAt: String
+    public var updatedAt: String
+    public var icon: String
+    public var email: String
 
-    static func decode(_ e: Extractor) throws -> User {
+    public static func decode(_ e: Extractor) throws -> User {
         return try User(
             id: e <| "id",
             name: e <| "name",

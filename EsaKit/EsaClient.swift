@@ -24,7 +24,7 @@ extension URL {
         return components.url!
     }
 
-    internal init(_ endpoint: EsaClient.Endpoint, page: UInt? = nil, pageSize: UInt? = nil) {
+    internal init(_ endpoint: EsaClient.Endpoint, page: UInt = 0, pageSize: UInt = 0) {
         let queryItems = [ ("page", page), ("per_page", pageSize) ]
             .filter { _, value in value != nil }
             .map { name, value in URLQueryItem(name: name, value: "\(value!)") }
@@ -39,16 +39,36 @@ extension URL {
 }
 
 extension URLRequest {
-    internal static func create(_ url: URL, _ credentials: EsaClient.Credentials?, contentType: String? = EsaClient.APIContentType) -> URLRequest {
+    internal static func create(_ url: URL, _ endpoint: EsaClient.Endpoint, _ credentials: EsaClient.Credentials?, contentType: String? = EsaClient.APIContentType) -> URLRequest {
         var request = URLRequest(url: url)
 
+        request.httpMethod = endpoint.method.rawValue
         request.setValue(contentType, forHTTPHeaderField: "Content-Type")
 
         if let credentials = credentials {
-            request.setValue(credentials.authorizationHeader, forHTTPHeaderField: "Authorization: Bearer")
+            request.setValue(credentials.authorizationHeader, forHTTPHeaderField: "Authorization")
         }
 
         return request
+    }
+}
+
+extension HTTPURLResponse {
+    enum StatusCodeType: Int {
+        case ok = 200
+        case created = 201
+        case noContent = 204
+        case badRequest = 400
+        case unauthorized = 401
+        case forbidden = 403
+        case notFound = 404
+        case tooManyRequests = 429
+        case internalServerError = 500
+        case unknown = 0
+    }
+
+    var statusCodeType: StatusCodeType {
+        return StatusCodeType(rawValue: statusCode) ?? .unknown
     }
 }
 
@@ -68,7 +88,7 @@ public final class EsaClient {
         case jsonDecodingError(DecodeError)
 
         /// A status code, response, and error that was returned from the API.
-        case apiError(Int, EsaError)
+        case apiError(Int, Response, EsaError)
 
         /// The requested object does not exist.
         case doesNotExist
@@ -81,13 +101,13 @@ public final class EsaClient {
         var authorizationHeader: String {
             switch self {
             case let .token(token):
-                return "Authorization: Bearer \(token)"
+                return "Bearer \(token)"
             }
         }
     }
 
     /// An esa.io API endpoint.
-    internal enum Endpoint {
+    public enum Endpoint {
         /// - OAuth
         /// https://docs.esa.io/posts/102#3-3-2
         case oauthAuthorize
@@ -323,9 +343,6 @@ public final class EsaClient {
         }
     }
 
-    /// The user-agent to use for API requests.
-    public static var userAgent: String?
-
     /// The Server that the Client connects to.
     public let server: Server
 
@@ -348,8 +365,41 @@ public final class EsaClient {
     }
 
     /// Esa APIs
+
+    public func request(endpoint: Endpoint) -> SignalProducer<(Response, Members), Error> {
+        let url = URL(endpoint)
+        let request = URLRequest.create(url, endpoint, credentials)
+        return urlSession
+            .reactive
+            .data(with: request)
+            .mapError(Error.networkError)
+            .flatMap(.concat) { data, response -> SignalProducer<(Response, Members), Error> in
+                let response = response as! HTTPURLResponse
+                let headers = response.allHeaderFields as! [String:String]
+                return SignalProducer
+                    .attempt {
+                        return JSONSerialization.deserializeJSON(data).mapError(Error.jsonDeserializationError)
+                    }
+                    .attemptMap { JSON in
+                        if response.statusCode == 404 {
+                            return .failure(.doesNotExist)
+                        }
+                        if response.statusCode >= 400 && response.statusCode < 600 {
+                            return .failure(.jsonDecodingError(DecodeError.custom("Error by statusCode")))
+                        }
+
+                        do {
+                            let members = try Members.decodeValue(JSON)
+                            return .success(members)
+                        } catch let error as DecodeError {
+                            return .failure(.jsonDecodingError(DecodeError.custom("Error by decodeValue \(error.description)")))
+                        } catch {
+                            return .failure(.jsonDecodingError(DecodeError.custom("Error by decodeValue")))
+                        }
+                    }
+                    .map { JSON in
+                        return (Response(headerFields: headers), JSON)
+                    }
+            }
+    }
 }
-
-let client = EsaClient(token: "hogehoge")
-
-

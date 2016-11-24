@@ -9,16 +9,16 @@
 import Foundation
 import Himotoki
 
-struct Stats: Decodable {
-    let members: Int
-    let posts: Int
-    let comments: Int
-    let stars: Int
-    let dailyActiveUsers: Int
-    let weeklyActiveUsers: Int
-    let monthlyActiveUsers: Int
+public struct Stats: Decodable {
+    public let members: Int
+    public let posts: Int
+    public let comments: Int
+    public let stars: Int
+    public let dailyActiveUsers: Int
+    public let weeklyActiveUsers: Int
+    public let monthlyActiveUsers: Int
 
-    static func decode(_ e: Extractor) throws -> Stats {
+    public static func decode(_ e: Extractor) throws -> Stats {
         return try Stats(
             members: e <| "members",
             posts: e <| "posts",

@@ -9,14 +9,14 @@
 import Foundation
 import Himotoki
 
-struct Team: Decodable {
-    let name: String
-    let privacy: String
-    let description: String
-    let icon: String
-    let url: String
+public struct Team: Decodable {
+    public let name: String
+    public let privacy: String
+    public let description: String
+    public let icon: String
+    public let url: String
 
-    static func decode(_ e: Extractor) throws -> Team {
+    public static func decode(_ e: Extractor) throws -> Team {
         return try Team(
             name: e <| "name",
             privacy: e <| "privacy",

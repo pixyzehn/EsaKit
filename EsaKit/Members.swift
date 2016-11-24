@@ -9,17 +9,21 @@
 import Foundation
 import Himotoki
 
-struct Members: Decodable {
-    let members: [Member]
-    let prevPage: Int
-    let nextPage: Int
-    let totalCount: Int
+public struct Members: Decodable {
+    public let members: [Member]
+    public let page: Int
+    public let prevPage: Int?
+    public let nextPage: Int?
+    public let maxPerPage: Int
+    public let totalCount: Int
 
-    static func decode(_ e: Extractor) throws -> Members {
+    public static func decode(_ e: Extractor) throws -> Members {
         return try Members(
             members: e <|| "members",
-            prevPage: e <| "prev_page",
-            nextPage: e <| "next_page",
+            page: e <| "page",
+            prevPage: e <|? "prev_page",
+            nextPage: e <|? "next_page",
+            maxPerPage: e <| "max_per_page",
             totalCount: e <| "total_count"
         )
     }

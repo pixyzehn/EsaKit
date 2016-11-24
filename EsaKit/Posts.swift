@@ -9,13 +9,13 @@
 import Foundation
 import Himotoki
 
-struct Posts: Decodable {
-    let posts: [Post]
-    let prevPage: Int
-    let nextPage: Int
-    let totalCount: Int
+public struct Posts: Decodable {
+    public let posts: [Post]
+    public let prevPage: Int
+    public let nextPage: Int
+    public let totalCount: Int
 
-    static func decode(_ e: Extractor) throws -> Posts {
+    public static func decode(_ e: Extractor) throws -> Posts {
         return try Posts(
             posts: e <|| "posts",
             prevPage: e <| "prev_page",

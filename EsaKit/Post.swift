@@ -9,32 +9,32 @@
 import Foundation
 import Himotoki
 
-struct Post: Decodable {
-    let number: Int
-    let name: String
-    let fullName: String
-    let wip: Bool
-    let bodyMd: String
-    let bodyHtml: String
-    let createdAt: String
-    let updatedAt: String
-    let message: String
-    let url: String
-    let tags: [String]
-    let category: String
-    let revisionNumber: Int
-    let createdBy: User
-    let updatedBy: User
-    let kind: String
-    let commentsCount: Int
-    let tasksCount: Int
-    let doneTasksCount: Int
-    let stargazersCount: Int
-    let watchersCount: Int
-    let star: Bool
-    let watch: Bool
+public struct Post: Decodable {
+    public let number: Int
+    public let name: String
+    public let fullName: String
+    public let wip: Bool
+    public let bodyMd: String
+    public let bodyHtml: String
+    public let createdAt: String
+    public let updatedAt: String
+    public let message: String
+    public let url: String
+    public let tags: [String]
+    public let category: String
+    public let revisionNumber: Int
+    public let createdBy: User
+    public let updatedBy: User
+    public let kind: String
+    public let commentsCount: Int
+    public let tasksCount: Int
+    public let doneTasksCount: Int
+    public let stargazersCount: Int
+    public let watchersCount: Int
+    public let star: Bool
+    public let watch: Bool
 
-    static func decode(_ e: Extractor) throws -> Post {
+    public static func decode(_ e: Extractor) throws -> Post {
         return try Post(
             number: e <| "number",
             name: e <| "name",

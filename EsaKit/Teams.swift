@@ -9,13 +9,13 @@
 import Foundation
 import Himotoki
 
-struct Teams: Decodable {
-    let teams: [Team]
-    let prevPage: Int
-    let nextPage: Int
-    let totalCount: Int
+public struct Teams: Decodable {
+    public let teams: [Team]
+    public let prevPage: Int
+    public let nextPage: Int
+    public let totalCount: Int
 
-    static func decode(_ e: Extractor) throws -> Teams {
+    public static func decode(_ e: Extractor) throws -> Teams {
         return try Teams(
             teams: e <|| "teams",
             prevPage: e <| "prev_page",
