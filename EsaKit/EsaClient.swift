@@ -456,14 +456,14 @@ public final class EsaClient {
 
     // MARK: Private method
 
-    private func post(_ endpoint: Endpoint) -> SignalProducer<Response, Error> {
+    internal func post(_ endpoint: Endpoint) -> SignalProducer<Response, Error> {
         return request(endpoint, page: nil, pageSize: nil)
             .attemptMap { response, _ in
                 return .success(response)
             }
     }
 
-    private func fetchOne<T: Decodable>(_ endpoint: Endpoint) -> SignalProducer<(Response, T), Error> {
+    internal func fetchOne<T: Decodable>(_ endpoint: Endpoint) -> SignalProducer<(Response, T), Error> {
         return request(endpoint, page: nil, pageSize: nil)
             .attemptMap { response, JSON in
                 return decode(JSON)
@@ -475,8 +475,7 @@ public final class EsaClient {
     }
 
     /// Fetch a list of objects from the API.
-    private func fetchMany<T: Decodable>(_ endpoint: Endpoint, page: UInt?, pageSize: UInt?) -> SignalProducer<(Response, T), Error> {
-        let nextPage = (page ?? 1) + 1
+    internal func fetchMany<T: Decodable>(_ endpoint: Endpoint, page: UInt? = 1, pageSize: UInt? = 20) -> SignalProducer<(Response, T), Error> {
         return request(endpoint, page: page, pageSize: pageSize)
             .attemptMap { response, JSON in
                 return decode(JSON)
@@ -484,10 +483,6 @@ public final class EsaClient {
                         (response, resource)
                     }
                     .mapError(Error.jsonDecodingError)
-            }
-            .flatMap(.concat) { response, JSON -> SignalProducer<(Response, T), Error> in
-                return SignalProducer(value: (response, JSON))
-                    .concat(response.links["next"] == nil ? SignalProducer.empty : self.fetchMany(endpoint, page: nextPage, pageSize: pageSize))
             }
     }
 
