@@ -11,9 +11,6 @@
       location = "group:Carthage/Checkouts/ReactiveSwift/ReactiveSwift.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Carthage/Checkouts/Curry/Curry.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../EsaKitExample/EsaKitExample.xcodeproj">
    </FileRef>
    <FileRef

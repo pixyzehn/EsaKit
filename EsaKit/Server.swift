@@ -9,7 +9,6 @@
 import Foundation
 
 public struct Server: CustomStringConvertible {
-    /// The URL of the server.
     public var url: URL {
         return URL(string: "https://esa.io")!
     }

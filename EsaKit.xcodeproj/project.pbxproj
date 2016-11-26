@@ -45,6 +45,8 @@
 		6E4C8A281DE92EDF00A8B0B6 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C8A251DE92EDF00A8B0B6 /* FoundationExtensions.swift */; };
 		6E4C8A291DE92EDF00A8B0B6 /* HimotokiExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C8A261DE92EDF00A8B0B6 /* HimotokiExtensions.swift */; };
 		6E4C8A2A1DE92EDF00A8B0B6 /* HimotokiExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C8A261DE92EDF00A8B0B6 /* HimotokiExtensions.swift */; };
+		6E4C8A2C1DE961DC00A8B0B6 /* MinimumUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C8A2B1DE961DC00A8B0B6 /* MinimumUser.swift */; };
+		6E4C8A2D1DE961DC00A8B0B6 /* MinimumUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C8A2B1DE961DC00A8B0B6 /* MinimumUser.swift */; };
 		6E6D065A1DE31D580071FFA9 /* EsaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06511DE31D580071FFA9 /* EsaKit.framework */; };
 		6E6D06681DE31D680071FFA9 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E130EAC1DDFFF0600DA4F28 /* Server.swift */; };
 		6E6D06691DE31D6B0071FFA9 /* EsaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E130E8C1DDFF5EC00DA4F28 /* EsaClient.swift */; };
@@ -57,7 +59,6 @@
 		6E6D06921DE3469A0071FFA9 /* EsaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EA5D0551DDDF33C00D3713C /* EsaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E6D069A1DE348270071FFA9 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06951DE348270071FFA9 /* ReactiveSwift.framework */; };
 		6E6D069B1DE348270071FFA9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06961DE348270071FFA9 /* Result.framework */; };
-		6E6D06A11DE34C530071FFA9 /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D069E1DE34C530071FFA9 /* Curry.framework */; };
 		6E6D06AC1DE3CB050071FFA9 /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06A91DE3CB050071FFA9 /* Curry.framework */; };
 		6E6D06AD1DE3CB050071FFA9 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06AA1DE3CB050071FFA9 /* ReactiveSwift.framework */; };
 		6E6D06AE1DE3CB050071FFA9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06AB1DE3CB050071FFA9 /* Result.framework */; };
@@ -110,6 +111,7 @@
 		6E4C8A031DE92EC900A8B0B6 /* Watchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Watchers.swift; sourceTree = "<group>"; };
 		6E4C8A251DE92EDF00A8B0B6 /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		6E4C8A261DE92EDF00A8B0B6 /* HimotokiExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HimotokiExtensions.swift; sourceTree = "<group>"; };
+		6E4C8A2B1DE961DC00A8B0B6 /* MinimumUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinimumUser.swift; sourceTree = "<group>"; };
 		6E6D06511DE31D580071FFA9 /* EsaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EsaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6D06591DE31D580071FFA9 /* EsaKit-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EsaKit-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6D066F1DE322CA0071FFA9 /* EsaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EsaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,7 +154,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E6D06A11DE34C530071FFA9 /* Curry.framework in Frameworks */,
 				6E6D069A1DE348270071FFA9 /* ReactiveSwift.framework in Frameworks */,
 				6E6D069B1DE348270071FFA9 /* Result.framework in Frameworks */,
 				6E6D06B51DE412AE0071FFA9 /* Himotoki.framework in Frameworks */,
@@ -202,6 +203,7 @@
 				6E4C89FF1DE92EC900A8B0B6 /* Token.swift */,
 				6E4C8A001DE92EC900A8B0B6 /* TokenInfo.swift */,
 				6E4C8A011DE92EC900A8B0B6 /* User.swift */,
+				6E4C8A2B1DE961DC00A8B0B6 /* MinimumUser.swift */,
 				6E4C8A021DE92EC900A8B0B6 /* Watcher.swift */,
 				6E4C8A031DE92EC900A8B0B6 /* Watchers.swift */,
 			);
@@ -426,6 +428,7 @@
 				6E4C8A131DE92EC900A8B0B6 /* Stargazers.swift in Sources */,
 				6E4C8A051DE92EC900A8B0B6 /* Comment.swift in Sources */,
 				6E4C8A0D1DE92EC900A8B0B6 /* Posts.swift in Sources */,
+				6E4C8A2D1DE961DC00A8B0B6 /* MinimumUser.swift in Sources */,
 				6E4C89F21DE926A900A8B0B6 /* BodyParameters.swift in Sources */,
 				6E4C8A211DE92EC900A8B0B6 /* Watcher.swift in Sources */,
 				6E4C8A1B1DE92EC900A8B0B6 /* Token.swift in Sources */,
@@ -464,6 +467,7 @@
 				6E4C8A121DE92EC900A8B0B6 /* Stargazers.swift in Sources */,
 				6E4C8A041DE92EC900A8B0B6 /* Comment.swift in Sources */,
 				6E4C8A0C1DE92EC900A8B0B6 /* Posts.swift in Sources */,
+				6E4C8A2C1DE961DC00A8B0B6 /* MinimumUser.swift in Sources */,
 				6E4C89F11DE926A900A8B0B6 /* BodyParameters.swift in Sources */,
 				6E4C8A201DE92EC900A8B0B6 /* Watcher.swift in Sources */,
 				6E4C8A1A1DE92EC900A8B0B6 /* Token.swift in Sources */,

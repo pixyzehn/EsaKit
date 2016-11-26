@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Himotoki
 
 /// An error from the esa.io API.
 public struct EsaError: CustomStringConvertible, Error {
@@ -29,5 +30,18 @@ extension EsaError: Hashable {
 
     public var hashValue: Int {
         return message.hashValue
+    }
+}
+
+public enum Decoded<T> {
+    case success(T)
+    case failure(DecodeError)
+}
+
+extension EsaError: Decodable {
+    public static func decode(_ e: Extractor) throws -> EsaError {
+        return try EsaError(
+            message: e <| "message"
+        )
     }
 }

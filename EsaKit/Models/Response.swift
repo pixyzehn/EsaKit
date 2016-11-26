@@ -8,7 +8,6 @@
 
 import Foundation
 
-/// A response from the esa.io API.
 public struct Response {
     public let xRateLimitLimit: UInt
     public let XRateLimitRemaining: UInt
@@ -18,7 +17,6 @@ public struct Response {
         self.XRateLimitRemaining = XRateLimitRemaining
     }
 
-    /// Initialize a response with HTTP header fields.
     internal init(headerFields: [String : String]) {
         xRateLimitLimit = headerFields["X-RateLimit-Limit"].flatMap { UInt($0) } ?? 0
         XRateLimitRemaining = headerFields["X-RateLimit-Remaining"].flatMap { UInt($0) } ?? 0

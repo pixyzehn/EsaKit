@@ -30,17 +30,3 @@ public struct User: Decodable {
         )
     }
 }
-
-public struct MinimumUser: Decodable {
-    public let name: String
-    public let screenName: String
-    public let icon: String
-
-    public static func decode(_ e: Extractor) throws -> MinimumUser {
-        return try MinimumUser(
-            name: e <| "name",
-            screenName: e <| "screen_name",
-            icon: e <| "icon"
-        )
-    }
-}

@@ -505,7 +505,11 @@ public final class EsaClient {
                             return .failure(.doesNotExist)
                         }
                         if response.statusCode >= 400 && response.statusCode < 600 {
-                            return .failure(.jsonDecodingError(DecodeError.custom("Error by statusCode: \(response.statusCode)")))
+                            return decode(JSON)
+                                .mapError(Error.jsonDecodingError)
+                                .flatMap { error in
+                                    .failure(Error.apiError(response.statusCode, Response(headerFields: headers), error))
+                                }
                         }
                         return .success(JSON)
                     }
