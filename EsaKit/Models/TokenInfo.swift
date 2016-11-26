@@ -18,10 +18,10 @@ public struct TokenInfo: Decodable {
 
     public static func decode(_ e: Extractor) throws -> TokenInfo {
         return try TokenInfo(
-            resourceOwnerId: e <| "resource_owner_od",
+            resourceOwnerId: e <| "resource_owner_id",
             scopes: e <|| "scopes",
             expiresInSeconds: e <|? "expires_in_seconds",
-            applicationUID: e <| "application.uid",
+            applicationUID: e <| ["application", "uid"],
             createdAt: e <| "created_at"
         )
     }

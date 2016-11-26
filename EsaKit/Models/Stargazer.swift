@@ -12,13 +12,13 @@ import Himotoki
 public struct Stargazer: Decodable {
     public let user: MinimumUser
     public let createdAt: String
-    public let body: String
+    public let body: String?
 
     public static func decode(_ e: Extractor) throws -> Stargazer {
         return try Stargazer(
             user: e <| "user",
             createdAt: e <| "created_at",
-            body: e <| "body"
+            body: e <|? "body"
         )
     }
 }

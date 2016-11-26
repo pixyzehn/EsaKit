@@ -33,11 +33,6 @@ extension EsaError: Hashable {
     }
 }
 
-public enum Decoded<T> {
-    case success(T)
-    case failure(DecodeError)
-}
-
 extension EsaError: Decodable {
     public static func decode(_ e: Extractor) throws -> EsaError {
         return try EsaError(

@@ -9,17 +9,58 @@
 import Foundation
 
 public struct PostParameters {
-    let name: String
-    let bodyMd: String = ""
-    let tags: [String] = [""]
-    let category: String = ""
-    let wip: Bool = true
-    let message: String = ""
+    public init(
+        name: String,
+        bodyMd: String = "",
+        tags: [String] = [],
+        category: String? = nil,
+        wip: Bool = true,
+        message: String = ""
+    ) {
+        self.name = name
+        self.bodyMd = bodyMd
+        self.tags = tags
+        self.category = category
+        self.wip = wip
+        self.message = message
+    }
+    public let name: String
+    public let bodyMd: String
+    public let tags: [String]
+    public let category: String?
+    public let wip: Bool
+    public let message: String
 }
 
 public struct TokenParameters {
-    let clientId: String
-    let clientSecret: String
-    let code: String
-    let redirectURI: String
+    public init(
+        clientId: String,
+        clientSecret: String,
+        code: String,
+        redirectURI: String
+    ) {
+        self.clientId = clientId
+        self.clientSecret = clientSecret
+        self.code = code
+        self.redirectURI = redirectURI
+    }
+    public let clientId: String
+    public let clientSecret: String
+    public let code: String
+    public let redirectURI: String
+}
+
+public struct TokenRevokeParameters {
+    public init(
+        clientId: String,
+        clientSecret: String,
+        token: String
+    ) {
+        self.clientId = clientId
+        self.clientSecret = clientSecret
+        self.token = token
+    }
+    public let clientId: String
+    public let clientSecret: String
+    public let token: String
 }

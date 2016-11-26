@@ -21,7 +21,7 @@ public struct Post: Decodable {
     public let message: String
     public let url: String
     public let tags: [String]
-    public let category: String
+    public let category: String?
     public let revisionNumber: Int
     public let createdBy: MinimumUser
     public let updatedBy: MinimumUser
@@ -47,7 +47,7 @@ public struct Post: Decodable {
             message: e <| "message",
             url: e <| "url",
             tags: e <|| "tags",
-            category: e <| "category",
+            category: e <|? "category",
             revisionNumber: e <| "revision_number",
             createdBy: e <| "created_by",
             updatedBy: e <| "updated_by",

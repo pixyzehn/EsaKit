@@ -11,7 +11,7 @@ import Himotoki
 import ReactiveSwift
 import Result
 
-/// An esa.io API Client
+/// The esa.io API Client
 public final class EsaClient {
     internal static let APIContentType = "application/json"
 
@@ -45,7 +45,7 @@ public final class EsaClient {
         }
     }
 
-    /// An esa.io API endpoint.
+    /// The esa.io API endpoint.
     public enum Endpoint {
         /// - OAuth
         /// https://docs.esa.io/posts/102#3-3-2
@@ -55,7 +55,7 @@ public final class EsaClient {
         /// https://docs.esa.io/posts/102#3-3-4
         case oaauthTokenInfo
         /// https://docs.esa.io/posts/102#3-3-5
-        case oauthRevoke
+        case oauthRevoke(parameters: TokenRevokeParameters)
 
         /// - Team
         /// https://docs.esa.io/posts/102#4-0-0
@@ -130,7 +130,7 @@ public final class EsaClient {
                 return .post
             case .oaauthTokenInfo:
                 return .get
-            case .oauthRevoke:
+            case .oauthRevoke(_):
                 return .post
 
             /// - Team
@@ -208,7 +208,7 @@ public final class EsaClient {
                 return "/oauth/token"
             case .oaauthTokenInfo:
                 return "/oauth/token/info"
-            case .oauthRevoke:
+            case .oauthRevoke(_):
                 return "/oauth/revoke"
 
             /// - Team
@@ -291,13 +291,19 @@ public final class EsaClient {
                     "grant_type": "authorization_code",
                     "redirect_uri": parameters.redirectURI
                 ]
+            case let .oauthRevoke(parameters):
+                return [
+                    "client_id": parameters.clientId,
+                    "client_secret": parameters.clientSecret,
+                    "token": parameters.token
+                ]
             case let .createPost(_, parameters), let .updatePost(_, _, parameters):
                 return [
-                    "posts": [
+                    "post": [
                         "name": parameters.name,
                         "body_md": parameters.bodyMd,
                         "tags": parameters.tags,
-                        "category": parameters.category,
+                        "category": parameters.category ?? "",
                         "wip": parameters.wip,
                         "message": parameters.message,
                     ]
@@ -307,6 +313,10 @@ public final class EsaClient {
                     "comment": [
                         "body_md": bodyMd
                     ]
+                ]
+            case let .addStarInPost(_, _, body):
+                return [
+                    "body": body
                 ]
             default:
                 return nil
@@ -335,9 +345,10 @@ public final class EsaClient {
         self.urlSession = urlSession
     }
 
-    // MARK: esa.io API methods
+    // MARK: The esa.io API methods
 
     /// - OAuth
+    // TODO: Check the API
     public func issueNewToken(parameters: TokenParameters) -> SignalProducer<(Response, Token), Error> {
         return fetchOne(.oauthToken(parameters: parameters))
     }
@@ -346,12 +357,13 @@ public final class EsaClient {
         return fetchOne(.oaauthTokenInfo)
     }
 
-    public func revokeToken() -> SignalProducer<Response, Error> {
-        return post(.oauthRevoke)
+    // TODO: Check the API
+    public func revokeToken(parameters: TokenRevokeParameters) -> SignalProducer<(Response), Error> {
+        return post(.oauthRevoke(parameters: parameters))
     }
 
     /// - Team
-    public func teams(page: UInt, pageSize: UInt) -> SignalProducer<(Response, Teams), Error> {
+    public func teams(page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Teams), Error> {
         return fetchMany(.teams, page: page, pageSize: pageSize)
     }
 
@@ -365,12 +377,12 @@ public final class EsaClient {
     }
 
     /// - Member
-    public func members(teamName: String) -> SignalProducer<(Response, Members), Error> {
-        return fetchMany(.members(teamName: teamName), page: nil, pageSize: nil)
+    public func members(teamName: String, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Members), Error> {
+        return fetchMany(.members(teamName: teamName), page: page, pageSize: pageSize)
     }
 
     /// - Post
-    public func posts(teamName: String, page: UInt, pageSize: UInt) -> SignalProducer<(Response, Posts), Error> {
+    public func posts(teamName: String, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Posts), Error> {
         return fetchMany(.posts(teamName: teamName), page: page, pageSize: pageSize)
     }
 
@@ -391,7 +403,7 @@ public final class EsaClient {
     }
 
     /// - Comments
-    public func comments(teamName: String, postNumber: Int, page: UInt, pageSize: UInt) -> SignalProducer<(Response, Comments), Error> {
+    public func comments(teamName: String, postNumber: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Comments), Error> {
         return fetchMany(.comments(teamName: teamName, postNumber: postNumber), page: page, pageSize: pageSize)
     }
 
@@ -399,7 +411,7 @@ public final class EsaClient {
         return fetchOne(.comment(teamName: teamName, commentId: commentId))
     }
 
-    public func comment(teamName: String, postNumber: Int, bodyMd: String) -> SignalProducer<(Response, Comment), Error> {
+    public func createComment(teamName: String, postNumber: Int, bodyMd: String) -> SignalProducer<(Response, Comment), Error> {
         return fetchOne(.createComment(teamName: teamName, postNumber: postNumber, bodyMd: bodyMd))
     }
 
@@ -412,32 +424,32 @@ public final class EsaClient {
     }
 
     /// - Star
-    public func stargazers(teamName: String, postNumber: Int, page: UInt, pageSize: UInt) -> SignalProducer<(Response, Stargazers), Error> {
+    public func stargazers(teamName: String, postNumber: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Stargazers), Error> {
         return fetchMany(.stargazersInPost(teamName: teamName, postNumber: postNumber), page: page, pageSize: pageSize)
     }
 
-    public func addStarInPost(teamName: String, postNumber: Int, body: String) -> SignalProducer<Response, Error> {
+    public func addStar(teamName: String, postNumber: Int, body: String = "") -> SignalProducer<Response, Error> {
         return post(.addStarInPost(teamName: teamName, postNumber: postNumber, body: body))
     }
 
-    public func removeStarInPost(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
+    public func removeStar(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
         return post(.removeStarInPost(teamName: teamName, postNumber: postNumber))
     }
 
-    public func stargazers(teamName: String, commentId: Int, page: UInt, pageSize: UInt) -> SignalProducer<(Response, Stargazers), Error>{
+    public func stargazers(teamName: String, commentId: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Stargazers), Error>{
         return fetchMany(.stargazersInComment(teamName: teamName, commentId: commentId), page: page, pageSize: pageSize)
     }
 
-    public func addStarInComment(teamName: String, commentId: Int, body: String) -> SignalProducer<Response, Error> {
+    public func addStar(teamName: String, commentId: Int, body: String = "") -> SignalProducer<Response, Error> {
         return post(.addStarInComment(teamName: teamName, commentId: commentId, body: body))
     }
 
-    public func removeStarInCommnet(teamName: String, commentId: Int) -> SignalProducer<Response, Error> {
+    public func removeStar(teamName: String, commentId: Int) -> SignalProducer<Response, Error> {
         return post(.removeStarInComment(teamName: teamName, commentId: commentId))
     }
 
     /// - Watch
-    public func watchers(teamName: String, postNumber: Int, page: UInt, pageSize: UInt) -> SignalProducer<(Response, Watchers), Error> {
+    public func watchers(teamName: String, postNumber: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Watchers), Error> {
         return fetchMany(.watchers(teamName: teamName, postNumber: postNumber), page: page, pageSize: pageSize)
     }
 
@@ -457,10 +469,34 @@ public final class EsaClient {
     // MARK: Private method
 
     internal func post(_ endpoint: Endpoint) -> SignalProducer<Response, Error> {
-        return request(endpoint, page: nil, pageSize: nil)
-            .attemptMap { response, _ in
-                return .success(response)
-            }
+        let url = URL(endpoint, page: nil, pageSize: nil)
+        let request = URLRequest.create(url, endpoint, credentials)
+        return urlSession
+            .reactive
+            .data(with: request)
+            .mapError(Error.networkError)
+            .flatMap(.concat) { _, response -> SignalProducer<Response, Error> in
+                let response = response as! HTTPURLResponse
+                let headers = response.allHeaderFields as! [String:String]
+                return SignalProducer
+                    .attempt {
+                        return Result(response)
+                    }
+                    .attemptMap { _ in
+                        if response.statusCode == 404 {
+                            return .failure(.doesNotExist)
+                        }
+                        if response.statusCode >= 400 && response.statusCode < 600 {
+                            return .failure(.apiError(response.statusCode, Response(headerFields: headers), EsaError(message: "Error by \(response.statusCode)")))
+                        }
+                        if response.statusCode == 200
+                            || response.statusCode == 201
+                                || response.statusCode == 204 {
+                            return .success(Response(headerFields: headers))
+                        }
+                        return .failure(.doesNotExist)
+                    }
+        }
     }
 
     internal func fetchOne<T: Decodable>(_ endpoint: Endpoint) -> SignalProducer<(Response, T), Error> {
@@ -471,11 +507,11 @@ public final class EsaClient {
                         (response, resource)
                     }
                     .mapError(Error.jsonDecodingError)
-            }
+        }
     }
 
     /// Fetch a list of objects from the API.
-    internal func fetchMany<T: Decodable>(_ endpoint: Endpoint, page: UInt? = 1, pageSize: UInt? = 20) -> SignalProducer<(Response, T), Error> {
+    internal func fetchMany<T: Decodable>(_ endpoint: Endpoint, page: UInt?, pageSize: UInt?) -> SignalProducer<(Response, T), Error> {
         return request(endpoint, page: page, pageSize: pageSize)
             .attemptMap { response, JSON in
                 return decode(JSON)
