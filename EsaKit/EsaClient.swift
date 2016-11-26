@@ -11,67 +11,6 @@ import Himotoki
 import ReactiveSwift
 import Result
 
-extension JSONSerialization {
-    internal static func deserializeJSON(_ data: Data) -> Result<Any, NSError> {
-        return Result(try JSONSerialization.jsonObject(with: data, options: []))
-    }
-}
-
-extension URL {
-    internal func url(with queryItems: [URLQueryItem]) -> URL {
-        var components = URLComponents(url: self, resolvingAgainstBaseURL: true)!
-        components.queryItems = (components.queryItems ?? []) + queryItems
-        return components.url!
-    }
-
-    internal init(_ endpoint: EsaClient.Endpoint, page: UInt = 0, pageSize: UInt = 0) {
-        let queryItems = [ ("page", page), ("per_page", pageSize) ]
-            .filter { _, value in value != nil }
-            .map { name, value in URLQueryItem(name: name, value: "\(value!)") }
-
-        let url = URL(string: Server().endpoint)!
-            .appendingPathComponent(endpoint.path)
-            .url(with: endpoint.queryItems)
-            .url(with: queryItems)
-
-        self.init(string: url.absoluteString)!
-    }
-}
-
-extension URLRequest {
-    internal static func create(_ url: URL, _ endpoint: EsaClient.Endpoint, _ credentials: EsaClient.Credentials?, contentType: String? = EsaClient.APIContentType) -> URLRequest {
-        var request = URLRequest(url: url)
-
-        request.httpMethod = endpoint.method.rawValue
-        request.setValue(contentType, forHTTPHeaderField: "Content-Type")
-
-        if let credentials = credentials {
-            request.setValue(credentials.authorizationHeader, forHTTPHeaderField: "Authorization")
-        }
-
-        return request
-    }
-}
-
-extension HTTPURLResponse {
-    enum StatusCodeType: Int {
-        case ok = 200
-        case created = 201
-        case noContent = 204
-        case badRequest = 400
-        case unauthorized = 401
-        case forbidden = 403
-        case notFound = 404
-        case tooManyRequests = 429
-        case internalServerError = 500
-        case unknown = 0
-    }
-
-    var statusCodeType: StatusCodeType {
-        return StatusCodeType(rawValue: statusCode) ?? .unknown
-    }
-}
-
 /// An esa.io API Client
 public final class EsaClient {
     internal static let APIContentType = "application/json"
@@ -112,7 +51,7 @@ public final class EsaClient {
         /// https://docs.esa.io/posts/102#3-3-2
         case oauthAuthorize
         /// https://docs.esa.io/posts/102#3-3-3
-        case oauthToken
+        case oauthToken(parameters: TokenParameters)
         /// https://docs.esa.io/posts/102#3-3-4
         case oaauthTokenInfo
         /// https://docs.esa.io/posts/102#3-3-5
@@ -138,9 +77,9 @@ public final class EsaClient {
         /// https://docs.esa.io/posts/102#7-2-0
         case post(teamName: String, postNumber: Int)
         /// https://docs.esa.io/posts/102#7-3-0
-        case createPost(teamName: String)
+        case createPost(teamName: String, parameters: PostParameters)
         /// https://docs.esa.io/posts/102#7-4-0
-        case updatePost(teamName: String, postNumber: Int)
+        case updatePost(teamName: String, postNumber: Int, parameters: PostParameters)
         /// https://docs.esa.io/posts/102#7-5-0
         case deletePost(teamName: String, postNumber: Int)
 
@@ -150,9 +89,9 @@ public final class EsaClient {
         /// https://docs.esa.io/posts/102#8-2-0
         case comment(teamName: String, commentId: Int)
         /// https://docs.esa.io/posts/102#8-3-0
-        case createComment(teamName: String, postNumber: Int)
+        case createComment(teamName: String, postNumber: Int, bodyMd: String)
         /// https://docs.esa.io/posts/102#8-4-0
-        case updateComment(teamName: String, commentId: Int)
+        case updateComment(teamName: String, commentId: Int, bodyMd: String)
         /// https://docs.esa.io/posts/102#8-5-0
         case deleteComment(teamName: String, commentId: Int)
 
@@ -160,13 +99,13 @@ public final class EsaClient {
         /// https://docs.esa.io/posts/102#9-1-0
         case stargazersInPost(teamName: String, postNumber: Int)
         /// https://docs.esa.io/posts/102#9-2-0
-        case addStarInPost(teamName: String, postNumber: Int)
+        case addStarInPost(teamName: String, postNumber: Int, body: String)
         /// https://docs.esa.io/posts/102#9-3-0
         case removeStarInPost(teamName: String, postNumber: Int)
         /// https://docs.esa.io/posts/102#9-4-0
         case stargazersInComment(teamName: String, commentId: Int)
         /// https://docs.esa.io/posts/102#9-5-0
-        case addStarInComment(teamName: String, commentId: Int)
+        case addStarInComment(teamName: String, commentId: Int, body: String)
         /// https://docs.esa.io/posts/102#9-6-0
         case removeStarInComment(teamName: String, commentId: Int)
 
@@ -176,7 +115,7 @@ public final class EsaClient {
         /// https://docs.esa.io/posts/102#10-2-0
         case addWatch(teamName: String, postNumber: Int)
         /// https://docs.esa.io/posts/102#10-3-0
-        case deleteWatch(teamName: String, postNumber: Int)
+        case removeWatch(teamName: String, postNumber: Int)
 
         /// - User
         /// https://docs.esa.io/posts/102#11-1-0
@@ -187,7 +126,7 @@ public final class EsaClient {
             /// - OAuth
             case .oauthAuthorize:
                 return .get
-            case .oauthToken:
+            case .oauthToken(_):
                 return .post
             case .oaauthTokenInfo:
                 return .get
@@ -213,9 +152,9 @@ public final class EsaClient {
                 return .get
             case .post(_, _):
                 return .get
-            case .createPost(_):
+            case .createPost(_, _):
                 return .post
-            case .updatePost(_, _):
+            case .updatePost(_, _, _):
                 return .patch
             case .deletePost(_, _):
                 return .delete
@@ -225,9 +164,9 @@ public final class EsaClient {
                 return .get
             case .comment(_, _):
                 return .get
-            case .createComment(_, _):
+            case .createComment(_, _, _):
                 return .post
-            case .updateComment(_, _):
+            case .updateComment(_, _, _):
                 return .patch
             case .deleteComment(_, _):
                 return .delete
@@ -235,13 +174,13 @@ public final class EsaClient {
             /// - Star
             case .stargazersInPost(_, _):
                 return .get
-            case .addStarInPost(_, _):
+            case .addStarInPost(_, _, _):
                 return .post
             case .removeStarInPost(_, _):
                 return .delete
             case .stargazersInComment(_, _):
                 return .get
-            case .addStarInComment(_, _):
+            case .addStarInComment(_, _, _):
                 return .post
             case .removeStarInComment(_, _):
                 return .delete
@@ -251,7 +190,7 @@ public final class EsaClient {
                 return .get
             case .addWatch(_, _):
                 return .post
-            case .deleteWatch(_, _):
+            case .removeWatch(_, _):
                 return .delete
 
             /// - User
@@ -265,7 +204,7 @@ public final class EsaClient {
             /// - OAuth
             case .oauthAuthorize:
                 return "/oauth/authorize"
-            case .oauthToken:
+            case .oauthToken(_):
                 return "/oauth/token"
             case .oaauthTokenInfo:
                 return "/oauth/token/info"
@@ -291,9 +230,9 @@ public final class EsaClient {
                 return "/v1/teams/\(teamName)/posts"
             case let .post(teamName, postNumber):
                 return "/v1/teams/\(teamName)/posts/\(postNumber)"
-            case let .createPost(teamName):
+            case let .createPost(teamName, _):
                 return "/v1/teams/\(teamName)/posts"
-            case let .updatePost(teamName, postNumber):
+            case let .updatePost(teamName, postNumber, _):
                 return "/v1/teams/\(teamName)/posts/\(postNumber)"
             case let .deletePost(teamName, postNumber):
                 return "/v1/teams/\(teamName)/posts/\(postNumber)"
@@ -303,9 +242,9 @@ public final class EsaClient {
                 return "/v1/teams/\(teamName)/posts/\(postNumber)/comments"
             case let .comment(teamName, commentId):
                 return "/v1/teams/\(teamName)/comments/\(commentId)"
-            case let .createComment(teamName, postNumber):
+            case let .createComment(teamName, postNumber, _):
                 return "/v1/teams/\(teamName)/posts/\(postNumber)/comments"
-            case let .updateComment(teamName, commentId):
+            case let .updateComment(teamName, commentId, _):
                 return "/v1/teams/\(teamName)/comments/\(commentId)"
             case let .deleteComment(teamName, commentId):
                 return "/v1/teams/\(teamName)/comments/\(commentId)"
@@ -313,13 +252,13 @@ public final class EsaClient {
             /// - Star
             case let .stargazersInPost(teamName, postNumber):
                 return "/v1/teams/\(teamName)/posts/\(postNumber)/stargazers"
-            case let .addStarInPost(teamName, postNumber):
+            case let .addStarInPost(teamName, postNumber, _):
                 return "/v1/teams/\(teamName)/posts/\(postNumber)/star"
             case let .removeStarInPost(teamName, postNumber):
                 return "/v1/teams/\(teamName)/posts/\(postNumber)/star"
             case let .stargazersInComment(teamName, commentId):
                 return "/v1/teams/\(teamName)/comments/\(commentId)/stargazers"
-            case let .addStarInComment(teamName, commentId):
+            case let .addStarInComment(teamName, commentId, _):
                 return "/v1/teams/\(teamName)/comments/\(commentId)/star"
             case let .removeStarInComment(teamName, commentId):
                 return "/v1/teams/\(teamName)/comments/\(commentId)/star"
@@ -329,7 +268,7 @@ public final class EsaClient {
                 return "/v1/teams/\(teamName)/posts/\(postNumber)/watchers"
             case let .addWatch(teamName, postNumber):
                 return "/v1/teams/\(teamName)/posts/\(postNumber)/watch"
-            case let .deleteWatch(teamName, postNumber):
+            case let .removeWatch(teamName, postNumber):
                 return "/v1/teams/\(teamName)/posts/\(postNumber)/watch"
 
             /// - User
@@ -338,8 +277,40 @@ public final class EsaClient {
             }
         }
 
-        internal var queryItems: [URLQueryItem] {
+        internal var queryParameters: [URLQueryItem] {
             return []
+        }
+
+        internal var bodyParameters: Any? {
+            switch self {
+            case let .oauthToken(parameters):
+                return [
+                    "client_id": parameters.clientId,
+                    "client_secret": parameters.clientSecret,
+                    "code": parameters.code,
+                    "grant_type": "authorization_code",
+                    "redirect_uri": parameters.redirectURI
+                ]
+            case let .createPost(_, parameters), let .updatePost(_, _, parameters):
+                return [
+                    "posts": [
+                        "name": parameters.name,
+                        "body_md": parameters.bodyMd,
+                        "tags": parameters.tags,
+                        "category": parameters.category,
+                        "wip": parameters.wip,
+                        "message": parameters.message,
+                    ]
+                ]
+            case let .createComment(_, _, bodyMd), let .updateComment(_, _, bodyMd):
+                return [
+                    "comment": [
+                        "body_md": bodyMd
+                    ]
+                ]
+            default:
+                return nil
+            }
         }
     }
 
@@ -364,16 +335,170 @@ public final class EsaClient {
         self.urlSession = urlSession
     }
 
-    /// Esa APIs
+    // MARK: esa.io API methods
 
-    public func request(endpoint: Endpoint) -> SignalProducer<(Response, Members), Error> {
-        let url = URL(endpoint)
+    /// - OAuth
+    public func issueNewToken(parameters: TokenParameters) -> SignalProducer<(Response, Token), Error> {
+        return fetchOne(.oauthToken(parameters: parameters))
+    }
+
+    public func tokenInfo() -> SignalProducer<(Response, TokenInfo), Error> {
+        return fetchOne(.oaauthTokenInfo)
+    }
+
+    public func revokeToken() -> SignalProducer<Response, Error> {
+        return post(.oauthRevoke)
+    }
+
+    /// - Team
+    public func teams(page: UInt, pageSize: UInt) -> SignalProducer<(Response, Teams), Error> {
+        return fetchMany(.teams, page: page, pageSize: pageSize)
+    }
+
+    public func team(teamName: String) -> SignalProducer<(Response, Team), Error> {
+        return fetchOne(.team(teamName: teamName))
+    }
+
+    /// - Stats
+    public func stats(teamName: String) -> SignalProducer<(Response, Stats), Error> {
+        return fetchOne(.teamStats(teamName: teamName))
+    }
+
+    /// - Member
+    public func members(teamName: String) -> SignalProducer<(Response, Members), Error> {
+        return fetchMany(.members(teamName: teamName), page: nil, pageSize: nil)
+    }
+
+    /// - Post
+    public func posts(teamName: String, page: UInt, pageSize: UInt) -> SignalProducer<(Response, Posts), Error> {
+        return fetchMany(.posts(teamName: teamName), page: page, pageSize: pageSize)
+    }
+
+    public func post(teamName: String, postNumber: Int) -> SignalProducer<(Response, Post), Error> {
+        return fetchOne(.post(teamName: teamName, postNumber: postNumber))
+    }
+
+    public func createPost(teamName: String, parameters: PostParameters) -> SignalProducer<(Response, Post), Error> {
+        return fetchOne(.createPost(teamName: teamName, parameters: parameters))
+    }
+
+    public func updatePost(teamName: String, postNumber: Int, parameters: PostParameters) -> SignalProducer<(Response, Post), Error> {
+        return fetchOne(.updatePost(teamName: teamName, postNumber: postNumber, parameters: parameters))
+    }
+
+    public func deletePost(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
+        return post(.deletePost(teamName: teamName, postNumber: postNumber))
+    }
+
+    /// - Comments
+    public func comments(teamName: String, postNumber: Int, page: UInt, pageSize: UInt) -> SignalProducer<(Response, Comments), Error> {
+        return fetchMany(.comments(teamName: teamName, postNumber: postNumber), page: page, pageSize: pageSize)
+    }
+
+    public func comment(teamName: String, commentId: Int) -> SignalProducer<(Response, Comment), Error> {
+        return fetchOne(.comment(teamName: teamName, commentId: commentId))
+    }
+
+    public func comment(teamName: String, postNumber: Int, bodyMd: String) -> SignalProducer<(Response, Comment), Error> {
+        return fetchOne(.createComment(teamName: teamName, postNumber: postNumber, bodyMd: bodyMd))
+    }
+
+    public func updateComment(teamName: String, commentId: Int, bodyMd: String) -> SignalProducer<(Response, Comment), Error> {
+        return fetchOne(.updateComment(teamName: teamName, commentId: commentId, bodyMd: bodyMd))
+    }
+
+    public func deleteCommet(teamName: String, commentId: Int) -> SignalProducer<Response, Error> {
+        return post(.deleteComment(teamName: teamName, commentId: commentId))
+    }
+
+    /// - Star
+    public func stargazers(teamName: String, postNumber: Int, page: UInt, pageSize: UInt) -> SignalProducer<(Response, Stargazers), Error> {
+        return fetchMany(.stargazersInPost(teamName: teamName, postNumber: postNumber), page: page, pageSize: pageSize)
+    }
+
+    public func addStarInPost(teamName: String, postNumber: Int, body: String) -> SignalProducer<Response, Error> {
+        return post(.addStarInPost(teamName: teamName, postNumber: postNumber, body: body))
+    }
+
+    public func removeStarInPost(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
+        return post(.removeStarInPost(teamName: teamName, postNumber: postNumber))
+    }
+
+    public func stargazers(teamName: String, commentId: Int, page: UInt, pageSize: UInt) -> SignalProducer<(Response, Stargazers), Error>{
+        return fetchMany(.stargazersInComment(teamName: teamName, commentId: commentId), page: page, pageSize: pageSize)
+    }
+
+    public func addStarInComment(teamName: String, commentId: Int, body: String) -> SignalProducer<Response, Error> {
+        return post(.addStarInComment(teamName: teamName, commentId: commentId, body: body))
+    }
+
+    public func removeStarInCommnet(teamName: String, commentId: Int) -> SignalProducer<Response, Error> {
+        return post(.removeStarInComment(teamName: teamName, commentId: commentId))
+    }
+
+    /// - Watch
+    public func watchers(teamName: String, postNumber: Int, page: UInt, pageSize: UInt) -> SignalProducer<(Response, Watchers), Error> {
+        return fetchMany(.watchers(teamName: teamName, postNumber: postNumber), page: page, pageSize: pageSize)
+    }
+
+    public func addWatch(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
+        return post(.addWatch(teamName: teamName, postNumber: postNumber))
+    }
+
+    public func removeWatch(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
+        return post(.removeWatch(teamName: teamName, postNumber: postNumber))
+    }
+
+    /// - User
+    public func user() -> SignalProducer<(Response, User), Error> {
+        return fetchOne(.user)
+    }
+
+    // MARK: Private method
+
+    private func post(_ endpoint: Endpoint) -> SignalProducer<Response, Error> {
+        return request(endpoint, page: nil, pageSize: nil)
+            .attemptMap { response, _ in
+                return .success(response)
+            }
+    }
+
+    private func fetchOne<T: Decodable>(_ endpoint: Endpoint) -> SignalProducer<(Response, T), Error> {
+        return request(endpoint, page: nil, pageSize: nil)
+            .attemptMap { response, JSON in
+                return decode(JSON)
+                    .map { resource in
+                        (response, resource)
+                    }
+                    .mapError(Error.jsonDecodingError)
+            }
+    }
+
+    /// Fetch a list of objects from the API.
+    private func fetchMany<T: Decodable>(_ endpoint: Endpoint, page: UInt?, pageSize: UInt?) -> SignalProducer<(Response, T), Error> {
+        let nextPage = (page ?? 1) + 1
+        return request(endpoint, page: page, pageSize: pageSize)
+            .attemptMap { response, JSON in
+                return decode(JSON)
+                    .map { resource in
+                        (response, resource)
+                    }
+                    .mapError(Error.jsonDecodingError)
+            }
+            .flatMap(.concat) { response, JSON -> SignalProducer<(Response, T), Error> in
+                return SignalProducer(value: (response, JSON))
+                    .concat(response.links["next"] == nil ? SignalProducer.empty : self.fetchMany(endpoint, page: nextPage, pageSize: pageSize))
+            }
+    }
+
+    private func request(_ endpoint: Endpoint, page: UInt?, pageSize: UInt?) -> SignalProducer<(Response, Any), Error> {
+        let url = URL(endpoint, page: page, pageSize: pageSize)
         let request = URLRequest.create(url, endpoint, credentials)
         return urlSession
             .reactive
             .data(with: request)
             .mapError(Error.networkError)
-            .flatMap(.concat) { data, response -> SignalProducer<(Response, Members), Error> in
+            .flatMap(.concat) { data, response -> SignalProducer<(Response, Any), Error> in
                 let response = response as! HTTPURLResponse
                 let headers = response.allHeaderFields as! [String:String]
                 return SignalProducer
@@ -385,17 +510,9 @@ public final class EsaClient {
                             return .failure(.doesNotExist)
                         }
                         if response.statusCode >= 400 && response.statusCode < 600 {
-                            return .failure(.jsonDecodingError(DecodeError.custom("Error by statusCode")))
+                            return .failure(.jsonDecodingError(DecodeError.custom("Error by statusCode: \(response.statusCode)")))
                         }
-
-                        do {
-                            let members = try Members.decodeValue(JSON)
-                            return .success(members)
-                        } catch let error as DecodeError {
-                            return .failure(.jsonDecodingError(DecodeError.custom("Error by decodeValue \(error.description)")))
-                        } catch {
-                            return .failure(.jsonDecodingError(DecodeError.custom("Error by decodeValue")))
-                        }
+                        return .success(JSON)
                     }
                     .map { JSON in
                         return (Response(headerFields: headers), JSON)

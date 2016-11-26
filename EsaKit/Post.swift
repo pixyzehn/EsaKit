@@ -23,8 +23,8 @@ public struct Post: Decodable {
     public let tags: [String]
     public let category: String
     public let revisionNumber: Int
-    public let createdBy: User
-    public let updatedBy: User
+    public let createdBy: MinimumUser
+    public let updatedBy: MinimumUser
     public let kind: String
     public let commentsCount: Int
     public let tasksCount: Int

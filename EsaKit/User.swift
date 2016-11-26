@@ -10,13 +10,13 @@ import Foundation
 import Himotoki
 
 public struct User: Decodable {
-    public var id: Int
-    public var name: String
-    public var screenName: String
-    public var createdAt: String
-    public var updatedAt: String
-    public var icon: String
-    public var email: String
+    public let id: Int
+    public let name: String
+    public let screenName: String
+    public let createdAt: String
+    public let updatedAt: String
+    public let icon: String
+    public let email: String
 
     public static func decode(_ e: Extractor) throws -> User {
         return try User(
@@ -27,6 +27,20 @@ public struct User: Decodable {
             updatedAt: e <| "updated_at",
             icon: e <| "icon",
             email: e <| "email"
+        )
+    }
+}
+
+public struct MinimumUser: Decodable {
+    public let name: String
+    public let screenName: String
+    public let icon: String
+
+    public static func decode(_ e: Extractor) throws -> MinimumUser {
+        return try MinimumUser(
+            name: e <| "name",
+            screenName: e <| "screen_name",
+            icon: e <| "icon"
         )
     }
 }

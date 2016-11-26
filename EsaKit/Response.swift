@@ -34,7 +34,6 @@ private func linksInLinkHeader(_ header: NSString) -> [String: URL] {
     return links
 }
 
-
 /// A response from the esa.io API.
 public struct Response {
     /// The number of requests remaining in the current rate limit window, or nil if the server
