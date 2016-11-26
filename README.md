@@ -14,4 +14,4 @@ client.members(teamName: "esafeed")
     }
 ```
 
-EsaKit build with [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift), [Curry](https://github.com/thoughtbot/Curry) and [Himotoki](https://github.com/ikesyo/Himotoki).
+EsaKit is build with [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift), [Curry](https://github.com/thoughtbot/Curry) and [Himotoki](https://github.com/ikesyo/Himotoki).
