@@ -10,5 +10,6 @@ file_length:
   warning: 560
 variable_name:
   excluded:
+    - s
     - e
     - id

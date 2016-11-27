@@ -15,7 +15,7 @@ public struct Comment: Decodable {
     public let bodyHtml: String
     public let createdAt: String
     public let updatedAt: String
-    public let url: String
+    public let url: URL
     public let createdBy: MinimumUser
     public let stargazersCount: Int
     public let star: Bool
@@ -27,7 +27,7 @@ public struct Comment: Decodable {
             bodyHtml: e <| "body_html",
             createdAt: e <| "created_at",
             updatedAt: e <| "updated_at",
-            url: e <| "url",
+            url: Transformer { try toURL($0) }.apply(e <| "url"),
             createdBy: e <| "created_by",
             stargazersCount: e <| "stargazers_count",
             star: e <| "star"

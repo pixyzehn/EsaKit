@@ -19,7 +19,7 @@ public struct Post: Decodable {
     public let createdAt: String
     public let updatedAt: String
     public let message: String
-    public let url: String
+    public let url: URL
     public let tags: [String]
     public let category: String?
     public let revisionNumber: Int
@@ -45,7 +45,7 @@ public struct Post: Decodable {
             createdAt: e <| "created_at",
             updatedAt: e <| "updated_at",
             message: e <| "message",
-            url: e <| "url",
+            url: try Transformer { try toURL($0) }.apply(e <| "url"),
             tags: e <|| "tags",
             category: e <|? "category",
             revisionNumber: e <| "revision_number",

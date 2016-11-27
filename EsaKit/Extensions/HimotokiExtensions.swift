@@ -20,3 +20,11 @@ internal func decode<T: Decodable>(_ object: Any) -> Result<T, DecodeError> {
         return .failure(DecodeError.custom("This is not Decode error."))
     }
 }
+
+internal func toURL(_ s: String) throws -> URL {
+    if let URL = URL(string: s) {
+        return URL
+    }
+
+    throw customError("Invalid URL string: \(s)")
+}

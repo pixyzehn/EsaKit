@@ -13,16 +13,16 @@ public struct Team: Decodable {
     public let name: String
     public let privacy: String
     public let description: String
-    public let icon: String
-    public let url: String
+    public let icon: URL
+    public let url: URL
 
     public static func decode(_ e: Extractor) throws -> Team {
         return try Team(
             name: e <| "name",
             privacy: e <| "privacy",
             description: e <| "description",
-            icon: e <| "icon",
-            url: e <| "url"
+            icon: try Transformer { try toURL($0) }.apply(e <| "icon"),
+            url: try Transformer { try toURL($0) }.apply(e <| "url")
         )
     }
 }

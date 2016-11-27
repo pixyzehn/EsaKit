@@ -12,7 +12,7 @@ import Himotoki
 public struct MemberUser: Decodable {
     public let name: String
     public let screenName: String
-    public let icon: String
+    public let icon: URL
     public let email: String
     public let postsCount: Int
 
@@ -20,7 +20,7 @@ public struct MemberUser: Decodable {
         return try MemberUser(
             name: e <| "name",
             screenName: e <| "screen_name",
-            icon: e <| "icon",
+            icon: Transformer { try toURL($0) }.apply(e <| "icon"),
             email: e <| "email",
             postsCount: e <| "posts_count"
         )

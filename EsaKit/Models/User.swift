@@ -15,7 +15,7 @@ public struct User: Decodable {
     public let screenName: String
     public let createdAt: String
     public let updatedAt: String
-    public let icon: String
+    public let icon: URL
     public let email: String
 
     public static func decode(_ e: Extractor) throws -> User {
@@ -25,7 +25,7 @@ public struct User: Decodable {
             screenName: e <| "screen_name",
             createdAt: e <| "created_at",
             updatedAt: e <| "updated_at",
-            icon: e <| "icon",
+            icon: Transformer { try toURL($0) }.apply(e <| "icon"),
             email: e <| "email"
         )
     }
