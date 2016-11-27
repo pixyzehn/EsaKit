@@ -59,7 +59,6 @@
 		6E6D06921DE3469A0071FFA9 /* EsaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EA5D0551DDDF33C00D3713C /* EsaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E6D069A1DE348270071FFA9 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06951DE348270071FFA9 /* ReactiveSwift.framework */; };
 		6E6D069B1DE348270071FFA9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06961DE348270071FFA9 /* Result.framework */; };
-		6E6D06AC1DE3CB050071FFA9 /* Curry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06A91DE3CB050071FFA9 /* Curry.framework */; };
 		6E6D06AD1DE3CB050071FFA9 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06AA1DE3CB050071FFA9 /* ReactiveSwift.framework */; };
 		6E6D06AE1DE3CB050071FFA9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06AB1DE3CB050071FFA9 /* Result.framework */; };
 		6E6D06B21DE4110F0071FFA9 /* EsaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D06B11DE4110F0071FFA9 /* EsaError.swift */; };
@@ -118,8 +117,6 @@
 		6E6D06771DE322CA0071FFA9 /* EsaKit-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EsaKit-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6D06951DE348270071FFA9 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		6E6D06961DE348270071FFA9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
-		6E6D069E1DE34C530071FFA9 /* Curry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Curry.framework; path = Carthage/Build/iOS/Curry.framework; sourceTree = "<group>"; };
-		6E6D06A91DE3CB050071FFA9 /* Curry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Curry.framework; path = Carthage/Build/Mac/Curry.framework; sourceTree = "<group>"; };
 		6E6D06AA1DE3CB050071FFA9 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/Mac/ReactiveSwift.framework; sourceTree = "<group>"; };
 		6E6D06AB1DE3CB050071FFA9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 		6E6D06B11DE4110F0071FFA9 /* EsaError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EsaError.swift; sourceTree = "<group>"; };
@@ -135,7 +132,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E6D06AC1DE3CB050071FFA9 /* Curry.framework in Frameworks */,
 				6E6D06AD1DE3CB050071FFA9 /* ReactiveSwift.framework in Frameworks */,
 				6E6D06AE1DE3CB050071FFA9 /* Result.framework in Frameworks */,
 				6E6D06B71DE412C80071FFA9 /* Himotoki.framework in Frameworks */,
@@ -176,10 +172,8 @@
 			children = (
 				6E6D06B61DE412C80071FFA9 /* Himotoki.framework */,
 				6E6D06B41DE412AE0071FFA9 /* Himotoki.framework */,
-				6E6D06A91DE3CB050071FFA9 /* Curry.framework */,
 				6E6D06AA1DE3CB050071FFA9 /* ReactiveSwift.framework */,
 				6E6D06AB1DE3CB050071FFA9 /* Result.framework */,
-				6E6D069E1DE34C530071FFA9 /* Curry.framework */,
 				6E6D06951DE348270071FFA9 /* ReactiveSwift.framework */,
 				6E6D06961DE348270071FFA9 /* Result.framework */,
 			);
