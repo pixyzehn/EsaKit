@@ -11,12 +11,12 @@ import Himotoki
 
 public struct Watcher: Decodable {
     public let user: MinimumUser
-    public let createdAt: String
+    public let createdAt: Date
 
     public static func decode(_ e: Extractor) throws -> Watcher {
         return try Watcher(
             user: e <| "user",
-            createdAt: e <| "created_at"
+            createdAt: try Transformer { try toDate($0) }.apply(e <| "created_at")
         )
     }
 }

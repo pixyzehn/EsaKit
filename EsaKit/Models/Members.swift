@@ -14,7 +14,7 @@ public struct MemberUser: Decodable {
     public let screenName: String
     public let icon: URL
     public let email: String
-    public let postsCount: Int
+    public let postsCount: UInt
 
     public static func decode(_ e: Extractor) throws -> MemberUser {
         return try MemberUser(

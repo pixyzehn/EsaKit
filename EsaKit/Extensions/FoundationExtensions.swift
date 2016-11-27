@@ -13,7 +13,7 @@ extension DateFormatter {
     @nonobjc internal static var iso8601: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier:"en_US_POSIX")
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
         formatter.timeZone = TimeZone(abbreviation:"UTC")
         return formatter
     }()

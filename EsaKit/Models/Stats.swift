@@ -10,13 +10,13 @@ import Foundation
 import Himotoki
 
 public struct Stats: Decodable {
-    public let members: Int
-    public let posts: Int
-    public let comments: Int
-    public let stars: Int
-    public let dailyActiveUsers: Int
-    public let weeklyActiveUsers: Int
-    public let monthlyActiveUsers: Int
+    public let members: UInt
+    public let posts: UInt
+    public let comments: UInt
+    public let stars: UInt
+    public let dailyActiveUsers: UInt
+    public let weeklyActiveUsers: UInt
+    public let monthlyActiveUsers: UInt
 
     public static func decode(_ e: Extractor) throws -> Stats {
         return try Stats(

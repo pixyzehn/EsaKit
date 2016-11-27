@@ -13,8 +13,8 @@ public struct User: Decodable {
     public let id: Int
     public let name: String
     public let screenName: String
-    public let createdAt: String
-    public let updatedAt: String
+    public let createdAt: Date
+    public let updatedAt: Date
     public let icon: URL
     public let email: String
 
@@ -23,8 +23,8 @@ public struct User: Decodable {
             id: e <| "id",
             name: e <| "name",
             screenName: e <| "screen_name",
-            createdAt: e <| "created_at",
-            updatedAt: e <| "updated_at",
+            createdAt: try Transformer { try toDate($0) }.apply(e <| "created_at"),
+            updatedAt: try Transformer { try toDate($0) }.apply(e <| "updated_at"),
             icon: Transformer { try toURL($0) }.apply(e <| "icon"),
             email: e <| "email"
         )

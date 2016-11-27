@@ -16,8 +16,8 @@ public struct Post: Decodable {
     public let wip: Bool
     public let bodyMd: String
     public let bodyHtml: String
-    public let createdAt: String
-    public let updatedAt: String
+    public let createdAt: Date
+    public let updatedAt: Date
     public let message: String
     public let url: URL
     public let tags: [String]
@@ -26,11 +26,11 @@ public struct Post: Decodable {
     public let createdBy: MinimumUser
     public let updatedBy: MinimumUser
     public let kind: String
-    public let commentsCount: Int
-    public let tasksCount: Int
-    public let doneTasksCount: Int
-    public let stargazersCount: Int
-    public let watchersCount: Int
+    public let commentsCount: UInt
+    public let tasksCount: UInt
+    public let doneTasksCount: UInt
+    public let stargazersCount: UInt
+    public let watchersCount: UInt
     public let star: Bool
     public let watch: Bool
 
@@ -42,8 +42,8 @@ public struct Post: Decodable {
             wip: e <| "wip",
             bodyMd: e <| "body_md",
             bodyHtml: e <| "body_html",
-            createdAt: e <| "created_at",
-            updatedAt: e <| "updated_at",
+            createdAt: try Transformer { try toDate($0) }.apply(e <| "created_at"),
+            updatedAt: try Transformer { try toDate($0) }.apply(e <| "updated_at"),
             message: e <| "message",
             url: try Transformer { try toURL($0) }.apply(e <| "url"),
             tags: e <|| "tags",

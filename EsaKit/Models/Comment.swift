@@ -10,14 +10,14 @@ import Foundation
 import Himotoki
 
 public struct Comment: Decodable {
-    public let id: Int
+    public let id: Int // id can be negative number.
     public let bodyMd: String
     public let bodyHtml: String
-    public let createdAt: String
-    public let updatedAt: String
+    public let createdAt: Date
+    public let updatedAt: Date
     public let url: URL
     public let createdBy: MinimumUser
-    public let stargazersCount: Int
+    public let stargazersCount: UInt
     public let star: Bool
 
     public static func decode(_ e: Extractor) throws -> Comment {
@@ -25,8 +25,8 @@ public struct Comment: Decodable {
             id: e <| "id",
             bodyMd: e <| "body_md",
             bodyHtml: e <| "body_html",
-            createdAt: e <| "created_at",
-            updatedAt: e <| "updated_at",
+            createdAt: try Transformer { try toDate($0) }.apply(e <| "created_at"),
+            updatedAt: try Transformer { try toDate($0) }.apply(e <| "updated_at"),
             url: Transformer { try toURL($0) }.apply(e <| "url"),
             createdBy: e <| "created_by",
             stargazersCount: e <| "stargazers_count",

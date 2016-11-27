@@ -21,10 +21,18 @@ internal func decode<T: Decodable>(_ object: Any) -> Result<T, DecodeError> {
     }
 }
 
-internal func toURL(_ s: String) throws -> URL {
-    if let URL = URL(string: s) {
+internal func toURL(_ string: String) throws -> URL {
+    if let URL = URL(string: string) {
         return URL
     }
 
-    throw customError("Invalid URL string: \(s)")
+    throw customError("Invalid URL string: \(string)")
+}
+
+internal func toDate(_ string: String) throws -> Date {
+    if let date = DateFormatter.iso8601.date(from: string) {
+        return date
+    }
+
+    throw customError("Invalid Date string: \(string)")
 }

@@ -11,11 +11,11 @@ import Himotoki
 
 public struct Comments: Decodable {
     public let comments: [Comment]
-    public let page: Int
-    public let prevPage: Int?
-    public let nextPage: Int?
-    public let maxPerPage: Int
-    public let totalCount: Int
+    public let page: UInt
+    public let prevPage: UInt?
+    public let nextPage: UInt?
+    public let maxPerPage: UInt
+    public let totalCount: UInt
 
     public static func decode(_ e: Extractor) throws -> Comments {
         return try Comments(

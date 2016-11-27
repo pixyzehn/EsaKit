@@ -14,7 +14,7 @@ public struct TokenInfo: Decodable {
     public let scopes: [String]
     public let expiresInSeconds: Double?
     public let applicationUID: String
-    public let createdAt: Double
+    public let createdAt: Date
 
     public static func decode(_ e: Extractor) throws -> TokenInfo {
         return try TokenInfo(
@@ -22,7 +22,7 @@ public struct TokenInfo: Decodable {
             scopes: e <|| "scopes",
             expiresInSeconds: e <|? "expires_in_seconds",
             applicationUID: e <| ["application", "uid"],
-            createdAt: e <| "created_at"
+            createdAt: try Transformer { Date.init(timeIntervalSince1970: $0) }.apply(e <| "created_at")
         )
     }
 }
