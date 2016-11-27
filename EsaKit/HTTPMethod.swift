@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// The esa.ios API only use GET / POST / PUT / PATCH / DELETE.
+/// An esa.ios API use GET / POST / PUT / PATCH / DELETE as a http method.
 public enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
@@ -16,7 +16,7 @@ public enum HTTPMethod: String {
     case patch = "PATCH"
     case delete = "DELETE"
 
-    public var prefersQueryParameters: Bool {
+    public var isPrefersQueryParameters: Bool {
         switch self {
         case .get, .delete:
             return true

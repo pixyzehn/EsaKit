@@ -9,9 +9,8 @@
 import Foundation
 import Himotoki
 
-/// An error from the esa.io API.
+/// An error from an esa.io API.
 public struct EsaError: CustomStringConvertible, Error {
-    /// The error message from the API.
     public let message: String
 
     public var description: String {
@@ -24,7 +23,7 @@ public struct EsaError: CustomStringConvertible, Error {
 }
 
 extension EsaError: Hashable {
-    public static func ==(lhs: EsaError, rhs: EsaError) -> Bool {
+    public static func == (lhs: EsaError, rhs: EsaError) -> Bool {
         return lhs.message == rhs.message
     }
 

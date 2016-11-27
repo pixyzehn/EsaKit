@@ -11,29 +11,20 @@ import Himotoki
 import ReactiveSwift
 import Result
 
-/// The esa.io API Client
+/// An esa.io API Client.
 public final class EsaClient {
     internal static let APIContentType = "application/json"
 
     /// An error from the Client.
     public enum Error: Swift.Error {
-        /// An error occurred in a network operation.
         case networkError(NSError)
-
-        /// An error occurred while deserializing JSON.
         case jsonDeserializationError(NSError)
-
-        /// An error occurred while decoding JSON.
         case jsonDecodingError(DecodeError)
-
-        /// A status code, response, and error that was returned from the API.
         case apiError(Int, Response, EsaError)
-
-        /// The requested object does not exist.
         case doesNotExist
     }
 
-    /// Credentials for the esa.io API.
+    /// Credentials for an esa.io API.
     internal enum Credentials {
         case token(String)
 
@@ -124,19 +115,15 @@ public final class EsaClient {
         var method: HTTPMethod {
             switch self {
             /// - OAuth
-            case .oauthAuthorize:
+            case .oauthAuthorize, .oaauthTokenInfo:
                 return .get
             case .oauthToken(_):
                 return .post
-            case .oaauthTokenInfo:
-                return .get
             case .oauthRevoke(_):
                 return .post
 
             /// - Team
-            case .teams:
-                return .get
-            case .team(_):
+            case .teams, .team(_):
                 return .get
 
             /// - Stats
@@ -148,9 +135,7 @@ public final class EsaClient {
                 return .get
 
             /// - Post
-            case .posts(_):
-                return .get
-            case .post(_, _):
+            case .posts(_), .post(_, _):
                 return .get
             case .createPost(_, _):
                 return .post
@@ -160,9 +145,7 @@ public final class EsaClient {
                 return .delete
 
             /// - Comment
-            case .comments(_, _):
-                return .get
-            case .comment(_, _):
+            case .comments(_, _), .comment(_, _):
                 return .get
             case .createComment(_, _, _):
                 return .post
@@ -172,17 +155,11 @@ public final class EsaClient {
                 return .delete
 
             /// - Star
-            case .stargazersInPost(_, _):
+            case .stargazersInPost(_, _), .stargazersInComment(_, _):
                 return .get
-            case .addStarInPost(_, _, _):
+            case .addStarInPost(_, _, _), .addStarInComment(_, _, _):
                 return .post
-            case .removeStarInPost(_, _):
-                return .delete
-            case .stargazersInComment(_, _):
-                return .get
-            case .addStarInComment(_, _, _):
-                return .post
-            case .removeStarInComment(_, _):
+            case .removeStarInPost(_, _), .removeStarInComment(_, _):
                 return .delete
 
             /// - Watch
@@ -436,7 +413,7 @@ public final class EsaClient {
         return post(.removeStarInPost(teamName: teamName, postNumber: postNumber))
     }
 
-    public func stargazers(teamName: String, commentId: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Stargazers), Error>{
+    public func stargazers(teamName: String, commentId: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Stargazers), Error> {
         return fetchMany(.stargazersInComment(teamName: teamName, commentId: commentId), page: page, pageSize: pageSize)
     }
 

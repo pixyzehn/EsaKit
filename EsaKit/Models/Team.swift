@@ -12,7 +12,7 @@ import Himotoki
 public struct Team: Decodable {
     public let name: String
     public let privacy: String
-    public let description: String?
+    public let description: String
     public let icon: String
     public let url: String
 
@@ -20,7 +20,7 @@ public struct Team: Decodable {
         return try Team(
             name: e <| "name",
             privacy: e <| "privacy",
-            description: e <|? "description",
+            description: e <| "description",
             icon: e <| "icon",
             url: e <| "url"
         )

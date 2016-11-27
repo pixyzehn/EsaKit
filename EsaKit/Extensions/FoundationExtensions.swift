@@ -53,7 +53,7 @@ extension URLRequest {
         request.httpMethod = endpoint.method.rawValue
         request.setValue(contentType, forHTTPHeaderField: "Content-Type")
 
-        if let bodyParameters = endpoint.bodyParameters, !endpoint.method.prefersQueryParameters {
+        if let bodyParameters = endpoint.bodyParameters, !endpoint.method.isPrefersQueryParameters {
             let data = try? JSONSerialization.data(withJSONObject: bodyParameters, options: [])
             request.httpBody = data
         }
@@ -66,7 +66,7 @@ extension URLRequest {
     }
 }
 
-// An esa.io API uses 200 / 201 / 204 / 400 / 401 / 402 / 403 / 404 / 500.
+// An esa.io API uses 200 / 201 / 204 / 400 / 401 / 402 / 403 / 404 / 500 as a status code.
 extension HTTPURLResponse {
     enum StatusCodeType: Int {
         case ok = 200

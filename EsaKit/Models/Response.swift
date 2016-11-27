@@ -24,7 +24,7 @@ public struct Response {
 }
 
 extension Response: Hashable {
-    public static func ==(lhs: Response, rhs: Response) -> Bool {
+    public static func == (lhs: Response, rhs: Response) -> Bool {
         return lhs.xRateLimitLimit == rhs.xRateLimitLimit
             && lhs.XRateLimitRemaining == rhs.XRateLimitRemaining
     }

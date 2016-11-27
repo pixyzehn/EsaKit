@@ -1,4 +1,14 @@
 included:
   - EsaKit
+disabled_rules:
+  - force_cast
 line_length:
-  warning: 120
+  warning: 180
+type_body_length:
+  warning: 320
+file_length:
+  warning: 560
+variable_name:
+  excluded:
+    - e
+    - id
