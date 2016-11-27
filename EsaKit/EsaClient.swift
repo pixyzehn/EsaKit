@@ -511,10 +511,10 @@ public final class EsaClient {
                         return JSONSerialization.deserializeJSON(data).mapError(Error.jsonDeserializationError)
                     }
                     .attemptMap { JSON in
-                        if response.statusCode == 404 {
+                        if response.statusCodeType == .notFound {
                             return .failure(.doesNotExist)
                         }
-                        if response.statusCode >= 400 && response.statusCode < 600 {
+                        if response.statusCodeType >= .badRequest && response.statusCodeType <= .tooManyRequests {
                             return decode(JSON)
                                 .mapError(Error.jsonDecodingError)
                                 .flatMap { error in

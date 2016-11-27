@@ -10,7 +10,7 @@ import Foundation
 import Himotoki
 
 public struct Comment: Decodable {
-    public let id: Int // id can be negative number.
+    public let id: Int
     public let bodyMd: String
     public let bodyHtml: String
     public let createdAt: Date

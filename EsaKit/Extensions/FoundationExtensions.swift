@@ -68,7 +68,7 @@ extension URLRequest {
 
 // An esa.io API uses 200 / 201 / 204 / 400 / 401 / 402 / 403 / 404 / 500 as a status code.
 extension HTTPURLResponse {
-    enum StatusCodeType: Int {
+    internal enum StatusCodeType: Int, Comparable {
         case ok = 200
         case created = 201
         case noContent = 204
@@ -79,9 +79,17 @@ extension HTTPURLResponse {
         case tooManyRequests = 429
         case internalServerError = 500
         case unknown = 0
+
+        public static func < (lhs: StatusCodeType, rhs: StatusCodeType) -> Bool {
+            return lhs.rawValue < rhs.rawValue
+        }
+
+        public static func <= (lhs: StatusCodeType, rhs: StatusCodeType) -> Bool {
+            return lhs.rawValue <= rhs.rawValue
+        }
     }
 
-    var statusCodeType: StatusCodeType {
+    internal var statusCodeType: StatusCodeType {
         return StatusCodeType(rawValue: statusCode) ?? .unknown
     }
 }
