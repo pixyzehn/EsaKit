@@ -325,7 +325,6 @@ public final class EsaClient {
     // MARK: The esa.io API methods
 
     /// - OAuth
-    // TODO: Check the API
     public func issueNewToken(parameters: TokenParameters) -> SignalProducer<(Response, Token), Error> {
         return fetchOne(.oauthToken(parameters: parameters))
     }
@@ -334,7 +333,6 @@ public final class EsaClient {
         return fetchOne(.oaauthTokenInfo)
     }
 
-    // TODO: Check the API
     public func revokeToken(parameters: TokenRevokeParameters) -> SignalProducer<(Response), Error> {
         return post(.oauthRevoke(parameters: parameters))
     }
@@ -487,7 +485,6 @@ public final class EsaClient {
         }
     }
 
-    /// Fetch a list of objects from the API.
     internal func fetchMany<T: Decodable>(_ endpoint: Endpoint, page: UInt?, pageSize: UInt?) -> SignalProducer<(Response, T), Error> {
         return request(endpoint, page: page, pageSize: pageSize)
             .attemptMap { response, JSON in
