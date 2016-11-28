@@ -2,8 +2,8 @@
 A Swift framework for the esa.io API
 
 ```swift
-let client = EsaClient(token: "...")
-client.members(teamName: "esafeed")
+let client = EsaClient(token: "...", teamName: "esafeed")
+client.members()
     .startWithResult { result in
         switch result {
         case let .success(response):
