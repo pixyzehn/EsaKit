@@ -262,6 +262,9 @@ public final class EsaClient {
     /// The Server that the Client connects to.
     public let server: Server
 
+    /// The team name for the API.
+    public let teamName: String
+
     /// Whether the Client is authenticated.
     public var authenticated: Bool {
         return credentials != nil
@@ -274,8 +277,9 @@ public final class EsaClient {
     private let urlSession: URLSession
 
     /// Create an authenticated client for the given Server with a token.
-    public init(token: String, urlSession: URLSession = .shared) {
+    public init(token: String, teamName: String, urlSession: URLSession = .shared) {
         self.server = Server()
+        self.teamName = teamName
         self.credentials = .token(token)
         self.urlSession = urlSession
     }
@@ -287,97 +291,97 @@ public final class EsaClient {
         return fetchMany(.teams, page: page, pageSize: pageSize)
     }
 
-    public func team(teamName: String) -> SignalProducer<(Response, Team), Error> {
+    public func team() -> SignalProducer<(Response, Team), Error> {
         return fetchOne(.team(teamName: teamName))
     }
 
     /// - Stats
-    public func stats(teamName: String) -> SignalProducer<(Response, Stats), Error> {
+    public func stats() -> SignalProducer<(Response, Stats), Error> {
         return fetchOne(.teamStats(teamName: teamName))
     }
 
     /// - Member
-    public func members(teamName: String, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Members), Error> {
+    public func members(page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Members), Error> {
         return fetchMany(.members(teamName: teamName), page: page, pageSize: pageSize)
     }
 
     /// - Post
-    public func posts(teamName: String, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Posts), Error> {
+    public func posts(page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Posts), Error> {
         return fetchMany(.posts(teamName: teamName), page: page, pageSize: pageSize)
     }
 
-    public func post(teamName: String, postNumber: Int) -> SignalProducer<(Response, Post), Error> {
+    public func post(postNumber: Int) -> SignalProducer<(Response, Post), Error> {
         return fetchOne(.post(teamName: teamName, postNumber: postNumber))
     }
 
-    public func createPost(teamName: String, parameters: PostParameters) -> SignalProducer<(Response, Post), Error> {
+    public func createPost(parameters: PostParameters) -> SignalProducer<(Response, Post), Error> {
         return fetchOne(.createPost(teamName: teamName, parameters: parameters))
     }
 
-    public func updatePost(teamName: String, postNumber: Int, parameters: PostParameters) -> SignalProducer<(Response, Post), Error> {
+    public func updatePost(postNumber: Int, parameters: PostParameters) -> SignalProducer<(Response, Post), Error> {
         return fetchOne(.updatePost(teamName: teamName, postNumber: postNumber, parameters: parameters))
     }
 
-    public func deletePost(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
+    public func deletePost(postNumber: Int) -> SignalProducer<Response, Error> {
         return send(.deletePost(teamName: teamName, postNumber: postNumber))
     }
 
     /// - Comments
-    public func comments(teamName: String, postNumber: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Comments), Error> {
+    public func comments(postNumber: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Comments), Error> {
         return fetchMany(.comments(teamName: teamName, postNumber: postNumber), page: page, pageSize: pageSize)
     }
 
-    public func comment(teamName: String, commentId: Int) -> SignalProducer<(Response, Comment), Error> {
+    public func comment(commentId: Int) -> SignalProducer<(Response, Comment), Error> {
         return fetchOne(.comment(teamName: teamName, commentId: commentId))
     }
 
-    public func createComment(teamName: String, postNumber: Int, bodyMd: String) -> SignalProducer<(Response, Comment), Error> {
+    public func createComment(postNumber: Int, bodyMd: String) -> SignalProducer<(Response, Comment), Error> {
         return fetchOne(.createComment(teamName: teamName, postNumber: postNumber, bodyMd: bodyMd))
     }
 
-    public func updateComment(teamName: String, commentId: Int, bodyMd: String) -> SignalProducer<(Response, Comment), Error> {
+    public func updateComment(commentId: Int, bodyMd: String) -> SignalProducer<(Response, Comment), Error> {
         return fetchOne(.updateComment(teamName: teamName, commentId: commentId, bodyMd: bodyMd))
     }
 
-    public func deleteCommet(teamName: String, commentId: Int) -> SignalProducer<Response, Error> {
+    public func deleteCommet(commentId: Int) -> SignalProducer<Response, Error> {
         return send(.deleteComment(teamName: teamName, commentId: commentId))
     }
 
     /// - Star
-    public func stargazers(teamName: String, postNumber: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Stargazers), Error> {
+    public func stargazers(postNumber: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Stargazers), Error> {
         return fetchMany(.stargazersInPost(teamName: teamName, postNumber: postNumber), page: page, pageSize: pageSize)
     }
 
-    public func addStar(teamName: String, postNumber: Int, body: String = "") -> SignalProducer<Response, Error> {
+    public func addStar(postNumber: Int, body: String = "") -> SignalProducer<Response, Error> {
         return send(.addStarInPost(teamName: teamName, postNumber: postNumber, body: body))
     }
 
-    public func removeStar(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
+    public func removeStar(postNumber: Int) -> SignalProducer<Response, Error> {
         return send(.removeStarInPost(teamName: teamName, postNumber: postNumber))
     }
 
-    public func stargazers(teamName: String, commentId: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Stargazers), Error> {
+    public func stargazers(commentId: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Stargazers), Error> {
         return fetchMany(.stargazersInComment(teamName: teamName, commentId: commentId), page: page, pageSize: pageSize)
     }
 
-    public func addStar(teamName: String, commentId: Int, body: String = "") -> SignalProducer<Response, Error> {
+    public func addStar(commentId: Int, body: String = "") -> SignalProducer<Response, Error> {
         return send(.addStarInComment(teamName: teamName, commentId: commentId, body: body))
     }
 
-    public func removeStar(teamName: String, commentId: Int) -> SignalProducer<Response, Error> {
+    public func removeStar(commentId: Int) -> SignalProducer<Response, Error> {
         return send(.removeStarInComment(teamName: teamName, commentId: commentId))
     }
 
     /// - Watch
-    public func watchers(teamName: String, postNumber: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Watchers), Error> {
+    public func watchers(postNumber: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Watchers), Error> {
         return fetchMany(.watchers(teamName: teamName, postNumber: postNumber), page: page, pageSize: pageSize)
     }
 
-    public func addWatch(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
+    public func addWatch(postNumber: Int) -> SignalProducer<Response, Error> {
         return send(.addWatch(teamName: teamName, postNumber: postNumber))
     }
 
-    public func removeWatch(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
+    public func removeWatch(postNumber: Int) -> SignalProducer<Response, Error> {
         return send(.removeWatch(teamName: teamName, postNumber: postNumber))
     }
 
