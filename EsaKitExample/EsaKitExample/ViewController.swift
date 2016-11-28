@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let client = EsaClient(token: "your_token", teamName: "your_team_name")
-        client.stats()
+        client.posts(query: "help")
             .startWithResult { result in
                 switch result {
                 case let .success(response):

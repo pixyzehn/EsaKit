@@ -80,12 +80,12 @@ extension HTTPURLResponse {
         case internalServerError = 500
         case unknown = 0
 
-        public static func < (lhs: StatusCodeType, rhs: StatusCodeType) -> Bool {
+        internal static func < (lhs: StatusCodeType, rhs: StatusCodeType) -> Bool {
             return lhs.rawValue < rhs.rawValue
         }
 
-        public static func <= (lhs: StatusCodeType, rhs: StatusCodeType) -> Bool {
-            return lhs.rawValue <= rhs.rawValue
+        internal static func == (lhs: StatusCodeType, rhs: StatusCodeType) -> Bool {
+            return lhs.rawValue == rhs.rawValue
         }
     }
 

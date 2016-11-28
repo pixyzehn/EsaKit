@@ -22,6 +22,7 @@ public final class EsaClient {
         case jsonDecodingError(DecodeError)
         case apiError(Int, Response, EsaError)
         case doesNotExist
+        case unknownError
     }
 
     /// Credentials for an esa.io API.
@@ -54,7 +55,7 @@ public final class EsaClient {
 
         /// - Post
         /// https://docs.esa.io/posts/102#7-1-0
-        case posts(teamName: String)
+        case posts(teamName: String, query: String)
         /// https://docs.esa.io/posts/102#7-2-0
         case post(teamName: String, postNumber: Int)
         /// https://docs.esa.io/posts/102#7-3-0
@@ -117,7 +118,7 @@ public final class EsaClient {
                 return .get
 
             /// - Post
-            case .posts(_), .post(_, _):
+            case .posts(_, _), .post(_, _):
                 return .get
             case .createPost(_, _):
                 return .post
@@ -175,7 +176,7 @@ public final class EsaClient {
                 return "/v1/teams/\(teamName)/members"
 
             /// - Post
-            case let .posts(teamName):
+            case let .posts(teamName, _):
                 return "/v1/teams/\(teamName)/posts"
             case let .post(teamName, postNumber):
                 return "/v1/teams/\(teamName)/posts/\(postNumber)"
@@ -227,6 +228,9 @@ public final class EsaClient {
         }
 
         internal var queryParameters: [URLQueryItem] {
+            if case let .posts(_, query) = self {
+                return [URLQueryItem(name: "q", value: query)]
+            }
             return []
         }
 
@@ -306,8 +310,8 @@ public final class EsaClient {
     }
 
     /// - Post
-    public func posts(page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Posts), Error> {
-        return fetchMany(.posts(teamName: teamName), page: page, pageSize: pageSize)
+    public func posts(page: UInt = 1, pageSize: UInt = 20, query: String = "") -> SignalProducer<(Response, Posts), Error> {
+        return fetchMany(.posts(teamName: teamName, query: query), page: page, pageSize: pageSize)
     }
 
     public func post(postNumber: Int) -> SignalProducer<(Response, Post), Error> {
