@@ -31,10 +31,6 @@
 		6E4C8A171DE92EC900A8B0B6 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C89FD1DE92EC900A8B0B6 /* Team.swift */; };
 		6E4C8A181DE92EC900A8B0B6 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C89FE1DE92EC900A8B0B6 /* Teams.swift */; };
 		6E4C8A191DE92EC900A8B0B6 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C89FE1DE92EC900A8B0B6 /* Teams.swift */; };
-		6E4C8A1A1DE92EC900A8B0B6 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C89FF1DE92EC900A8B0B6 /* Token.swift */; };
-		6E4C8A1B1DE92EC900A8B0B6 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C89FF1DE92EC900A8B0B6 /* Token.swift */; };
-		6E4C8A1C1DE92EC900A8B0B6 /* TokenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C8A001DE92EC900A8B0B6 /* TokenInfo.swift */; };
-		6E4C8A1D1DE92EC900A8B0B6 /* TokenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C8A001DE92EC900A8B0B6 /* TokenInfo.swift */; };
 		6E4C8A1E1DE92EC900A8B0B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C8A011DE92EC900A8B0B6 /* User.swift */; };
 		6E4C8A1F1DE92EC900A8B0B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C8A011DE92EC900A8B0B6 /* User.swift */; };
 		6E4C8A201DE92EC900A8B0B6 /* Watcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C8A021DE92EC900A8B0B6 /* Watcher.swift */; };
@@ -103,8 +99,6 @@
 		6E4C89FC1DE92EC900A8B0B6 /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		6E4C89FD1DE92EC900A8B0B6 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		6E4C89FE1DE92EC900A8B0B6 /* Teams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
-		6E4C89FF1DE92EC900A8B0B6 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		6E4C8A001DE92EC900A8B0B6 /* TokenInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenInfo.swift; sourceTree = "<group>"; };
 		6E4C8A011DE92EC900A8B0B6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6E4C8A021DE92EC900A8B0B6 /* Watcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Watcher.swift; sourceTree = "<group>"; };
 		6E4C8A031DE92EC900A8B0B6 /* Watchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Watchers.swift; sourceTree = "<group>"; };
@@ -194,8 +188,6 @@
 				6E4C89FC1DE92EC900A8B0B6 /* Stats.swift */,
 				6E4C89FD1DE92EC900A8B0B6 /* Team.swift */,
 				6E4C89FE1DE92EC900A8B0B6 /* Teams.swift */,
-				6E4C89FF1DE92EC900A8B0B6 /* Token.swift */,
-				6E4C8A001DE92EC900A8B0B6 /* TokenInfo.swift */,
 				6E4C8A011DE92EC900A8B0B6 /* User.swift */,
 				6E4C8A2B1DE961DC00A8B0B6 /* MinimumUser.swift */,
 				6E4C8A021DE92EC900A8B0B6 /* Watcher.swift */,
@@ -443,7 +435,6 @@
 				6E4C8A191DE92EC900A8B0B6 /* Teams.swift in Sources */,
 				6E4C8A231DE92EC900A8B0B6 /* Watchers.swift in Sources */,
 				6E4C8A0B1DE92EC900A8B0B6 /* Post.swift in Sources */,
-				6E4C8A1D1DE92EC900A8B0B6 /* TokenInfo.swift in Sources */,
 				6E4C8A091DE92EC900A8B0B6 /* Members.swift in Sources */,
 				6E6D06691DE31D6B0071FFA9 /* EsaClient.swift in Sources */,
 				6E4C8A071DE92EC900A8B0B6 /* Comments.swift in Sources */,
@@ -458,7 +449,6 @@
 				6E4C8A2D1DE961DC00A8B0B6 /* MinimumUser.swift in Sources */,
 				6E4C89F21DE926A900A8B0B6 /* BodyParameters.swift in Sources */,
 				6E4C8A211DE92EC900A8B0B6 /* Watcher.swift in Sources */,
-				6E4C8A1B1DE92EC900A8B0B6 /* Token.swift in Sources */,
 				6E4C8A111DE92EC900A8B0B6 /* Stargazer.swift in Sources */,
 				6E6D06BF1DE4741D0071FFA9 /* HTTPMethod.swift in Sources */,
 				6E6D06681DE31D680071FFA9 /* Server.swift in Sources */,
@@ -482,7 +472,6 @@
 				6E4C8A181DE92EC900A8B0B6 /* Teams.swift in Sources */,
 				6E4C8A221DE92EC900A8B0B6 /* Watchers.swift in Sources */,
 				6E4C8A0A1DE92EC900A8B0B6 /* Post.swift in Sources */,
-				6E4C8A1C1DE92EC900A8B0B6 /* TokenInfo.swift in Sources */,
 				6E4C8A081DE92EC900A8B0B6 /* Members.swift in Sources */,
 				6E6D06871DE323190071FFA9 /* EsaClient.swift in Sources */,
 				6E4C8A061DE92EC900A8B0B6 /* Comments.swift in Sources */,
@@ -497,7 +486,6 @@
 				6E4C8A2C1DE961DC00A8B0B6 /* MinimumUser.swift in Sources */,
 				6E4C89F11DE926A900A8B0B6 /* BodyParameters.swift in Sources */,
 				6E4C8A201DE92EC900A8B0B6 /* Watcher.swift in Sources */,
-				6E4C8A1A1DE92EC900A8B0B6 /* Token.swift in Sources */,
 				6E4C8A101DE92EC900A8B0B6 /* Stargazer.swift in Sources */,
 				6E6D06BE1DE422DE0071FFA9 /* HTTPMethod.swift in Sources */,
 				6E6D06861DE323150071FFA9 /* Server.swift in Sources */,

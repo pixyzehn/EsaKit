@@ -9,7 +9,7 @@
 import Foundation
 
 public struct Response {
-    public let xRateLimitLimit: UInt
+    public let xRateLimitLimit: UInt // An esa.io API allows user to post 75 requests per 15 min.
     public let XRateLimitRemaining: UInt
 
     public init(xRateLimitLimit: UInt, XRateLimitRemaining: UInt) {

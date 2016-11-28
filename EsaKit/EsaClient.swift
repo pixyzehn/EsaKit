@@ -38,16 +38,6 @@ public final class EsaClient {
 
     /// The esa.io API endpoint.
     public enum Endpoint {
-        /// - OAuth
-        /// https://docs.esa.io/posts/102#3-3-2
-        case oauthAuthorize
-        /// https://docs.esa.io/posts/102#3-3-3
-        case oauthToken(parameters: TokenParameters)
-        /// https://docs.esa.io/posts/102#3-3-4
-        case oaauthTokenInfo
-        /// https://docs.esa.io/posts/102#3-3-5
-        case oauthRevoke(parameters: TokenRevokeParameters)
-
         /// - Team
         /// https://docs.esa.io/posts/102#4-0-0
         case teams
@@ -114,14 +104,6 @@ public final class EsaClient {
 
         var method: HTTPMethod {
             switch self {
-            /// - OAuth
-            case .oauthAuthorize, .oaauthTokenInfo:
-                return .get
-            case .oauthToken(_):
-                return .post
-            case .oauthRevoke(_):
-                return .post
-
             /// - Team
             case .teams, .team(_):
                 return .get
@@ -178,16 +160,6 @@ public final class EsaClient {
 
         internal var path: String {
             switch self {
-            /// - OAuth
-            case .oauthAuthorize:
-                return "/oauth/authorize"
-            case .oauthToken(_):
-                return "/oauth/token"
-            case .oaauthTokenInfo:
-                return "/oauth/token/info"
-            case .oauthRevoke(_):
-                return "/oauth/revoke"
-
             /// - Team
             case .teams:
                 return "/v1/teams"
@@ -260,20 +232,6 @@ public final class EsaClient {
 
         internal var bodyParameters: Any? {
             switch self {
-            case let .oauthToken(parameters):
-                return [
-                    "client_id": parameters.clientId,
-                    "client_secret": parameters.clientSecret,
-                    "code": parameters.code,
-                    "grant_type": "authorization_code",
-                    "redirect_uri": parameters.redirectURI
-                ]
-            case let .oauthRevoke(parameters):
-                return [
-                    "client_id": parameters.clientId,
-                    "client_secret": parameters.clientSecret,
-                    "token": parameters.token
-                ]
             case let .createPost(_, parameters), let .updatePost(_, _, parameters):
                 return [
                     "post": [
@@ -324,19 +282,6 @@ public final class EsaClient {
 
     // MARK: The esa.io API methods
 
-    /// - OAuth
-    public func issueNewToken(parameters: TokenParameters) -> SignalProducer<(Response, Token), Error> {
-        return fetchOne(.oauthToken(parameters: parameters))
-    }
-
-    public func tokenInfo() -> SignalProducer<(Response, TokenInfo), Error> {
-        return fetchOne(.oaauthTokenInfo)
-    }
-
-    public func revokeToken(parameters: TokenRevokeParameters) -> SignalProducer<(Response), Error> {
-        return post(.oauthRevoke(parameters: parameters))
-    }
-
     /// - Team
     public func teams(page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Teams), Error> {
         return fetchMany(.teams, page: page, pageSize: pageSize)
@@ -374,7 +319,7 @@ public final class EsaClient {
     }
 
     public func deletePost(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
-        return post(.deletePost(teamName: teamName, postNumber: postNumber))
+        return send(.deletePost(teamName: teamName, postNumber: postNumber))
     }
 
     /// - Comments
@@ -395,7 +340,7 @@ public final class EsaClient {
     }
 
     public func deleteCommet(teamName: String, commentId: Int) -> SignalProducer<Response, Error> {
-        return post(.deleteComment(teamName: teamName, commentId: commentId))
+        return send(.deleteComment(teamName: teamName, commentId: commentId))
     }
 
     /// - Star
@@ -404,11 +349,11 @@ public final class EsaClient {
     }
 
     public func addStar(teamName: String, postNumber: Int, body: String = "") -> SignalProducer<Response, Error> {
-        return post(.addStarInPost(teamName: teamName, postNumber: postNumber, body: body))
+        return send(.addStarInPost(teamName: teamName, postNumber: postNumber, body: body))
     }
 
     public func removeStar(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
-        return post(.removeStarInPost(teamName: teamName, postNumber: postNumber))
+        return send(.removeStarInPost(teamName: teamName, postNumber: postNumber))
     }
 
     public func stargazers(teamName: String, commentId: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Stargazers), Error> {
@@ -416,11 +361,11 @@ public final class EsaClient {
     }
 
     public func addStar(teamName: String, commentId: Int, body: String = "") -> SignalProducer<Response, Error> {
-        return post(.addStarInComment(teamName: teamName, commentId: commentId, body: body))
+        return send(.addStarInComment(teamName: teamName, commentId: commentId, body: body))
     }
 
     public func removeStar(teamName: String, commentId: Int) -> SignalProducer<Response, Error> {
-        return post(.removeStarInComment(teamName: teamName, commentId: commentId))
+        return send(.removeStarInComment(teamName: teamName, commentId: commentId))
     }
 
     /// - Watch
@@ -429,11 +374,11 @@ public final class EsaClient {
     }
 
     public func addWatch(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
-        return post(.addWatch(teamName: teamName, postNumber: postNumber))
+        return send(.addWatch(teamName: teamName, postNumber: postNumber))
     }
 
     public func removeWatch(teamName: String, postNumber: Int) -> SignalProducer<Response, Error> {
-        return post(.removeWatch(teamName: teamName, postNumber: postNumber))
+        return send(.removeWatch(teamName: teamName, postNumber: postNumber))
     }
 
     /// - User
@@ -443,7 +388,7 @@ public final class EsaClient {
 
     // MARK: Private method
 
-    internal func post(_ endpoint: Endpoint) -> SignalProducer<Response, Error> {
+    internal func send(_ endpoint: Endpoint) -> SignalProducer<Response, Error> {
         let url = URL(endpoint, page: nil, pageSize: nil)
         let request = URLRequest.create(url, endpoint, credentials)
         return urlSession

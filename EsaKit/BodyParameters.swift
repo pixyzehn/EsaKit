@@ -31,36 +31,3 @@ public struct PostParameters {
     public let wip: Bool
     public let message: String
 }
-
-public struct TokenParameters {
-    public init(
-        clientId: String,
-        clientSecret: String,
-        code: String,
-        redirectURI: String
-    ) {
-        self.clientId = clientId
-        self.clientSecret = clientSecret
-        self.code = code
-        self.redirectURI = redirectURI
-    }
-    public let clientId: String
-    public let clientSecret: String
-    public let code: String
-    public let redirectURI: String
-}
-
-public struct TokenRevokeParameters {
-    public init(
-        clientId: String,
-        clientSecret: String,
-        token: String
-    ) {
-        self.clientId = clientId
-        self.clientSecret = clientSecret
-        self.token = token
-    }
-    public let clientId: String
-    public let clientSecret: String
-    public let token: String
-}
