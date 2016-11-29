@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-/// An error from an esa.io API.
+/// An error from the API.
 public struct EsaError: CustomStringConvertible, Error {
     public let error: String
     public let message: String

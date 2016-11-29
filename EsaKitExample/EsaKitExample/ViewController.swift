@@ -17,11 +17,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let client = EsaClient(token: "your_token", teamName: "your_team_name")
-        client.posts(query: "help")
+        client.posts()
             .startWithResult { result in
                 switch result {
-                case let .success(response):
-                    print("\(response)")
+                case let .success(response, posts):
+                    print("\(response)\n") // => Response(xRateLimitLimit: 75, XRateLimitRemaining: 71)
+                    print("\(posts)")      // => Posts(posts: [EsaKit.Post(number: 11, name:...
                 case let .failure(error):
                     print("An error occured: \(error)")
                 }
