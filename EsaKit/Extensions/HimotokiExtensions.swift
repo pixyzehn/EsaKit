@@ -17,7 +17,7 @@ internal func decode<T: Decodable>(_ object: Any) -> Result<T, DecodeError> {
     } catch let error as DecodeError {
         return .failure(DecodeError.custom("\(error)"))
     } catch {
-        return .failure(DecodeError.custom("Unexpected Error: \(object)"))
+        return .failure(DecodeError.custom("Unexpected error: \(object)"))
     }
 }
 

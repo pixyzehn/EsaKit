@@ -15,7 +15,7 @@ public struct Post: Decodable {
     public let fullName: String
     public let wip: Bool
     public let bodyMd: String
-    public let bodyHtml: String
+    public let bodyHTML: String
     public let createdAt: Date
     public let updatedAt: Date
     public let message: String
@@ -41,7 +41,7 @@ public struct Post: Decodable {
             fullName: e <| "full_name",
             wip: e <| "wip",
             bodyMd: e <| "body_md",
-            bodyHtml: e <| "body_html",
+            bodyHTML: e <| "body_html",
             createdAt: try Transformer { try toDate($0) }.apply(e <| "created_at"),
             updatedAt: try Transformer { try toDate($0) }.apply(e <| "updated_at"),
             message: e <| "message",

@@ -21,7 +21,7 @@ extension DateFormatter {
 
 extension JSONSerialization {
     internal static func deserializeJSON(_ data: Data) -> Result<Any, NSError> {
-        return Result(try JSONSerialization.jsonObject(with: data, options: []))
+        return Result(try JSONSerialization.jsonObject(with: data))
     }
 }
 
@@ -53,13 +53,17 @@ extension URLRequest {
         request.httpMethod = endpoint.method.rawValue
         request.setValue(contentType, forHTTPHeaderField: "Content-Type")
 
-        if let bodyParameters = endpoint.bodyParameters, !endpoint.method.isPrefersQueryParameters {
-            let data = try? JSONSerialization.data(withJSONObject: bodyParameters, options: [])
-            request.httpBody = data
+        if let userAgent = EsaClient.userAgent {
+            request.setValue(userAgent, forHTTPHeaderField: "User-Agent")
         }
 
         if let credentials = credentials {
             request.setValue(credentials.authorizationHeader, forHTTPHeaderField: "Authorization")
+        }
+
+        if let bodyParameters = endpoint.bodyParameters, !endpoint.method.isPrefersQueryParameters {
+            let data = try? JSONSerialization.data(withJSONObject: bodyParameters)
+            request.httpBody = data
         }
 
         return request
@@ -68,7 +72,7 @@ extension URLRequest {
 
 // An esa.io API uses 200 / 201 / 204 / 400 / 401 / 402 / 403 / 404 / 500 as a status code.
 extension HTTPURLResponse {
-    internal enum StatusCodeType: Int, Comparable {
+    internal enum StatusCodeType: Int, Comparable, CustomStringConvertible {
         case ok = 200
         case created = 201
         case noContent = 204
@@ -79,6 +83,21 @@ extension HTTPURLResponse {
         case tooManyRequests = 429
         case internalServerError = 500
         case unknown = 0
+
+        var description: String {
+            switch self {
+            case .ok: return "\(self.rawValue): Ok"
+            case .created: return "\(self.rawValue): Created"
+            case .noContent: return "\(self.rawValue): No content"
+            case .badRequest: return "\(self.rawValue): Bad request"
+            case .unauthorized: return "\(self.rawValue): Unauthorized"
+            case .forbidden: return "\(self.rawValue): Forbidden"
+            case .notFound: return "\(self.rawValue): Not found"
+            case .tooManyRequests: return "\(self.rawValue): Too many requests"
+            case .internalServerError: return "\(self.rawValue): Internal server error"
+            case .unknown: return "\(self.rawValue): Unknown"
+            }
+        }
 
         internal static func < (lhs: StatusCodeType, rhs: StatusCodeType) -> Bool {
             return lhs.rawValue < rhs.rawValue

@@ -13,7 +13,6 @@ import Result
 
 /// An esa.io API Client.
 public final class EsaClient {
-    internal static let APIContentType = "application/json"
 
     /// An error from the Client.
     public enum Error: Swift.Error {
@@ -229,6 +228,9 @@ public final class EsaClient {
 
         internal var queryParameters: [URLQueryItem] {
             if case let .posts(_, query) = self {
+                if query.isEmpty {
+                    return []
+                }
                 return [URLQueryItem(name: "q", value: query)]
             }
             return []
@@ -248,15 +250,9 @@ public final class EsaClient {
                     ]
                 ]
             case let .createComment(_, _, bodyMd), let .updateComment(_, _, bodyMd):
-                return [
-                    "comment": [
-                        "body_md": bodyMd
-                    ]
-                ]
+                return [ "comment": [ "body_md": bodyMd ] ]
             case let .addStarInPost(_, _, body):
-                return [
-                    "body": body
-                ]
+                return [ "body": body ]
             default:
                 return nil
             }
@@ -265,6 +261,9 @@ public final class EsaClient {
 
     /// The Server that the Client connects to.
     public let server: Server
+
+    /// The user-agent to use for API requests.
+    public static var userAgent: String?
 
     /// The team name for the API.
     public let teamName: String
@@ -277,6 +276,9 @@ public final class EsaClient {
     /// The Credentials for the API.
     private let credentials: Credentials?
 
+    /// The Content type for the API.
+    internal static let APIContentType = "application/json"
+
     /// The `URLSession` instance to use.
     private let urlSession: URLSession
 
@@ -288,7 +290,7 @@ public final class EsaClient {
         self.urlSession = urlSession
     }
 
-    // MARK: The esa.io API methods
+    // MARK: The esa.io API public methods.
 
     /// - Team
     public func teams(page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Teams), Error> {
@@ -394,10 +396,10 @@ public final class EsaClient {
         return fetchOne(.user)
     }
 
-    // MARK: Private method
+    // MARK: Methods for the API request.
 
     internal func send(_ endpoint: Endpoint) -> SignalProducer<Response, Error> {
-        let url = URL(endpoint, page: nil, pageSize: nil)
+        let url = URL(endpoint)
         let request = URLRequest.create(url, endpoint, credentials)
         return urlSession
             .reactive
@@ -405,37 +407,33 @@ public final class EsaClient {
             .mapError(Error.networkError)
             .flatMap(.concat) { _, response -> SignalProducer<Response, Error> in
                 let response = response as! HTTPURLResponse
-                let headers = response.allHeaderFields as! [String:String]
+                let statusCode = response.statusCode
+                let statusCodeType = response.statusCodeType
+                let headers = response.allHeaderFields as! [String: String]
                 return SignalProducer
                     .attempt {
                         return Result(response)
                     }
                     .attemptMap { _ in
-                        if response.statusCode == 404 {
-                            return .failure(.doesNotExist)
-                        }
-                        if response.statusCode >= 400 && response.statusCode < 600 {
-                            return .failure(.apiError(response.statusCode, Response(headerFields: headers), EsaError(message: "Error by \(response.statusCode)")))
-                        }
-                        if response.statusCode == 200
-                            || response.statusCode == 201
-                                || response.statusCode == 204 {
+                        switch statusCodeType {
+                        case .ok, .created, .noContent:
                             return .success(Response(headerFields: headers))
+                        default:
+                            return .failure(.apiError(statusCode, Response(headerFields: headers), EsaError(error: statusCodeType.description)))
                         }
-                        return .failure(.doesNotExist)
                     }
         }
     }
 
     internal func fetchOne<T: Decodable>(_ endpoint: Endpoint) -> SignalProducer<(Response, T), Error> {
-        return request(endpoint, page: nil, pageSize: nil)
+        return request(endpoint)
             .attemptMap { response, JSON in
                 return decode(JSON)
                     .map { resource in
                         (response, resource)
                     }
                     .mapError(Error.jsonDecodingError)
-        }
+            }
     }
 
     internal func fetchMany<T: Decodable>(_ endpoint: Endpoint, page: UInt?, pageSize: UInt?) -> SignalProducer<(Response, T), Error> {
@@ -449,7 +447,9 @@ public final class EsaClient {
             }
     }
 
-    private func request(_ endpoint: Endpoint, page: UInt?, pageSize: UInt?) -> SignalProducer<(Response, Any), Error> {
+    // MARK: Private method
+
+    private func request(_ endpoint: Endpoint, page: UInt? = nil, pageSize: UInt? = nil) -> SignalProducer<(Response, Any), Error> {
         let url = URL(endpoint, page: page, pageSize: pageSize)
         let request = URLRequest.create(url, endpoint, credentials)
         return urlSession
@@ -458,23 +458,24 @@ public final class EsaClient {
             .mapError(Error.networkError)
             .flatMap(.concat) { data, response -> SignalProducer<(Response, Any), Error> in
                 let response = response as! HTTPURLResponse
+                let statusCode = response.statusCode
+                let statusCodeType = response.statusCodeType
                 let headers = response.allHeaderFields as! [String:String]
                 return SignalProducer
                     .attempt {
                         return JSONSerialization.deserializeJSON(data).mapError(Error.jsonDeserializationError)
                     }
                     .attemptMap { JSON in
-                        if response.statusCodeType == .notFound {
-                            return .failure(.doesNotExist)
-                        }
-                        if response.statusCodeType >= .badRequest && response.statusCodeType <= .tooManyRequests {
+                        switch statusCodeType {
+                        case .ok, .created, .noContent:
+                            return .success(JSON)
+                        default:
                             return decode(JSON)
                                 .mapError(Error.jsonDecodingError)
                                 .flatMap { error in
-                                    .failure(Error.apiError(response.statusCode, Response(headerFields: headers), error))
+                                    .failure(Error.apiError(statusCode, Response(headerFields: headers), error))
                                 }
                         }
-                        return .success(JSON)
                     }
                     .map { JSON in
                         return (Response(headerFields: headers), JSON)

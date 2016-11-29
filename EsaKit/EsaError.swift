@@ -11,13 +11,15 @@ import Himotoki
 
 /// An error from an esa.io API.
 public struct EsaError: CustomStringConvertible, Error {
+    public let error: String
     public let message: String
 
     public var description: String {
         return message
     }
 
-    public init(message: String) {
+    public init(error: String, message: String = "") {
+        self.error = error
         self.message = message
     }
 }
@@ -35,6 +37,7 @@ extension EsaError: Hashable {
 extension EsaError: Decodable {
     public static func decode(_ e: Extractor) throws -> EsaError {
         return try EsaError(
+            error: e <| "error",
             message: e <| "message"
         )
     }
