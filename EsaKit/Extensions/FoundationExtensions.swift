@@ -84,18 +84,18 @@ extension HTTPURLResponse {
         case internalServerError = 500
         case unknown = 0
 
-        var description: String {
+        internal var description: String {
             switch self {
-            case .ok: return "\(self.rawValue): Ok"
-            case .created: return "\(self.rawValue): Created"
-            case .noContent: return "\(self.rawValue): No content"
-            case .badRequest: return "\(self.rawValue): Bad request"
-            case .unauthorized: return "\(self.rawValue): Unauthorized"
-            case .forbidden: return "\(self.rawValue): Forbidden"
-            case .notFound: return "\(self.rawValue): Not found"
-            case .tooManyRequests: return "\(self.rawValue): Too many requests"
-            case .internalServerError: return "\(self.rawValue): Internal server error"
-            case .unknown: return "\(self.rawValue): Unknown"
+            case .ok: return "\(rawValue): Ok"
+            case .created: return "\(rawValue): Created"
+            case .noContent: return "\(rawValue): No content"
+            case .badRequest: return "\(rawValue): Bad request"
+            case .unauthorized: return "\(rawValue): Unauthorized"
+            case .forbidden: return "\(rawValue): Forbidden"
+            case .notFound: return "\(rawValue): Not found"
+            case .tooManyRequests: return "\(rawValue): Too many requests"
+            case .internalServerError: return "\(rawValue): Internal server error"
+            case .unknown: return "\(rawValue): Unknown"
             }
         }
 

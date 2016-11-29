@@ -16,7 +16,7 @@ public enum HTTPMethod: String {
     case patch = "PATCH"
     case delete = "DELETE"
 
-    public var isPrefersQueryParameters: Bool {
+    internal var isPrefersQueryParameters: Bool {
         switch self {
         case .get, .delete:
             return true
