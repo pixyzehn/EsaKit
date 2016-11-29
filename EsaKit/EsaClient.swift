@@ -389,7 +389,6 @@ public final class EsaClient {
             .mapError(Error.networkError)
             .flatMap(.concat) { _, response -> SignalProducer<Response, Error> in
                 let response = response as! HTTPURLResponse
-                let statusCode = response.statusCode
                 let statusCodeType = response.statusCodeType
                 let headers = response.allHeaderFields as! [String: String]
                 return SignalProducer
@@ -401,10 +400,10 @@ public final class EsaClient {
                         case .ok, .created, .noContent:
                             return .success(Response(headerFields: headers))
                         default:
-                            return .failure(.apiError(statusCode, Response(headerFields: headers), EsaError(error: statusCodeType.description)))
+                            return .failure(.apiError(response.statusCode, Response(headerFields: headers), EsaError(error: statusCodeType.description)))
                         }
                     }
-        }
+            }
     }
 
     internal func fetchOne<T: Decodable>(_ endpoint: Endpoint) -> SignalProducer<(Response, T), Error> {
@@ -440,7 +439,6 @@ public final class EsaClient {
             .mapError(Error.networkError)
             .flatMap(.concat) { data, response -> SignalProducer<(Response, Any), Error> in
                 let response = response as! HTTPURLResponse
-                let statusCode = response.statusCode
                 let statusCodeType = response.statusCodeType
                 let headers = response.allHeaderFields as! [String:String]
                 return SignalProducer
@@ -455,7 +453,7 @@ public final class EsaClient {
                             return decode(JSON)
                                 .mapError(Error.jsonDecodingError)
                                 .flatMap { error in
-                                    .failure(Error.apiError(statusCode, Response(headerFields: headers), error))
+                                    .failure(Error.apiError(response.statusCode, Response(headerFields: headers), error))
                                 }
                         }
                     }

@@ -24,16 +24,6 @@ public struct EsaError: CustomStringConvertible, Error {
     }
 }
 
-extension EsaError: Hashable {
-    public static func == (lhs: EsaError, rhs: EsaError) -> Bool {
-        return lhs.message == rhs.message
-    }
-
-    public var hashValue: Int {
-        return message.hashValue
-    }
-}
-
 extension EsaError: Decodable {
     public static func decode(_ e: Extractor) throws -> EsaError {
         return try EsaError(
