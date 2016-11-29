@@ -20,9 +20,9 @@ class ViewController: UIViewController {
         client.posts()
             .startWithResult { result in
                 switch result {
-                case let .success(response, posts):
+                case let .success(response, members):
                     print("\(response)\n") // => Response(xRateLimitLimit: 75, XRateLimitRemaining: 71)
-                    print("\(posts)")      // => Posts(posts: [EsaKit.Post(number: 11, name:...
+                    print("\(members)")    // => Memberss(members: [EsaKit.MemberUser(name:...
                 case let .failure(error):
                     print("An error occured: \(error)")
                 }
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             .startWithResult { result in
                 switch result {
                 case let .success(response, posts):
-                    print("\(response)\n") // => Response(xRateLimitLimit: 75, XRateLimitRemaining: 71)
+                    print("\(response)\n") // => Response(xRateLimitLimit: 75, XRateLimitRemaining: 70)
                     print("\(posts)")      // => Posts(posts: [EsaKit.Post(number: 11, name:...
                 case let .failure(error):
                     print("An error occured: \(error)")
