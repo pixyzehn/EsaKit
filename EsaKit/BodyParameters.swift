@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// A shorthand for body parameters in POST API.
 public struct PostParameters {
     public init(
         name: String,

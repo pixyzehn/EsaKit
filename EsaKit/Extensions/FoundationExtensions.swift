@@ -61,7 +61,7 @@ extension URLRequest {
             request.setValue(credentials.authorizationHeader, forHTTPHeaderField: "Authorization")
         }
 
-        if let bodyParameters = endpoint.bodyParameters, !endpoint.method.isPrefersQueryParameters {
+        if let bodyParameters = endpoint.bodyParameters, !endpoint.method.isPreferredQueryParameters {
             let data = try? JSONSerialization.data(withJSONObject: bodyParameters)
             request.httpBody = data
         }

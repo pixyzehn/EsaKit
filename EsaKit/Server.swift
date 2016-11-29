@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// An esa.io server.
 public struct Server: CustomStringConvertible {
     public var url: URL {
         return URL(string: "https://esa.io")!

@@ -27,5 +27,17 @@ class ViewController: UIViewController {
                     print("An error occured: \(error)")
                 }
         }
+
+        client.teamName = "other_your_team_name"
+        client.members()
+            .startWithResult { result in
+                switch result {
+                case let .success(response, posts):
+                    print("\(response)\n") // => Response(xRateLimitLimit: 75, XRateLimitRemaining: 71)
+                    print("\(posts)")      // => Posts(posts: [EsaKit.Post(number: 11, name:...
+                case let .failure(error):
+                    print("An error occured: \(error)")
+                }
+        }
     }
 }

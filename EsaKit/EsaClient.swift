@@ -24,7 +24,7 @@ public final class EsaClient {
         case unknownError
     }
 
-    /// Credentials for an esa.io API.
+    /// Credentials for the API.
     internal enum Credentials {
         case token(String)
 
@@ -36,7 +36,7 @@ public final class EsaClient {
         }
     }
 
-    /// The esa.io API endpoint.
+    /// An esa.io API endpoint.
     public enum Endpoint {
         /// - Team
         /// https://docs.esa.io/posts/102#4-0-0
@@ -105,56 +105,38 @@ public final class EsaClient {
         var method: HTTPMethod {
             switch self {
             /// - Team
-            case .teams, .team(_):
-                return .get
+            case .teams, .team(_): return .get
 
             /// - Stats
-            case .teamStats(_):
-                return .get
+            case .teamStats(_): return .get
 
             /// - Member
-            case .members(_):
-                return .get
+            case .members(_): return .get
 
             /// - Post
-            case .posts(_, _), .post(_, _):
-                return .get
-            case .createPost(_, _):
-                return .post
-            case .updatePost(_, _, _):
-                return .patch
-            case .deletePost(_, _):
-                return .delete
+            case .posts(_, _), .post(_, _): return .get
+            case .createPost(_, _): return .post
+            case .updatePost(_, _, _): return .patch
+            case .deletePost(_, _): return .delete
 
             /// - Comment
-            case .comments(_, _), .comment(_, _):
-                return .get
-            case .createComment(_, _, _):
-                return .post
-            case .updateComment(_, _, _):
-                return .patch
-            case .deleteComment(_, _):
-                return .delete
+            case .comments(_, _), .comment(_, _): return .get
+            case .createComment(_, _, _): return .post
+            case .updateComment(_, _, _): return .patch
+            case .deleteComment(_, _): return .delete
 
             /// - Star
-            case .stargazersInPost(_, _), .stargazersInComment(_, _):
-                return .get
-            case .addStarInPost(_, _, _), .addStarInComment(_, _, _):
-                return .post
-            case .removeStarInPost(_, _), .removeStarInComment(_, _):
-                return .delete
+            case .stargazersInPost(_, _), .stargazersInComment(_, _): return .get
+            case .addStarInPost(_, _, _), .addStarInComment(_, _, _): return .post
+            case .removeStarInPost(_, _), .removeStarInComment(_, _): return .delete
 
             /// - Watch
-            case .watchers(_, _):
-                return .get
-            case .addWatch(_, _):
-                return .post
-            case .removeWatch(_, _):
-                return .delete
+            case .watchers(_, _): return .get
+            case .addWatch(_, _): return .post
+            case .removeWatch(_, _): return .delete
 
             /// - User
-            case .user:
-                return .get
+            case .user: return .get
             }
         }
 
@@ -265,8 +247,8 @@ public final class EsaClient {
     /// The user-agent to use for API requests.
     public static var userAgent: String?
 
-    /// The team name for the API.
-    public let teamName: String
+    /// The team name for the API. You can change the name in the middle.
+    public var teamName: String
 
     /// Whether the Client is authenticated.
     public var authenticated: Bool {
@@ -329,7 +311,7 @@ public final class EsaClient {
     }
 
     public func deletePost(postNumber: Int) -> SignalProducer<Response, Error> {
-        return send(.deletePost(teamName: teamName, postNumber: postNumber))
+        return request(.deletePost(teamName: teamName, postNumber: postNumber))
     }
 
     /// - Comments
@@ -350,7 +332,7 @@ public final class EsaClient {
     }
 
     public func deleteCommet(commentId: Int) -> SignalProducer<Response, Error> {
-        return send(.deleteComment(teamName: teamName, commentId: commentId))
+        return request(.deleteComment(teamName: teamName, commentId: commentId))
     }
 
     /// - Star
@@ -359,11 +341,11 @@ public final class EsaClient {
     }
 
     public func addStar(postNumber: Int, body: String = "") -> SignalProducer<Response, Error> {
-        return send(.addStarInPost(teamName: teamName, postNumber: postNumber, body: body))
+        return request(.addStarInPost(teamName: teamName, postNumber: postNumber, body: body))
     }
 
     public func removeStar(postNumber: Int) -> SignalProducer<Response, Error> {
-        return send(.removeStarInPost(teamName: teamName, postNumber: postNumber))
+        return request(.removeStarInPost(teamName: teamName, postNumber: postNumber))
     }
 
     public func stargazers(commentId: Int, page: UInt = 1, pageSize: UInt = 20) -> SignalProducer<(Response, Stargazers), Error> {
@@ -371,11 +353,11 @@ public final class EsaClient {
     }
 
     public func addStar(commentId: Int, body: String = "") -> SignalProducer<Response, Error> {
-        return send(.addStarInComment(teamName: teamName, commentId: commentId, body: body))
+        return request(.addStarInComment(teamName: teamName, commentId: commentId, body: body))
     }
 
     public func removeStar(commentId: Int) -> SignalProducer<Response, Error> {
-        return send(.removeStarInComment(teamName: teamName, commentId: commentId))
+        return request(.removeStarInComment(teamName: teamName, commentId: commentId))
     }
 
     /// - Watch
@@ -384,11 +366,11 @@ public final class EsaClient {
     }
 
     public func addWatch(postNumber: Int) -> SignalProducer<Response, Error> {
-        return send(.addWatch(teamName: teamName, postNumber: postNumber))
+        return request(.addWatch(teamName: teamName, postNumber: postNumber))
     }
 
     public func removeWatch(postNumber: Int) -> SignalProducer<Response, Error> {
-        return send(.removeWatch(teamName: teamName, postNumber: postNumber))
+        return request(.removeWatch(teamName: teamName, postNumber: postNumber))
     }
 
     /// - User
@@ -398,7 +380,7 @@ public final class EsaClient {
 
     // MARK: Methods for the API request.
 
-    internal func send(_ endpoint: Endpoint) -> SignalProducer<Response, Error> {
+    internal func request(_ endpoint: Endpoint) -> SignalProducer<Response, Error> {
         let url = URL(endpoint)
         let request = URLRequest.create(url, endpoint, credentials)
         return urlSession
