@@ -542,7 +542,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/EsaKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = pixyzehn.EsaKit;
 				PRODUCT_NAME = EsaKit;
 				SDKROOT = macosx;
@@ -569,7 +569,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/EsaKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = pixyzehn.EsaKit;
 				PRODUCT_NAME = EsaKit;
 				SDKROOT = macosx;
@@ -629,7 +629,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/EsaKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pixyzehn.EsaKit;
 				PRODUCT_NAME = EsaKit;
@@ -653,7 +653,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/EsaKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pixyzehn.EsaKit;
 				PRODUCT_NAME = EsaKit;
