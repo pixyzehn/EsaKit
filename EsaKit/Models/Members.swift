@@ -28,3 +28,18 @@ public struct Members: Decodable {
         )
     }
 }
+
+extension Members: Hashable {
+    public static func ==(lhs: Members, rhs: Members) -> Bool {
+        return lhs.members == rhs.members
+            && lhs.page == rhs.page
+            && lhs.prevPage == rhs.prevPage
+            && lhs.nextPage == rhs.nextPage
+            && lhs.maxPerPage == rhs.maxPerPage
+            && lhs.totalCount == rhs.totalCount
+    }
+
+    public var hashValue: Int {
+        return page.hashValue
+    }
+}

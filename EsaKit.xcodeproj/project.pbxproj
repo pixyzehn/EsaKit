@@ -7,6 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E2F70AB1DF105D000744E17 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E34EC6E1DF07151002DC3CB /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E2F70AC1DF105D900744E17 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E34EC521DF06074002DC3CB /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E2F70AF1DF1060A00744E17 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E34EC541DF06077002DC3CB /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E2F70B01DF1061200744E17 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E34EC5A1DF060A1002DC3CB /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E2F70B11DF1061700744E17 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E34EC581DF060A1002DC3CB /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E2F70B21DF1061D00744E17 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E34EC591DF060A1002DC3CB /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E2F70B41DF19F5600744E17 /* Comment.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34EC9E1DF0F3A2002DC3CB /* Comment.json */; };
+		6E2F70B51DF19F5600744E17 /* Comments.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34EC9F1DF0F3A2002DC3CB /* Comments.json */; };
+		6E2F70B61DF19F5600744E17 /* Members.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA01DF0F3A2002DC3CB /* Members.json */; };
+		6E2F70B71DF19F5600744E17 /* MemberUser.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA11DF0F3A2002DC3CB /* MemberUser.json */; };
+		6E2F70B81DF19F5600744E17 /* Post.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA21DF0F3A2002DC3CB /* Post.json */; };
+		6E2F70B91DF19F5600744E17 /* Posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA31DF0F3A2002DC3CB /* Posts.json */; };
+		6E2F70BA1DF19F5600744E17 /* Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA41DF0F3A2002DC3CB /* Response.json */; };
+		6E2F70BB1DF19F5600744E17 /* Stargazers.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA51DF0F3A2002DC3CB /* Stargazers.json */; };
+		6E2F70BC1DF19F5600744E17 /* Stats.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA61DF0F3A2002DC3CB /* Stats.json */; };
+		6E2F70BD1DF19F5600744E17 /* Team.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA71DF0F3A2002DC3CB /* Team.json */; };
+		6E2F70BE1DF19F5600744E17 /* Teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA81DF0F3A2002DC3CB /* Teams.json */; };
+		6E2F70BF1DF19F5600744E17 /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA91DF0F3A2002DC3CB /* User.json */; };
+		6E2F70C01DF19F5600744E17 /* Watchers.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECAA1DF0F3A2002DC3CB /* Watchers.json */; };
+		6E34EC531DF06074002DC3CB /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E34EC521DF06074002DC3CB /* Nimble.framework */; };
+		6E34EC551DF06077002DC3CB /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E34EC541DF06077002DC3CB /* OHHTTPStubs.framework */; };
+		6E34EC5B1DF060A2002DC3CB /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E34EC581DF060A1002DC3CB /* Nimble.framework */; };
+		6E34EC5C1DF060A2002DC3CB /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E34EC591DF060A1002DC3CB /* OHHTTPStubs.framework */; };
+		6E34EC5D1DF060A2002DC3CB /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E34EC5A1DF060A1002DC3CB /* Quick.framework */; };
+		6E34EC6F1DF07151002DC3CB /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E34EC6E1DF07151002DC3CB /* Quick.framework */; };
+		6E34ECAB1DF0F3A2002DC3CB /* Comment.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34EC9E1DF0F3A2002DC3CB /* Comment.json */; };
+		6E34ECAC1DF0F3A2002DC3CB /* Comments.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34EC9F1DF0F3A2002DC3CB /* Comments.json */; };
+		6E34ECAD1DF0F3A2002DC3CB /* Members.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA01DF0F3A2002DC3CB /* Members.json */; };
+		6E34ECAE1DF0F3A2002DC3CB /* MemberUser.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA11DF0F3A2002DC3CB /* MemberUser.json */; };
+		6E34ECAF1DF0F3A2002DC3CB /* Post.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA21DF0F3A2002DC3CB /* Post.json */; };
+		6E34ECB01DF0F3A2002DC3CB /* Posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA31DF0F3A2002DC3CB /* Posts.json */; };
+		6E34ECB11DF0F3A2002DC3CB /* Response.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA41DF0F3A2002DC3CB /* Response.json */; };
+		6E34ECB21DF0F3A2002DC3CB /* Stargazers.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA51DF0F3A2002DC3CB /* Stargazers.json */; };
+		6E34ECB31DF0F3A2002DC3CB /* Stats.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA61DF0F3A2002DC3CB /* Stats.json */; };
+		6E34ECB41DF0F3A2002DC3CB /* Team.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA71DF0F3A2002DC3CB /* Team.json */; };
+		6E34ECB51DF0F3A2002DC3CB /* Teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA81DF0F3A2002DC3CB /* Teams.json */; };
+		6E34ECB61DF0F3A2002DC3CB /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA91DF0F3A2002DC3CB /* User.json */; };
+		6E34ECB71DF0F3A2002DC3CB /* Watchers.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECAA1DF0F3A2002DC3CB /* Watchers.json */; };
+		6E34ECDC1DF103A4002DC3CB /* CommentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECDA1DF103A4002DC3CB /* CommentsTests.swift */; };
+		6E34ECDD1DF103A4002DC3CB /* CommentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECDA1DF103A4002DC3CB /* CommentsTests.swift */; };
+		6E34ECDE1DF103A4002DC3CB /* CommentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECDB1DF103A4002DC3CB /* CommentTests.swift */; };
+		6E34ECDF1DF103A4002DC3CB /* CommentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECDB1DF103A4002DC3CB /* CommentTests.swift */; };
+		6E34ECEA1DF103AD002DC3CB /* MembersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE01DF103AD002DC3CB /* MembersTests.swift */; };
+		6E34ECEB1DF103AD002DC3CB /* MembersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE01DF103AD002DC3CB /* MembersTests.swift */; };
+		6E34ECEC1DF103AD002DC3CB /* PostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE11DF103AD002DC3CB /* PostsTests.swift */; };
+		6E34ECED1DF103AD002DC3CB /* PostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE11DF103AD002DC3CB /* PostsTests.swift */; };
+		6E34ECEE1DF103AD002DC3CB /* PostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE21DF103AD002DC3CB /* PostTests.swift */; };
+		6E34ECEF1DF103AD002DC3CB /* PostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE21DF103AD002DC3CB /* PostTests.swift */; };
+		6E34ECF01DF103AD002DC3CB /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE31DF103AD002DC3CB /* ResponseTests.swift */; };
+		6E34ECF11DF103AD002DC3CB /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE31DF103AD002DC3CB /* ResponseTests.swift */; };
+		6E34ECF21DF103AD002DC3CB /* StargazersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE41DF103AD002DC3CB /* StargazersTests.swift */; };
+		6E34ECF31DF103AD002DC3CB /* StargazersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE41DF103AD002DC3CB /* StargazersTests.swift */; };
+		6E34ECF41DF103AD002DC3CB /* StatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE51DF103AD002DC3CB /* StatsTests.swift */; };
+		6E34ECF51DF103AD002DC3CB /* StatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE51DF103AD002DC3CB /* StatsTests.swift */; };
+		6E34ECF61DF103AD002DC3CB /* TeamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE61DF103AD002DC3CB /* TeamsTests.swift */; };
+		6E34ECF71DF103AD002DC3CB /* TeamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE61DF103AD002DC3CB /* TeamsTests.swift */; };
+		6E34ECF81DF103AD002DC3CB /* TeamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE71DF103AD002DC3CB /* TeamTests.swift */; };
+		6E34ECF91DF103AD002DC3CB /* TeamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE71DF103AD002DC3CB /* TeamTests.swift */; };
+		6E34ECFA1DF103AD002DC3CB /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE81DF103AD002DC3CB /* UserTests.swift */; };
+		6E34ECFB1DF103AD002DC3CB /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE81DF103AD002DC3CB /* UserTests.swift */; };
+		6E34ECFC1DF103AD002DC3CB /* WatchersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE91DF103AD002DC3CB /* WatchersTests.swift */; };
+		6E34ECFD1DF103AD002DC3CB /* WatchersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E34ECE91DF103AD002DC3CB /* WatchersTests.swift */; };
 		6E4C89F11DE926A900A8B0B6 /* BodyParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C89F01DE926A900A8B0B6 /* BodyParameters.swift */; };
 		6E4C89F21DE926A900A8B0B6 /* BodyParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C89F01DE926A900A8B0B6 /* BodyParameters.swift */; };
 		6E4C8A041DE92EC900A8B0B6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4C89F41DE92EC900A8B0B6 /* Comment.swift */; };
@@ -84,11 +146,69 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6E34EC661DF0703F002DC3CB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6E2F70AF1DF1060A00744E17 /* OHHTTPStubs.framework in CopyFiles */,
+				6E2F70AC1DF105D900744E17 /* Nimble.framework in CopyFiles */,
+				6E2F70AB1DF105D000744E17 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E34EC671DF070B6002DC3CB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6E2F70B21DF1061D00744E17 /* OHHTTPStubs.framework in CopyFiles */,
+				6E2F70B11DF1061700744E17 /* Nimble.framework in CopyFiles */,
+				6E2F70B01DF1061200744E17 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6E130E8C1DDFF5EC00DA4F28 /* EsaClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EsaClient.swift; sourceTree = "<group>"; };
 		6E130EAC1DDFFF0600DA4F28 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		6E130F491DE1681800DA4F28 /* EsaKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EsaKitTests.swift; path = Tests/EsaKitTests.swift; sourceTree = SOURCE_ROOT; };
 		6E130F4A1DE1681800DA4F28 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
+		6E34EC521DF06074002DC3CB /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		6E34EC541DF06077002DC3CB /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		6E34EC581DF060A1002DC3CB /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
+		6E34EC591DF060A1002DC3CB /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/Mac/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		6E34EC5A1DF060A1002DC3CB /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		6E34EC6E1DF07151002DC3CB /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		6E34EC9E1DF0F3A2002DC3CB /* Comment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Comment.json; path = Tests/Fixtures/Comment.json; sourceTree = SOURCE_ROOT; };
+		6E34EC9F1DF0F3A2002DC3CB /* Comments.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Comments.json; path = Tests/Fixtures/Comments.json; sourceTree = SOURCE_ROOT; };
+		6E34ECA01DF0F3A2002DC3CB /* Members.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Members.json; path = Tests/Fixtures/Members.json; sourceTree = SOURCE_ROOT; };
+		6E34ECA11DF0F3A2002DC3CB /* MemberUser.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = MemberUser.json; path = Tests/Fixtures/MemberUser.json; sourceTree = SOURCE_ROOT; };
+		6E34ECA21DF0F3A2002DC3CB /* Post.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Post.json; path = Tests/Fixtures/Post.json; sourceTree = SOURCE_ROOT; };
+		6E34ECA31DF0F3A2002DC3CB /* Posts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Posts.json; path = Tests/Fixtures/Posts.json; sourceTree = SOURCE_ROOT; };
+		6E34ECA41DF0F3A2002DC3CB /* Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Response.json; path = Tests/Fixtures/Response.json; sourceTree = SOURCE_ROOT; };
+		6E34ECA51DF0F3A2002DC3CB /* Stargazers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Stargazers.json; path = Tests/Fixtures/Stargazers.json; sourceTree = SOURCE_ROOT; };
+		6E34ECA61DF0F3A2002DC3CB /* Stats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Stats.json; path = Tests/Fixtures/Stats.json; sourceTree = SOURCE_ROOT; };
+		6E34ECA71DF0F3A2002DC3CB /* Team.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Team.json; path = Tests/Fixtures/Team.json; sourceTree = SOURCE_ROOT; };
+		6E34ECA81DF0F3A2002DC3CB /* Teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Teams.json; path = Tests/Fixtures/Teams.json; sourceTree = SOURCE_ROOT; };
+		6E34ECA91DF0F3A2002DC3CB /* User.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = User.json; path = Tests/Fixtures/User.json; sourceTree = SOURCE_ROOT; };
+		6E34ECAA1DF0F3A2002DC3CB /* Watchers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Watchers.json; path = Tests/Fixtures/Watchers.json; sourceTree = SOURCE_ROOT; };
+		6E34ECDA1DF103A4002DC3CB /* CommentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentsTests.swift; path = Tests/CommentsTests.swift; sourceTree = SOURCE_ROOT; };
+		6E34ECDB1DF103A4002DC3CB /* CommentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentTests.swift; path = Tests/CommentTests.swift; sourceTree = SOURCE_ROOT; };
+		6E34ECE01DF103AD002DC3CB /* MembersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MembersTests.swift; path = Tests/MembersTests.swift; sourceTree = SOURCE_ROOT; };
+		6E34ECE11DF103AD002DC3CB /* PostsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsTests.swift; path = Tests/PostsTests.swift; sourceTree = SOURCE_ROOT; };
+		6E34ECE21DF103AD002DC3CB /* PostTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostTests.swift; path = Tests/PostTests.swift; sourceTree = SOURCE_ROOT; };
+		6E34ECE31DF103AD002DC3CB /* ResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResponseTests.swift; path = Tests/ResponseTests.swift; sourceTree = SOURCE_ROOT; };
+		6E34ECE41DF103AD002DC3CB /* StargazersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StargazersTests.swift; path = Tests/StargazersTests.swift; sourceTree = SOURCE_ROOT; };
+		6E34ECE51DF103AD002DC3CB /* StatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsTests.swift; path = Tests/StatsTests.swift; sourceTree = SOURCE_ROOT; };
+		6E34ECE61DF103AD002DC3CB /* TeamsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamsTests.swift; path = Tests/TeamsTests.swift; sourceTree = SOURCE_ROOT; };
+		6E34ECE71DF103AD002DC3CB /* TeamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamTests.swift; path = Tests/TeamTests.swift; sourceTree = SOURCE_ROOT; };
+		6E34ECE81DF103AD002DC3CB /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTests.swift; path = Tests/UserTests.swift; sourceTree = SOURCE_ROOT; };
+		6E34ECE91DF103AD002DC3CB /* WatchersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchersTests.swift; path = Tests/WatchersTests.swift; sourceTree = SOURCE_ROOT; };
 		6E4C89F01DE926A900A8B0B6 /* BodyParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyParameters.swift; sourceTree = "<group>"; };
 		6E4C89F41DE92EC900A8B0B6 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		6E4C89F51DE92EC900A8B0B6 /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
@@ -140,6 +260,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E6D065A1DE31D580071FFA9 /* EsaKit.framework in Frameworks */,
+				6E34EC5B1DF060A2002DC3CB /* Nimble.framework in Frameworks */,
+				6E34EC5C1DF060A2002DC3CB /* OHHTTPStubs.framework in Frameworks */,
+				6E34EC5D1DF060A2002DC3CB /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +281,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E6D06781DE322CA0071FFA9 /* EsaKit.framework in Frameworks */,
+				6E34EC531DF06074002DC3CB /* Nimble.framework in Frameworks */,
+				6E34EC551DF06077002DC3CB /* OHHTTPStubs.framework in Frameworks */,
+				6E34EC6F1DF07151002DC3CB /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +293,12 @@
 		6E130E721DDFE98A00DA4F28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E34EC6E1DF07151002DC3CB /* Quick.framework */,
+				6E34EC581DF060A1002DC3CB /* Nimble.framework */,
+				6E34EC591DF060A1002DC3CB /* OHHTTPStubs.framework */,
+				6E34EC5A1DF060A1002DC3CB /* Quick.framework */,
+				6E34EC541DF06077002DC3CB /* OHHTTPStubs.framework */,
+				6E34EC521DF06074002DC3CB /* Nimble.framework */,
 				6E6D06B61DE412C80071FFA9 /* Himotoki.framework */,
 				6E6D06B41DE412AE0071FFA9 /* Himotoki.framework */,
 				6E6D06AA1DE3CB050071FFA9 /* ReactiveSwift.framework */,
@@ -175,6 +307,26 @@
 				6E6D06961DE348270071FFA9 /* Result.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6E34EC641DF067A4002DC3CB /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				6E34EC9E1DF0F3A2002DC3CB /* Comment.json */,
+				6E34EC9F1DF0F3A2002DC3CB /* Comments.json */,
+				6E34ECA01DF0F3A2002DC3CB /* Members.json */,
+				6E34ECA11DF0F3A2002DC3CB /* MemberUser.json */,
+				6E34ECA21DF0F3A2002DC3CB /* Post.json */,
+				6E34ECA31DF0F3A2002DC3CB /* Posts.json */,
+				6E34ECA41DF0F3A2002DC3CB /* Response.json */,
+				6E34ECA51DF0F3A2002DC3CB /* Stargazers.json */,
+				6E34ECA61DF0F3A2002DC3CB /* Stats.json */,
+				6E34ECA71DF0F3A2002DC3CB /* Team.json */,
+				6E34ECA81DF0F3A2002DC3CB /* Teams.json */,
+				6E34ECA91DF0F3A2002DC3CB /* User.json */,
+				6E34ECAA1DF0F3A2002DC3CB /* Watchers.json */,
+			);
+			name = Fixtures;
 			sourceTree = "<group>";
 		};
 		6E4C89F31DE92EC900A8B0B6 /* Models */ = {
@@ -249,8 +401,21 @@
 		6EA5D05F1DDDF33C00D3713C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6E130F491DE1681800DA4F28 /* EsaKitTests.swift */,
+				6E34ECDA1DF103A4002DC3CB /* CommentsTests.swift */,
+				6E34ECDB1DF103A4002DC3CB /* CommentTests.swift */,
+				6E34ECE01DF103AD002DC3CB /* MembersTests.swift */,
+				6E34ECE11DF103AD002DC3CB /* PostsTests.swift */,
+				6E34ECE21DF103AD002DC3CB /* PostTests.swift */,
+				6E34ECE31DF103AD002DC3CB /* ResponseTests.swift */,
+				6E34ECE41DF103AD002DC3CB /* StargazersTests.swift */,
+				6E34ECE51DF103AD002DC3CB /* StatsTests.swift */,
+				6E34ECE61DF103AD002DC3CB /* TeamsTests.swift */,
+				6E34ECE71DF103AD002DC3CB /* TeamTests.swift */,
+				6E34ECE81DF103AD002DC3CB /* UserTests.swift */,
+				6E34ECE91DF103AD002DC3CB /* WatchersTests.swift */,
 				6E130F4A1DE1681800DA4F28 /* Info.plist */,
+				6E34EC641DF067A4002DC3CB /* Fixtures */,
+				6E130F491DE1681800DA4F28 /* EsaKitTests.swift */,
 			);
 			name = Tests;
 			path = EsaKitTests;
@@ -302,6 +467,8 @@
 			buildPhases = (
 				6E6D06551DE31D580071FFA9 /* Sources */,
 				6E6D06561DE31D580071FFA9 /* Frameworks */,
+				6E34EC671DF070B6002DC3CB /* CopyFiles */,
+				6E2F70B31DF19F4F00744E17 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -337,6 +504,8 @@
 			buildPhases = (
 				6E6D06731DE322CA0071FFA9 /* Sources */,
 				6E6D06741DE322CA0071FFA9 /* Frameworks */,
+				6E34EC661DF0703F002DC3CB /* CopyFiles */,
+				6E34EC7C1DF0DDC6002DC3CB /* Resources */,
 			);
 			buildRules = (
 			);
@@ -399,6 +568,49 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E2F70B31DF19F4F00744E17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E2F70B41DF19F5600744E17 /* Comment.json in Resources */,
+				6E2F70B51DF19F5600744E17 /* Comments.json in Resources */,
+				6E2F70B61DF19F5600744E17 /* Members.json in Resources */,
+				6E2F70B71DF19F5600744E17 /* MemberUser.json in Resources */,
+				6E2F70B81DF19F5600744E17 /* Post.json in Resources */,
+				6E2F70B91DF19F5600744E17 /* Posts.json in Resources */,
+				6E2F70BA1DF19F5600744E17 /* Response.json in Resources */,
+				6E2F70BB1DF19F5600744E17 /* Stargazers.json in Resources */,
+				6E2F70BC1DF19F5600744E17 /* Stats.json in Resources */,
+				6E2F70BD1DF19F5600744E17 /* Team.json in Resources */,
+				6E2F70BE1DF19F5600744E17 /* Teams.json in Resources */,
+				6E2F70BF1DF19F5600744E17 /* User.json in Resources */,
+				6E2F70C01DF19F5600744E17 /* Watchers.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E34EC7C1DF0DDC6002DC3CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E34ECAB1DF0F3A2002DC3CB /* Comment.json in Resources */,
+				6E34ECB01DF0F3A2002DC3CB /* Posts.json in Resources */,
+				6E34ECB71DF0F3A2002DC3CB /* Watchers.json in Resources */,
+				6E34ECAC1DF0F3A2002DC3CB /* Comments.json in Resources */,
+				6E34ECAF1DF0F3A2002DC3CB /* Post.json in Resources */,
+				6E34ECB61DF0F3A2002DC3CB /* User.json in Resources */,
+				6E34ECB41DF0F3A2002DC3CB /* Team.json in Resources */,
+				6E34ECB11DF0F3A2002DC3CB /* Response.json in Resources */,
+				6E34ECB21DF0F3A2002DC3CB /* Stargazers.json in Resources */,
+				6E34ECAE1DF0F3A2002DC3CB /* MemberUser.json in Resources */,
+				6E34ECB31DF0F3A2002DC3CB /* Stats.json in Resources */,
+				6E34ECAD1DF0F3A2002DC3CB /* Members.json in Resources */,
+				6E34ECB51DF0F3A2002DC3CB /* Teams.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		6E4C8A341DEAAD1900A8B0B6 /* Run SwiftLint */ = {
@@ -466,7 +678,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E34ECFB1DF103AD002DC3CB /* UserTests.swift in Sources */,
 				6E6D06881DE3256C0071FFA9 /* EsaKitTests.swift in Sources */,
+				6E34ECF31DF103AD002DC3CB /* StargazersTests.swift in Sources */,
+				6E34ECDF1DF103A4002DC3CB /* CommentTests.swift in Sources */,
+				6E34ECF91DF103AD002DC3CB /* TeamTests.swift in Sources */,
+				6E34ECED1DF103AD002DC3CB /* PostsTests.swift in Sources */,
+				6E34ECFD1DF103AD002DC3CB /* WatchersTests.swift in Sources */,
+				6E34ECF71DF103AD002DC3CB /* TeamsTests.swift in Sources */,
+				6E34ECF51DF103AD002DC3CB /* StatsTests.swift in Sources */,
+				6E34ECF11DF103AD002DC3CB /* ResponseTests.swift in Sources */,
+				6E34ECDD1DF103A4002DC3CB /* CommentsTests.swift in Sources */,
+				6E34ECEB1DF103AD002DC3CB /* MembersTests.swift in Sources */,
+				6E34ECEF1DF103AD002DC3CB /* PostTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +728,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E34ECFA1DF103AD002DC3CB /* UserTests.swift in Sources */,
 				6E6D06891DE3256D0071FFA9 /* EsaKitTests.swift in Sources */,
+				6E34ECF21DF103AD002DC3CB /* StargazersTests.swift in Sources */,
+				6E34ECDE1DF103A4002DC3CB /* CommentTests.swift in Sources */,
+				6E34ECF81DF103AD002DC3CB /* TeamTests.swift in Sources */,
+				6E34ECEC1DF103AD002DC3CB /* PostsTests.swift in Sources */,
+				6E34ECFC1DF103AD002DC3CB /* WatchersTests.swift in Sources */,
+				6E34ECF61DF103AD002DC3CB /* TeamsTests.swift in Sources */,
+				6E34ECF41DF103AD002DC3CB /* StatsTests.swift in Sources */,
+				6E34ECF01DF103AD002DC3CB /* ResponseTests.swift in Sources */,
+				6E34ECDC1DF103A4002DC3CB /* CommentsTests.swift in Sources */,
+				6E34ECEA1DF103AD002DC3CB /* MembersTests.swift in Sources */,
+				6E34ECEE1DF103AD002DC3CB /* PostTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +821,10 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XP5N783SQH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -603,6 +843,10 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XP5N783SQH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -667,6 +911,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = XP5N783SQH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -681,6 +929,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = XP5N783SQH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

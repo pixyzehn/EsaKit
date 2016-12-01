@@ -30,3 +30,19 @@ public struct User: Decodable {
         )
     }
 }
+
+extension User: Hashable {
+    public static func ==(lhs: User, rhs: User) -> Bool {
+        return lhs.id == rhs.id
+            && lhs.name == rhs.name
+            && lhs.screenName == rhs.screenName
+            && lhs.createdAt == rhs.createdAt
+            && lhs.updatedAt == rhs.updatedAt
+            && lhs.icon == rhs.icon
+            && lhs.email == rhs.email
+    }
+
+    public var hashValue: Int {
+        return id.hashValue
+    }
+}

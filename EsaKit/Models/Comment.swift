@@ -34,3 +34,21 @@ public struct Comment: Decodable {
         )
     }
 }
+
+extension Comment: Hashable {
+    public static func ==(lhs: Comment, rhs: Comment) -> Bool {
+        return lhs.id == rhs.id
+            && lhs.bodyMd == rhs.bodyMd
+            && lhs.bodyHTML == rhs.bodyHTML
+            && lhs.createdAt == rhs.createdAt
+            && lhs.updatedAt == rhs.updatedAt
+            && lhs.url == rhs.url
+            && lhs.createdBy == rhs.createdBy
+            && lhs.stargazersCount == rhs.stargazersCount
+            && lhs.star == rhs.star
+    }
+
+    public var hashValue: Int {
+        return id.hashValue
+    }
+}

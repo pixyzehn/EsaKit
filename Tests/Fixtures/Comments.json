@@ -1,0 +1,25 @@
+{
+  "comments": [
+    {
+      "id": 1,
+      "body_md": "This is a comment.",
+      "body_html": "<p>This is a comment.</p>",
+      "created_at": "2014-05-13T16:17:42+09:00",
+      "updated_at": "2014-05-18T23:02:29+09:00",
+      "url": "https://docs.esa.io/posts/13#comment-13",
+      "created_by": {
+        "name": "Nagasawa Hiroki",
+        "screen_name": "hiroki_nagasawa",
+        "icon": "https://img.esa.io/uploads/production/users/7823/icon/thumb_m_515f07fb32acee87474905b96cdc3c15.jpg"
+      },
+      "stargazers_count": 0,
+      "star": false
+    }
+  ],
+  "prev_page": null,
+  "next_page": 2,
+  "total_count": 30,
+  "page": 1,
+  "per_page": 20,
+  "max_per_page": 100
+}

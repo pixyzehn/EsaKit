@@ -14,6 +14,7 @@ public struct Posts: Decodable {
     public let page: UInt
     public let prevPage: UInt?
     public let nextPage: UInt?
+    public let perPage: UInt?
     public let maxPerPage: UInt
     public let totalCount: UInt
 
@@ -23,8 +24,25 @@ public struct Posts: Decodable {
             page: e <| "page",
             prevPage: e <|? "prev_page",
             nextPage: e <|? "next_page",
+            perPage: e <|? "per_page",
             maxPerPage: e <| "max_per_page",
             totalCount: e <| "total_count"
         )
+    }
+}
+
+extension Posts: Hashable {
+    public static func == (lhs: Posts, rhs: Posts) -> Bool {
+        return lhs.posts == rhs.posts
+            && lhs.page == rhs.page
+            && lhs.prevPage == rhs.prevPage
+            && lhs.nextPage == rhs.nextPage
+            && lhs.perPage == rhs.perPage
+            && lhs.maxPerPage == rhs.maxPerPage
+            && lhs.totalCount == rhs.totalCount
+    }
+
+    public var hashValue: Int {
+        return page.hashValue
     }
 }
