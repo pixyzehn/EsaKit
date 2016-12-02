@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let client = EsaClient(token: "your_token", teamName: "your_team_name")
+        let client = EsaClient(token: "your_token", teamName: "your_team")
         client.posts()
             .startWithResult { result in
                 switch result {

@@ -2,6 +2,7 @@ included:
   - EsaKit
 disabled_rules:
   - force_cast
+  - operator_whitespace
 line_length:
   warning: 180
 type_body_length:

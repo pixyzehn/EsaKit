@@ -1,0 +1,24 @@
+{
+  "members": [
+    {
+      "name": "Nagasawa Hiroki",
+      "screen_name": "hiroki_nagasawa",
+      "icon": "https://img.esa.io/uploads/production/users/7823/icon/thumb_m_515f07fb32acee87474905b96cdc3c15.jpg",
+      "email": "pixyzehn@gmail.com",
+      "posts_count": 222
+    },
+    {
+      "name": "NAGASAWA HIROKI",
+      "screen_name": "pixyzehn",
+      "icon": "https://img.esa.io/uploads/production/users/7823/icon/thumb_m_515f07fb32acee87474905b96cdc3c15.jpg",
+      "email": "pixyzehn+1@gmail.com",
+      "posts_count": 111
+    }
+  ],
+  "prev_page": null,
+  "next_page": 2,
+  "total_count": 30,
+  "page": 1,
+  "per_page": 20,
+  "max_per_page": 100
+}

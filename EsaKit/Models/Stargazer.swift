@@ -22,3 +22,15 @@ public struct Stargazer: Decodable {
         )
     }
 }
+
+extension Stargazer: Hashable {
+    public static func ==(lhs: Stargazer, rhs: Stargazer) -> Bool {
+        return lhs.user == rhs.user
+            && lhs.createdAt == rhs.createdAt
+            && lhs.body == rhs.body
+    }
+
+    public var hashValue: Int {
+        return user.name.hashValue
+    }
+}

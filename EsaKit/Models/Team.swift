@@ -26,3 +26,18 @@ public struct Team: Decodable {
         )
     }
 }
+
+extension Team: Hashable {
+    public static func ==(lhs: Team, rhs: Team) -> Bool {
+        return lhs.name == rhs.name
+            && lhs.privacy == rhs.privacy
+            && lhs.url == rhs.url
+            && lhs.description == rhs.description
+            && lhs.icon == rhs.icon
+            && lhs.url == rhs.url
+    }
+
+    public var hashValue: Int {
+        return name.hashValue
+    }
+}

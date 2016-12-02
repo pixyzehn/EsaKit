@@ -28,3 +28,18 @@ public struct Watchers: Decodable {
         )
     }
 }
+
+extension Watchers: Hashable {
+    public static func ==(lhs: Watchers, rhs: Watchers) -> Bool {
+        return lhs.watchers == rhs.watchers
+            && lhs.page == rhs.page
+            && lhs.prevPage == rhs.prevPage
+            && lhs.nextPage == rhs.nextPage
+            && lhs.maxPerPage == rhs.maxPerPage
+            && lhs.totalCount == rhs.totalCount
+    }
+
+    public var hashValue: Int {
+        return page.hashValue
+    }
+}
