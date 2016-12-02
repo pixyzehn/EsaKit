@@ -11,8 +11,8 @@ xcode_workspace: EsaKit.xcworkspace
 matrix:
   include:
     - xcode_scheme: EsaKit-iOS
-      env: XCODE_ACTION="build-for-testing test-without-building"
+      env: XCODE_ACTION="build-for-testing test"
       osx_image: xcode8.1
     - xcode_scheme: EsaKit-OSX
-      env: XCODE_ACTION="build-for-testing test-without-building"
+      env: XCODE_ACTION="build-for-testing test"
       osx_image: xcode8.1
