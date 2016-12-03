@@ -78,7 +78,7 @@ client.members()
 client.posts()
 // #=> GET /v1/teams/[your_team_name]/posts
 
-client.posts(query: 'in:help')
+client.posts(query: "in:help")
 // #=> GET /v1/teams/[your_team_name]/posts?q=in%3Ahelp
 
 client.post(postNumber: 1)
@@ -101,10 +101,10 @@ client.comments(postNumber: 1)
 client.comment(commentId: 123)
 // #=> GET /v1/teams/[your_team_name]/comments/123
 
-client.createComment(postNumber, bodyMd: 'baz')
+client.createComment(postNumber, bodyMd: "baz")
 // #=> POST /v1/teams/[your_team_name]/posts/1/comments
 
-client.updateComment(commentId, bodyMd: 'bazbaz')
+client.updateComment(commentId, bodyMd: "bazbaz")
 // #=> PATCH /v1/teams/[your_team_name]/comments/123
 
 client.delete_comment(commentId)
