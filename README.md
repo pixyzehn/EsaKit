@@ -50,6 +50,10 @@ EsaKit requires / supports the following environments:
 - Insert `pod 'EsaKit'` to your Podfile.
 - Run `pod install`.
 
+#### [Swift Package Manager](https://github.com/apple/swift-package-manager)
+
+- Add EsaKit as a dependency of your package in `Package.swift`. `.Package(url: "https://github.com/pixyzehn/EsaKit.git", "0.2.0")`
+
 ## Usage
 
 ```swift
