@@ -53,91 +53,99 @@ EsaKit requires / supports the following environments:
 ## Usage
 
 ```swift
-# Initialization
+// Initialization
 let client = EsaClient(token: "your_token", teamName: "your_team_name")
 
-# Team API
+
+// Team API
 client.teams()
-#=> GET /v1/teams
+// #=> GET /v1/teams
 
 client.team()
-#=> GET /v1/teams/[your_team_name]
+// #=> GET /v1/teams/[your_team_name]
 
-# Stats API
+
+// Stats API
 client.stats()
-#=> GET /v1/teams/[your_team_name]/stats
+// #=> GET /v1/teams/[your_team_name]/stats
 
-# Member API
+
+// Member API
 client.members()
-#=> GET /v1/teams/[your_team_name]/members
+// #=> GET /v1/teams/[your_team_name]/members
 
-# Post API
+
+// Post API
 client.posts()
-#=> GET /v1/teams/[your_team_name]/posts
+// #=> GET /v1/teams/[your_team_name]/posts
 
 client.posts(query: 'in:help')
-#=> GET /v1/teams/[your_team_name]/posts?q=in%3Ahelp
+// #=> GET /v1/teams/[your_team_name]/posts?q=in%3Ahelp
 
 client.post(postNumber: 1)
-#=> GET /v1/teams/[your_team_name]/posts/1
+// #=> GET /v1/teams/[your_team_name]/posts/1
 
 client.createPost(parameters: PostParameters(name: "title"))
-#=> POST /v1/teams/[your_team_name]/posts
+// #=> POST /v1/teams/[your_team_name]/posts
 
 client.updatePost(postNumber: 1, parameters: PostParameters(name: "other_title"))
-#=> PATCH /v1/teams/[your_team_name]/posts/1
+// #=> PATCH /v1/teams/[your_team_name]/posts/1
 
 client.deletePost(postNumber: 1)
-#=> DELETE /v1/teams/[your_team_name]/posts/1
+// #=> DELETE /v1/teams/[your_team_name]/posts/1
 
-# Comment API
+
+// Comment API
 client.comments(postNumber: 1)
-#=> GET /v1/teams/[your_team_name]/posts/1/comments
+// #=> GET /v1/teams/[your_team_name]/posts/1/comments
 
 client.comment(commentId: 123)
-#=> GET /v1/teams/[your_team_name]/comments/123
+// #=> GET /v1/teams/[your_team_name]/comments/123
 
 client.createComment(postNumber, bodyMd: 'baz')
-#=> POST /v1/teams/[your_team_name]/posts/1/comments
+// #=> POST /v1/teams/[your_team_name]/posts/1/comments
 
 client.updateComment(commentId, bodyMd: 'bazbaz')
-#=> PATCH /v1/teams/[your_team_name]/comments/123
+// #=> PATCH /v1/teams/[your_team_name]/comments/123
 
 client.delete_comment(commentId)
-#=> DELETE /v1/teams/[your_team_name]/comments/123
+// #=> DELETE /v1/teams/[your_team_name]/comments/123
 
-# Star API
+
+// Star API
 client.stargazersInPost(postNumber: 1)
-#=> GET /v1/teams/[your_team_name]/posts/1/stargazers
+// #=> GET /v1/teams/[your_team_name]/posts/1/stargazers
 
 client.addStarInPost(postNumber: 1)
-#=> POST /v1/teams/[your_team_name]/posts/1/star
+// #=> POST /v1/teams/[your_team_name]/posts/1/star
 
 client.removeStarInPost(postNumber: 1)
-#=> DELETE /v1/teams/[your_team_name]/posts/1/star
+// #=> DELETE /v1/teams/[your_team_name]/posts/1/star
 
 client.stargazersInComment(commentId: 123)
-#=> GET /v1/teams/[your_team_name]/comments/123/stargazers
+// #=> GET /v1/teams/[your_team_name]/comments/123/stargazers
 
 client.addStarInComment(commentId: 123)
-#=> POST /v1/teams/[your_team_name]/comments/123/star
+// #=> POST /v1/teams/[your_team_name]/comments/123/star
 
 client.removeStarInComment(commentId: 123)
-#=> DELETE /v1/teams/[your_team_name]/comments/123/star
+// #=> DELETE /v1/teams/[your_team_name]/comments/123/star
 
-# Watch API
+
+// Watch API
 client.watchers(postNumber: 1)
-#=> GET /v1/teams/[your_team_name]/posts/1/watchers
+// #=> GET /v1/teams/[your_team_name]/posts/1/watchers
 
 client.addWatch(postNumber: 1)
-#=> POST /v1/teams/[your_team_name]/posts/1/watch
+// #=> POST /v1/teams/[your_team_name]/posts/1/watch
 
 client.removeWatch(postNumber: 1)
-#=> DELETE /v1/teams/[your_team_name]/posts/1/watch
+// #=> DELETE /v1/teams/[your_team_name]/posts/1/watch
 
-# Authenticated User API
+
+// Authenticated User API
 client.user()
-#=> GET /v1/user
+// #=> GET /v1/user
 ```
 
 ## Contributing
