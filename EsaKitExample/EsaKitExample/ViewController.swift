@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let client = EsaClient(token: "your_token", teamName: "your_team")
-        client.posts()
+        client.members()
             .startWithResult { result in
                 switch result {
                 case let .success(response, members):
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         }
 
         client.teamName = "other_your_team_name"
-        client.members()
+        client.posts()
             .startWithResult { result in
                 switch result {
                 case let .success(response, posts):
