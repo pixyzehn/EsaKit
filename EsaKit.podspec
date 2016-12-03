@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
 
   s.source = { :git => "https://github.com/pixyzehn/EsaKit.git", :tag => "#{s.version}" }
   s.source_files  = "EsaKit/**/*.{swift,h,m}"
+  s.requires_arc = true
 
   s.dependency 'Himotoki', '~> 3.0'
   s.dependency 'ReactiveSwift', '~> 1.0.0-alpha.4'

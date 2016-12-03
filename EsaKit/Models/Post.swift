@@ -64,33 +64,35 @@ public struct Post: Decodable {
 }
 
 extension Post: Hashable {
-    public static func == (lhs: Post, rhs: Post) -> Bool {
+    public static func ==(lhs: Post, rhs: Post) -> Bool {
+        // NOTE: If you use all paramters, xcodebuild fails.
+        // It needs more investigation.
         return lhs.number == rhs.number
             && lhs.name == rhs.name
             && lhs.fullName == rhs.fullName
             && lhs.wip == rhs.wip
-            && lhs.bodyMd == rhs.bodyMd
-            && lhs.bodyHTML == rhs.bodyHTML
-            && lhs.createdAt == rhs.createdAt
-            && lhs.updatedAt == rhs.updatedAt
-            && lhs.message == rhs.message
-            && lhs.url == rhs.url
-            && lhs.tags == rhs.tags
-            && lhs.category == rhs.category
-            && lhs.revisionNumber == rhs.revisionNumber
-            && lhs.createdBy == rhs.createdBy
-            && lhs.updatedBy == rhs.updatedBy
-            && lhs.kind == rhs.kind
-            && lhs.commentsCount == rhs.commentsCount
-            && lhs.tasksCount == rhs.tasksCount
-            && lhs.doneTasksCount == rhs.doneTasksCount
-            && lhs.stargazersCount == rhs.stargazersCount
-            && lhs.watchersCount == rhs.watchersCount
-            && lhs.star == rhs.star
-            && lhs.watch == rhs.watch
+//            && lhs.bodyMd == rhs.bodyMd
+//            && lhs.bodyHTML == rhs.bodyHTML
+//            && lhs.createdAt == rhs.createdAt
+//            && lhs.updatedAt == rhs.updatedAt
+//            && lhs.message == rhs.message
+//            && lhs.url == rhs.url
+//            && lhs.tags == rhs.tags
+//            && lhs.category == rhs.category
+//            && lhs.revisionNumber == rhs.revisionNumber
+//            && lhs.createdBy == rhs.createdBy
+//            && lhs.updatedBy == rhs.updatedBy
+//            && lhs.kind == rhs.kind
+//            && lhs.commentsCount == rhs.commentsCount
+//            && lhs.tasksCount == rhs.tasksCount
+//            && lhs.doneTasksCount == rhs.doneTasksCount
+//            && lhs.stargazersCount == rhs.stargazersCount
+//            && lhs.watchersCount == rhs.watchersCount
+//            && lhs.star == rhs.star
+//            && lhs.watch == rhs.watch
     }
 
     public var hashValue: Int {
-        return number.hashValue
+        return name.hashValue
     }
 }
