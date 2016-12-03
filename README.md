@@ -35,7 +35,7 @@ EsaKit requires / supports the following environments:
 
 - Swift 3.0 / Xcode 8.1
 - OS X 10.10 or later
-- iOS 8.0 or later
+- iOS 9.0 or later
 
 ## Installation
 
