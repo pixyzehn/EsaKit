@@ -26,7 +26,7 @@ class PostTests: QuickSpec {
                 OHHTTPStubs.removeAllStubs()
             }
 
-            it("when a response is expected response") {
+            it("when a response is an expected response") {
                 let expected = Post(
                     number: 5,
                     name: "hi!",

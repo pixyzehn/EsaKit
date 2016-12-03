@@ -26,7 +26,7 @@ class WatchersTests: QuickSpec {
                 OHHTTPStubs.removeAllStubs()
             }
 
-            it("when a response is expected response") {
+            it("when a response is an expected response") {
                 let watcher = Watcher(
                     user: MinimumUser(name: "Hiroki Nagasawa", screenName: "hiroki_nagasawa", icon: URL(string: "https://img.esa.io/uploads/production/users/7823/icon/thumb_m_515f07fb32acee87474905b96cdc3c15.jpg")!),
                     createdAt: DateFormatter.iso8601.date(from: "2016-05-05T11:40:53+09:00")!
