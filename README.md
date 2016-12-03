@@ -56,7 +56,6 @@ EsaKit requires / supports the following environments:
 // Initialization
 let client = EsaClient(token: "your_token", teamName: "your_team_name")
 
-
 // Team API
 client.teams()
 // #=> GET /v1/teams
