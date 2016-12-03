@@ -26,7 +26,7 @@ class MembersTests: QuickSpec {
                 OHHTTPStubs.removeAllStubs()
             }
 
-            it("when a response is expected response") {
+            it("when a response is an expected response") {
                 let member1 = MemberUser(
                     name: "Nagasawa Hiroki",
                     screenName: "hiroki_nagasawa",

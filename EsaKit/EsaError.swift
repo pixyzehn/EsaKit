@@ -32,3 +32,14 @@ extension EsaError: Decodable {
         )
     }
 }
+
+extension EsaError: Hashable {
+    public static func ==(lhs: EsaError, rhs: EsaError) -> Bool {
+        return lhs.error == rhs.error
+            && lhs.message == rhs.message
+    }
+
+    public var hashValue: Int {
+        return error.hashValue
+    }
+}

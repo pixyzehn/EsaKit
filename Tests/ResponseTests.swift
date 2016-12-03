@@ -26,7 +26,7 @@ class ResponseTests: QuickSpec {
                 OHHTTPStubs.removeAllStubs()
             }
 
-            it("when a response is expected response") {
+            it("when a response is an expected response") {
                 let expected = Response(xRateLimitLimit: 75, XRateLimitRemaining: 74)
 
                 waitUntil { done in

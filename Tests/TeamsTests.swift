@@ -26,7 +26,7 @@ class TeamsTests: QuickSpec {
                 OHHTTPStubs.removeAllStubs()
             }
 
-            it("when a response is expected response") {
+            it("when a response is an expected response") {
                 let team = Team(
                     name: "docs",
                     privacy: "open",

@@ -26,6 +26,12 @@
 		6E2F70BE1DF19F5600744E17 /* Teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA81DF0F3A2002DC3CB /* Teams.json */; };
 		6E2F70BF1DF19F5600744E17 /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECA91DF0F3A2002DC3CB /* User.json */; };
 		6E2F70C01DF19F5600744E17 /* Watchers.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E34ECAA1DF0F3A2002DC3CB /* Watchers.json */; };
+		6E2F70C41DF2522400744E17 /* EsaErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2F70C11DF2521D00744E17 /* EsaErrorTests.swift */; };
+		6E2F70C51DF2522500744E17 /* EsaErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2F70C11DF2521D00744E17 /* EsaErrorTests.swift */; };
+		6E2F70C71DF2524E00744E17 /* ServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2F70C61DF2524E00744E17 /* ServerTests.swift */; };
+		6E2F70C81DF2524E00744E17 /* ServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2F70C61DF2524E00744E17 /* ServerTests.swift */; };
+		6E2F70CD1DF2599100744E17 /* Error.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F70CC1DF2599100744E17 /* Error.json */; };
+		6E2F70CE1DF2599100744E17 /* Error.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F70CC1DF2599100744E17 /* Error.json */; };
 		6E34EC531DF06074002DC3CB /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E34EC521DF06074002DC3CB /* Nimble.framework */; };
 		6E34EC551DF06077002DC3CB /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E34EC541DF06077002DC3CB /* OHHTTPStubs.framework */; };
 		6E34EC5B1DF060A2002DC3CB /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E34EC581DF060A1002DC3CB /* Nimble.framework */; };
@@ -111,8 +117,6 @@
 		6E6D06781DE322CA0071FFA9 /* EsaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D066F1DE322CA0071FFA9 /* EsaKit.framework */; };
 		6E6D06861DE323150071FFA9 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E130EAC1DDFFF0600DA4F28 /* Server.swift */; };
 		6E6D06871DE323190071FFA9 /* EsaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E130E8C1DDFF5EC00DA4F28 /* EsaClient.swift */; };
-		6E6D06881DE3256C0071FFA9 /* EsaKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E130F491DE1681800DA4F28 /* EsaKitTests.swift */; };
-		6E6D06891DE3256D0071FFA9 /* EsaKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E130F491DE1681800DA4F28 /* EsaKitTests.swift */; };
 		6E6D068F1DE345690071FFA9 /* EsaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EA5D0551DDDF33C00D3713C /* EsaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E6D06921DE3469A0071FFA9 /* EsaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EA5D0551DDDF33C00D3713C /* EsaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E6D069A1DE348270071FFA9 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06951DE348270071FFA9 /* ReactiveSwift.framework */; };
@@ -176,8 +180,10 @@
 /* Begin PBXFileReference section */
 		6E130E8C1DDFF5EC00DA4F28 /* EsaClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EsaClient.swift; sourceTree = "<group>"; };
 		6E130EAC1DDFFF0600DA4F28 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
-		6E130F491DE1681800DA4F28 /* EsaKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EsaKitTests.swift; path = Tests/EsaKitTests.swift; sourceTree = SOURCE_ROOT; };
 		6E130F4A1DE1681800DA4F28 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
+		6E2F70C11DF2521D00744E17 /* EsaErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EsaErrorTests.swift; path = Carthage/Build/iOS/EsaErrorTests.swift; sourceTree = SOURCE_ROOT; };
+		6E2F70C61DF2524E00744E17 /* ServerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServerTests.swift; path = Carthage/Build/iOS/ServerTests.swift; sourceTree = SOURCE_ROOT; };
+		6E2F70CC1DF2599100744E17 /* Error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Error.json; path = Tests/Fixtures/Error.json; sourceTree = SOURCE_ROOT; };
 		6E34EC521DF06074002DC3CB /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		6E34EC541DF06077002DC3CB /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		6E34EC581DF060A1002DC3CB /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
@@ -325,6 +331,7 @@
 				6E34ECA81DF0F3A2002DC3CB /* Teams.json */,
 				6E34ECA91DF0F3A2002DC3CB /* User.json */,
 				6E34ECAA1DF0F3A2002DC3CB /* Watchers.json */,
+				6E2F70CC1DF2599100744E17 /* Error.json */,
 			);
 			name = Fixtures;
 			sourceTree = "<group>";
@@ -413,9 +420,10 @@
 				6E34ECE71DF103AD002DC3CB /* TeamTests.swift */,
 				6E34ECE81DF103AD002DC3CB /* UserTests.swift */,
 				6E34ECE91DF103AD002DC3CB /* WatchersTests.swift */,
+				6E2F70C11DF2521D00744E17 /* EsaErrorTests.swift */,
+				6E2F70C61DF2524E00744E17 /* ServerTests.swift */,
 				6E130F4A1DE1681800DA4F28 /* Info.plist */,
 				6E34EC641DF067A4002DC3CB /* Fixtures */,
-				6E130F491DE1681800DA4F28 /* EsaKitTests.swift */,
 			);
 			name = Tests;
 			path = EsaKitTests;
@@ -584,6 +592,7 @@
 				6E2F70BB1DF19F5600744E17 /* Stargazers.json in Resources */,
 				6E2F70BC1DF19F5600744E17 /* Stats.json in Resources */,
 				6E2F70BD1DF19F5600744E17 /* Team.json in Resources */,
+				6E2F70CE1DF2599100744E17 /* Error.json in Resources */,
 				6E2F70BE1DF19F5600744E17 /* Teams.json in Resources */,
 				6E2F70BF1DF19F5600744E17 /* User.json in Resources */,
 				6E2F70C01DF19F5600744E17 /* Watchers.json in Resources */,
@@ -604,6 +613,7 @@
 				6E34ECB11DF0F3A2002DC3CB /* Response.json in Resources */,
 				6E34ECB21DF0F3A2002DC3CB /* Stargazers.json in Resources */,
 				6E34ECAE1DF0F3A2002DC3CB /* MemberUser.json in Resources */,
+				6E2F70CD1DF2599100744E17 /* Error.json in Resources */,
 				6E34ECB31DF0F3A2002DC3CB /* Stats.json in Resources */,
 				6E34ECAD1DF0F3A2002DC3CB /* Members.json in Resources */,
 				6E34ECB51DF0F3A2002DC3CB /* Teams.json in Resources */,
@@ -679,11 +689,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E34ECFB1DF103AD002DC3CB /* UserTests.swift in Sources */,
-				6E6D06881DE3256C0071FFA9 /* EsaKitTests.swift in Sources */,
 				6E34ECF31DF103AD002DC3CB /* StargazersTests.swift in Sources */,
 				6E34ECDF1DF103A4002DC3CB /* CommentTests.swift in Sources */,
 				6E34ECF91DF103AD002DC3CB /* TeamTests.swift in Sources */,
 				6E34ECED1DF103AD002DC3CB /* PostsTests.swift in Sources */,
+				6E2F70C51DF2522500744E17 /* EsaErrorTests.swift in Sources */,
+				6E2F70C81DF2524E00744E17 /* ServerTests.swift in Sources */,
 				6E34ECFD1DF103AD002DC3CB /* WatchersTests.swift in Sources */,
 				6E34ECF71DF103AD002DC3CB /* TeamsTests.swift in Sources */,
 				6E34ECF51DF103AD002DC3CB /* StatsTests.swift in Sources */,
@@ -729,11 +740,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E34ECFA1DF103AD002DC3CB /* UserTests.swift in Sources */,
-				6E6D06891DE3256D0071FFA9 /* EsaKitTests.swift in Sources */,
 				6E34ECF21DF103AD002DC3CB /* StargazersTests.swift in Sources */,
 				6E34ECDE1DF103A4002DC3CB /* CommentTests.swift in Sources */,
 				6E34ECF81DF103AD002DC3CB /* TeamTests.swift in Sources */,
 				6E34ECEC1DF103AD002DC3CB /* PostsTests.swift in Sources */,
+				6E2F70C41DF2522400744E17 /* EsaErrorTests.swift in Sources */,
+				6E2F70C71DF2524E00744E17 /* ServerTests.swift in Sources */,
 				6E34ECFC1DF103AD002DC3CB /* WatchersTests.swift in Sources */,
 				6E34ECF61DF103AD002DC3CB /* TeamsTests.swift in Sources */,
 				6E34ECF41DF103AD002DC3CB /* StatsTests.swift in Sources */,
