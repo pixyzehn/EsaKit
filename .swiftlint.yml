@@ -1,5 +1,5 @@
 included:
-  - EsaKit
+  - Sources
 disabled_rules:
   - force_cast
   - operator_whitespace

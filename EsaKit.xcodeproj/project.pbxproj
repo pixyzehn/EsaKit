@@ -89,8 +89,8 @@
 		6EE856781DF31F8900A2C5AF /* EsaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8565A1DF31F8900A2C5AF /* EsaClient.swift */; };
 		6EE856791DF31F8900A2C5AF /* EsaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8565B1DF31F8900A2C5AF /* EsaError.swift */; };
 		6EE8567A1DF31F8900A2C5AF /* EsaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8565B1DF31F8900A2C5AF /* EsaError.swift */; };
-		6EE8567B1DF31F8900A2C5AF /* EsaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE8565C1DF31F8900A2C5AF /* EsaKit.h */; };
-		6EE8567C1DF31F8900A2C5AF /* EsaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE8565C1DF31F8900A2C5AF /* EsaKit.h */; };
+		6EE8567B1DF31F8900A2C5AF /* EsaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE8565C1DF31F8900A2C5AF /* EsaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6EE8567C1DF31F8900A2C5AF /* EsaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE8565C1DF31F8900A2C5AF /* EsaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EE8567D1DF31F8900A2C5AF /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8565E1DF31F8900A2C5AF /* FoundationExtensions.swift */; };
 		6EE8567E1DF31F8900A2C5AF /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8565E1DF31F8900A2C5AF /* FoundationExtensions.swift */; };
 		6EE8567F1DF31F8900A2C5AF /* HimotokiExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8565F1DF31F8900A2C5AF /* HimotokiExtensions.swift */; };
