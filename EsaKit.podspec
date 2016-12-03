@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "EsaKit"
-  s.version      = "0.1.2"
+  s.version      = "0.1.3"
   s.summary      = "A Swift framework for the esa.io API."
   s.homepage     = "https://github.com/pixyzehn/EsaKit"
   s.license      = "MIT"
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.10"
 
   s.source = { :git => "https://github.com/pixyzehn/EsaKit.git", :tag => "#{s.version}" }
-  s.source_files  = "EsaKit/**/*.{swift,h,m}"
+  s.source_files  = "Sources/**/*.{swift,h,m}"
   s.requires_arc = true
 
   s.dependency 'Himotoki', '~> 3.0'
