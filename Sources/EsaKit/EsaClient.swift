@@ -228,7 +228,7 @@ public final class EsaClient {
                         "tags": parameters.tags,
                         "category": parameters.category ?? "",
                         "wip": parameters.wip,
-                        "message": parameters.message,
+                        "message": parameters.message
                     ]
                 ]
             case let .createComment(_, _, bodyMd), let .updateComment(_, _, bodyMd):
