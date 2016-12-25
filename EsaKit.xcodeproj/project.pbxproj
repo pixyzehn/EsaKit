@@ -53,8 +53,6 @@
 		6E3820441DF3858000B074C1 /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E3820171DF3858000B074C1 /* User.json */; };
 		6E3820451DF3858000B074C1 /* Watchers.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E3820181DF3858000B074C1 /* Watchers.json */; };
 		6E3820461DF3858000B074C1 /* Watchers.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E3820181DF3858000B074C1 /* Watchers.json */; };
-		6E3820471DF3858000B074C1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E3820191DF3858000B074C1 /* Info.plist */; };
-		6E3820481DF3858000B074C1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E3820191DF3858000B074C1 /* Info.plist */; };
 		6E3820491DF3858000B074C1 /* MembersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E38201A1DF3858000B074C1 /* MembersTests.swift */; };
 		6E38204A1DF3858000B074C1 /* MembersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E38201A1DF3858000B074C1 /* MembersTests.swift */; };
 		6E38204B1DF3858000B074C1 /* PostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E38201B1DF3858000B074C1 /* PostsTests.swift */; };
@@ -551,7 +549,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = pixyzehn;
 				TargetAttributes = {
 					6E6D06501DE31D580071FFA9 = {
@@ -607,7 +605,6 @@
 				6E3820421DF3858000B074C1 /* Teams.json in Resources */,
 				6E38203E1DF3858000B074C1 /* Stats.json in Resources */,
 				6E38202C1DF3858000B074C1 /* Comment.json in Resources */,
-				6E3820481DF3858000B074C1 /* Info.plist in Resources */,
 				6E3820361DF3858000B074C1 /* Post.json in Resources */,
 				6E38203A1DF3858000B074C1 /* Response.json in Resources */,
 				6E3820461DF3858000B074C1 /* Watchers.json in Resources */,
@@ -629,7 +626,6 @@
 				6E3820411DF3858000B074C1 /* Teams.json in Resources */,
 				6E38203D1DF3858000B074C1 /* Stats.json in Resources */,
 				6E38202B1DF3858000B074C1 /* Comment.json in Resources */,
-				6E3820471DF3858000B074C1 /* Info.plist in Resources */,
 				6E3820351DF3858000B074C1 /* Post.json in Resources */,
 				6E3820391DF3858000B074C1 /* Response.json in Resources */,
 				6E3820451DF3858000B074C1 /* Watchers.json in Resources */,
@@ -794,7 +790,7 @@
 		6E6D06631DE31D580071FFA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -821,7 +817,7 @@
 		6E6D06641DE31D580071FFA9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
