@@ -56,6 +56,8 @@ EsaKit requires / supports the following environments:
 
 ## Usage
 
+Read the [docs](https://pixyzehn.com/EsaKit/). Generated with [jazzy](https://github.com/realm/jazzy).
+
 ```swift
 // Initialization
 let client = EsaClient(token: "your_token", teamName: "your_team_name")
