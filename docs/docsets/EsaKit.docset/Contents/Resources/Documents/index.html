@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EsaKit  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="EsaKit  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">EsaKit Docs</a> (35% documented)</p>
+        <p class="header-right"><a href="https://github.com/pixyzehn/EsaKit"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">EsaKit Reference</a>
+        <img id="carat" src="img/carat.png" />
+        EsaKit  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/EsaClient.html">EsaClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/EsaClient/Error.html">– Error</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/EsaClient/Endpoint.html">– Endpoint</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/Comment.html">Comment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Comments.html">Comments</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/EsaError.html">EsaError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MemberUser.html">MemberUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Members.html">Members</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MinimumUser.html">MinimumUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Post.html">Post</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/PostParameters.html">PostParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Posts.html">Posts</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Response.html">Response</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Server.html">Server</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Stargazer.html">Stargazer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Stargazers.html">Stargazers</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Stats.html">Stats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Team.html">Team</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Teams.html">Teams</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Watcher.html">Watcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Watchers.html">Watchers</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <a href='#esakit-a-href-https-raw-githubusercontent-com-pixyzehn-esakit-master-license-md-img-src-https-img-shields-io-badge-license-mit-lightgrey-svg-alt-mit-license-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='esakit-a-href-https-raw-githubusercontent-com-pixyzehn-esakit-master-license-md-img-src-https-img-shields-io-badge-license-mit-lightgrey-svg-alt-mit-license-a'>EsaKit <a href="https://raw.githubusercontent.com/pixyzehn/EsaKit/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="MIT license"></a></h1>
+
+<p>A Swift framework for the esa.io API</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">client</span> <span class="o">=</span> <span class="kt">EsaClient</span><span class="p">(</span><span class="nv">token</span><span class="p">:</span> <span class="s">"your_token"</span><span class="p">,</span> <span class="nv">teamName</span><span class="p">:</span> <span class="s">"your_team_name"</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="nf">members</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">startWithResult</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+        <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">members</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">response</span><span class="se">)</span><span class="s">"</span><span class="p">)</span> <span class="c1">// =&gt; Response(xRateLimitLimit: 75, XRateLimitRemaining: 71)</span>
+            <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">members</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>  <span class="c1">// =&gt; Memberss(members: [EsaKit.MemberUser(name:...</span>
+        <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="s">"An error occured: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">teamName</span> <span class="o">=</span> <span class="s">"other_your_team_name"</span>
+<span class="n">client</span><span class="o">.</span><span class="nf">posts</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">startWithResult</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+        <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">posts</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">response</span><span class="se">)</span><span class="s">"</span><span class="p">)</span> <span class="c1">// =&gt; Response(xRateLimitLimit: 75, XRateLimitRemaining: 70)</span>
+            <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">posts</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>    <span class="c1">// =&gt; Posts(posts: [EsaKit.Post(number: 11, name:...</span>
+        <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+            <span class="nf">print</span><span class="p">(</span><span class="s">"An error occured: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+
+<p>EsaKit is build with <a href="https://github.com/ReactiveCocoa/ReactiveSwift">ReactiveSwift</a> and <a href="https://github.com/ikesyo/Himotoki">Himotoki</a>.</p>
+<a href='#requirements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='requirements'>Requirements</h2>
+
+<p>EsaKit requires / supports the following environments:</p>
+
+<ul>
+<li>Swift 3.0 / Xcode 8.1</li>
+<li>OS X 10.10 or later</li>
+<li>iOS 9.0 or later</li>
+</ul>
+<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
+<a href='#a-href-https-github-com-carthage-carthage-carthage-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='a-href-https-github-com-carthage-carthage-carthage-a'><a href="https://github.com/Carthage/Carthage">Carthage</a></h4>
+
+<ul>
+<li>Insert <code>github &quot;pixyzehn/EsaKit&quot;</code> to your Cartfile.</li>
+<li>Run <code>carthage update</code>.</li>
+<li>Link your app with <code>EsaKit.framework</code>, <code>Himotoki.framework</code>, <code>ReactiveSwift.framework</code> and <code>Result.framework</code> in <code>Carthage/Build</code>.</li>
+</ul>
+<a href='#a-href-https-github-com-cocoapods-cocoapods-cocoapods-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='a-href-https-github-com-cocoapods-cocoapods-cocoapods-a'><a href="https://github.com/cocoapods/cocoapods">CocoaPods</a></h4>
+
+<ul>
+<li>Insert <code>pod &#39;EsaKit&#39;</code> to your Podfile.</li>
+<li>Run <code>pod install</code>.</li>
+</ul>
+<a href='#a-href-https-github-com-apple-swift-package-manager-swift-package-manager-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='a-href-https-github-com-apple-swift-package-manager-swift-package-manager-a'><a href="https://github.com/apple/swift-package-manager">Swift Package Manager</a></h4>
+
+<ul>
+<li>Add EsaKit as a dependency of your package in <code>Package.swift</code>. <code>.Package(url: &quot;https://github.com/pixyzehn/EsaKit.git&quot;, &quot;0.2.0&quot;)</code></li>
+</ul>
+<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
+<pre class="highlight swift"><code><span class="c1">// Initialization</span>
+<span class="k">let</span> <span class="nv">client</span> <span class="o">=</span> <span class="kt">EsaClient</span><span class="p">(</span><span class="nv">token</span><span class="p">:</span> <span class="s">"your_token"</span><span class="p">,</span> <span class="nv">teamName</span><span class="p">:</span> <span class="s">"your_team_name"</span><span class="p">)</span>
+
+<span class="c1">// Team API</span>
+<span class="n">client</span><span class="o">.</span><span class="nf">teams</span><span class="p">()</span>
+<span class="c1">// #=&gt; GET /v1/teams</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">team</span><span class="p">()</span>
+<span class="c1">// #=&gt; GET /v1/teams/[your_team_name]</span>
+
+
+<span class="c1">// Stats API</span>
+<span class="n">client</span><span class="o">.</span><span class="nf">stats</span><span class="p">()</span>
+<span class="c1">// #=&gt; GET /v1/teams/[your_team_name]/stats</span>
+
+
+<span class="c1">// Member API</span>
+<span class="n">client</span><span class="o">.</span><span class="nf">members</span><span class="p">()</span>
+<span class="c1">// #=&gt; GET /v1/teams/[your_team_name]/members</span>
+
+
+<span class="c1">// Post API</span>
+<span class="n">client</span><span class="o">.</span><span class="nf">posts</span><span class="p">()</span>
+<span class="c1">// #=&gt; GET /v1/teams/[your_team_name]/posts</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">posts</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="s">"in:help"</span><span class="p">)</span>
+<span class="c1">// #=&gt; GET /v1/teams/[your_team_name]/posts?q=in%3Ahelp</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">post</span><span class="p">(</span><span class="nv">postNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">// #=&gt; GET /v1/teams/[your_team_name]/posts/1</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">createPost</span><span class="p">(</span><span class="nv">parameters</span><span class="p">:</span> <span class="kt">PostParameters</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"title"</span><span class="p">))</span>
+<span class="c1">// #=&gt; POST /v1/teams/[your_team_name]/posts</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">updatePost</span><span class="p">(</span><span class="nv">postNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt">PostParameters</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"other_title"</span><span class="p">))</span>
+<span class="c1">// #=&gt; PATCH /v1/teams/[your_team_name]/posts/1</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">deletePost</span><span class="p">(</span><span class="nv">postNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">// #=&gt; DELETE /v1/teams/[your_team_name]/posts/1</span>
+
+
+<span class="c1">// Comment API</span>
+<span class="n">client</span><span class="o">.</span><span class="nf">comments</span><span class="p">(</span><span class="nv">postNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">// #=&gt; GET /v1/teams/[your_team_name]/posts/1/comments</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">comment</span><span class="p">(</span><span class="nv">commentId</span><span class="p">:</span> <span class="mi">123</span><span class="p">)</span>
+<span class="c1">// #=&gt; GET /v1/teams/[your_team_name]/comments/123</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">createComment</span><span class="p">(</span><span class="n">postNumber</span><span class="p">,</span> <span class="nv">bodyMd</span><span class="p">:</span> <span class="s">"baz"</span><span class="p">)</span>
+<span class="c1">// #=&gt; POST /v1/teams/[your_team_name]/posts/1/comments</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">updateComment</span><span class="p">(</span><span class="n">commentId</span><span class="p">,</span> <span class="nv">bodyMd</span><span class="p">:</span> <span class="s">"bazbaz"</span><span class="p">)</span>
+<span class="c1">// #=&gt; PATCH /v1/teams/[your_team_name]/comments/123</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">delete_comment</span><span class="p">(</span><span class="n">commentId</span><span class="p">)</span>
+<span class="c1">// #=&gt; DELETE /v1/teams/[your_team_name]/comments/123</span>
+
+
+<span class="c1">// Star API</span>
+<span class="n">client</span><span class="o">.</span><span class="nf">stargazersInPost</span><span class="p">(</span><span class="nv">postNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">// #=&gt; GET /v1/teams/[your_team_name]/posts/1/stargazers</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">addStarInPost</span><span class="p">(</span><span class="nv">postNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">// #=&gt; POST /v1/teams/[your_team_name]/posts/1/star</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">removeStarInPost</span><span class="p">(</span><span class="nv">postNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">// #=&gt; DELETE /v1/teams/[your_team_name]/posts/1/star</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">stargazersInComment</span><span class="p">(</span><span class="nv">commentId</span><span class="p">:</span> <span class="mi">123</span><span class="p">)</span>
+<span class="c1">// #=&gt; GET /v1/teams/[your_team_name]/comments/123/stargazers</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">addStarInComment</span><span class="p">(</span><span class="nv">commentId</span><span class="p">:</span> <span class="mi">123</span><span class="p">)</span>
+<span class="c1">// #=&gt; POST /v1/teams/[your_team_name]/comments/123/star</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">removeStarInComment</span><span class="p">(</span><span class="nv">commentId</span><span class="p">:</span> <span class="mi">123</span><span class="p">)</span>
+<span class="c1">// #=&gt; DELETE /v1/teams/[your_team_name]/comments/123/star</span>
+
+
+<span class="c1">// Watch API</span>
+<span class="n">client</span><span class="o">.</span><span class="nf">watchers</span><span class="p">(</span><span class="nv">postNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">// #=&gt; GET /v1/teams/[your_team_name]/posts/1/watchers</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">addWatch</span><span class="p">(</span><span class="nv">postNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">// #=&gt; POST /v1/teams/[your_team_name]/posts/1/watch</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">removeWatch</span><span class="p">(</span><span class="nv">postNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">// #=&gt; DELETE /v1/teams/[your_team_name]/posts/1/watch</span>
+
+
+<span class="c1">// Authenticated User API</span>
+<span class="n">client</span><span class="o">.</span><span class="nf">user</span><span class="p">()</span>
+<span class="c1">// #=&gt; GET /v1/user</span>
+</code></pre>
+<a href='#contributing' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='contributing'>Contributing</h2>
+
+<ol>
+<li>Fork it ( <a href="https://github.com/pixyzehn/EsaKit">https://github.com/pixyzehn/EsaKit</a> )</li>
+<li>Create your feature branch (<code>git checkout -b new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am &#39;Add some feature&#39;</code>)</li>
+<li>Push to the branch (<code>git push origin new-feature</code>)</li>
+<li>Create a new Pull Request</li>
+</ol>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://twitter.com/pixyzehn" target="_blank" rel="external">pixyzehn</a>. All rights reserved. (Last updated: 2017-01-15)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
