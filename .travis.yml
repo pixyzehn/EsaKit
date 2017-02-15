@@ -1,12 +1,17 @@
 language: objective-c
+
+rvm:
+  - 2.3.0
+
 notifications:
   email: false
 before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
+  - gem install bundler
 before_script:
   - carthage bootstrap --use-submodules --platform iOS,macOS
-  - bundle exec danger
+  - bundle exec danger --verbose
 script: script/cibuild "$TRAVIS_XCODE_WORKSPACE" "$TRAVIS_XCODE_SCHEME" "$XCODE_ACTION" | xcpretty --color
 xcode_workspace: EsaKit.xcworkspace
 matrix:
