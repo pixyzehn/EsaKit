@@ -1,7 +1,5 @@
 language: objective-c
-
-rvm:
-  - 2.3.0
+rvm: 2.3.0
 
 notifications:
   email: false
