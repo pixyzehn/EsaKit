@@ -22,7 +22,7 @@ public struct Watcher: Decodable {
 }
 
 extension Watcher: Hashable {
-    public static func ==(lhs: Watcher, rhs: Watcher) -> Bool {
+    public static func == (lhs: Watcher, rhs: Watcher) -> Bool {
         return lhs.user == rhs.user
             && lhs.createdAt == rhs.createdAt
     }

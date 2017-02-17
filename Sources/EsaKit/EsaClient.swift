@@ -12,6 +12,7 @@ import ReactiveSwift
 import Result
 
 /// An esa.io API Client.
+// swiftlint:disable type_body_length line_length file_length
 public final class EsaClient {
 
     /// An error from the Client.
@@ -380,6 +381,7 @@ public final class EsaClient {
 
     // MARK: Methods for the API request.
 
+    // swiftlint:disable force_cast
     internal func request(_ endpoint: Endpoint) -> SignalProducer<Response, Error> {
         let url = URL(endpoint)
         let request = URLRequest.create(url, endpoint, credentials)
@@ -400,7 +402,10 @@ public final class EsaClient {
                         case .ok, .created, .noContent:
                             return .success(Response(headerFields: headers))
                         default:
-                            return .failure(.apiError(response.statusCode, Response(headerFields: headers), EsaError(error: statusCodeType.description)))
+                            return .failure(.apiError(
+                                response.statusCode, Response(headerFields: headers),
+                                EsaError(error: statusCodeType.description
+                            )))
                         }
                     }
             }

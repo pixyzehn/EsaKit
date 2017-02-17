@@ -30,7 +30,7 @@ public struct Comments: Decodable {
 }
 
 extension Comments: Hashable {
-    public static func ==(lhs: Comments, rhs: Comments) -> Bool {
+    public static func == (lhs: Comments, rhs: Comments) -> Bool {
         return lhs.comments == rhs.comments
             && lhs.page == rhs.page
             && lhs.prevPage == rhs.prevPage

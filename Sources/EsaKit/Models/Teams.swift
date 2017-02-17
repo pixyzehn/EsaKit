@@ -30,7 +30,7 @@ public struct Teams: Decodable {
 }
 
 extension Teams: Hashable {
-    public static func ==(lhs: Teams, rhs: Teams) -> Bool {
+    public static func == (lhs: Teams, rhs: Teams) -> Bool {
         return lhs.teams == rhs.teams
             && lhs.page == rhs.page
             && lhs.prevPage == rhs.prevPage

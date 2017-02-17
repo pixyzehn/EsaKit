@@ -28,7 +28,7 @@ public struct Team: Decodable {
 }
 
 extension Team: Hashable {
-    public static func ==(lhs: Team, rhs: Team) -> Bool {
+    public static func == (lhs: Team, rhs: Team) -> Bool {
         return lhs.name == rhs.name
             && lhs.privacy == rhs.privacy
             && lhs.url == rhs.url

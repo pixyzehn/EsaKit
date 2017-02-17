@@ -30,7 +30,7 @@ public struct Watchers: Decodable {
 }
 
 extension Watchers: Hashable {
-    public static func ==(lhs: Watchers, rhs: Watchers) -> Bool {
+    public static func == (lhs: Watchers, rhs: Watchers) -> Bool {
         return lhs.watchers == rhs.watchers
             && lhs.page == rhs.page
             && lhs.prevPage == rhs.prevPage

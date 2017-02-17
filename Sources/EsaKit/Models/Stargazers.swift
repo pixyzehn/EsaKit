@@ -30,7 +30,7 @@ public struct Stargazers: Decodable {
 }
 
 extension Stargazers: Hashable {
-    public static func ==(lhs: Stargazers, rhs: Stargazers) -> Bool {
+    public static func == (lhs: Stargazers, rhs: Stargazers) -> Bool {
         return lhs.stargazers == rhs.stargazers
             && lhs.page == rhs.page
             && lhs.prevPage == rhs.prevPage

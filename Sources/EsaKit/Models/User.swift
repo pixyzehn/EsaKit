@@ -32,7 +32,7 @@ public struct User: Decodable {
 }
 
 extension User: Hashable {
-    public static func ==(lhs: User, rhs: User) -> Bool {
+    public static func == (lhs: User, rhs: User) -> Bool {
         return lhs.id == rhs.id
             && lhs.name == rhs.name
             && lhs.screenName == rhs.screenName

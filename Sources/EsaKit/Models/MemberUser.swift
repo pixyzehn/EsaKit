@@ -28,7 +28,7 @@ public struct MemberUser: Decodable {
 }
 
 extension MemberUser: Hashable {
-    public static func ==(lhs: MemberUser, rhs: MemberUser) -> Bool {
+    public static func == (lhs: MemberUser, rhs: MemberUser) -> Bool {
         return lhs.name == rhs.name
             && lhs.screenName == rhs.screenName
             && lhs.icon == rhs.icon

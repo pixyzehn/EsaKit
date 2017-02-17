@@ -36,7 +36,7 @@ public struct Comment: Decodable {
 }
 
 extension Comment: Hashable {
-    public static func ==(lhs: Comment, rhs: Comment) -> Bool {
+    public static func == (lhs: Comment, rhs: Comment) -> Bool {
         return lhs.id == rhs.id
             && lhs.bodyMd == rhs.bodyMd
             && lhs.bodyHTML == rhs.bodyHTML

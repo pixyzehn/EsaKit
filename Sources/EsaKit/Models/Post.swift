@@ -64,7 +64,7 @@ public struct Post: Decodable {
 }
 
 extension Post: Hashable {
-    public static func ==(lhs: Post, rhs: Post) -> Bool {
+    public static func == (lhs: Post, rhs: Post) -> Bool {
         // NOTE: If you use all paramters, xcodebuild fails.
         // It needs more investigation.
         return lhs.number == rhs.number

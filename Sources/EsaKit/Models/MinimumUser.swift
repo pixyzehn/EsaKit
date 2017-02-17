@@ -24,7 +24,7 @@ public struct MinimumUser: Decodable {
 }
 
 extension MinimumUser: Hashable {
-    public static func ==(lhs: MinimumUser, rhs: MinimumUser) -> Bool {
+    public static func == (lhs: MinimumUser, rhs: MinimumUser) -> Bool {
         return lhs.name == rhs.name
             && lhs.screenName == rhs.screenName
             && lhs.icon == rhs.icon

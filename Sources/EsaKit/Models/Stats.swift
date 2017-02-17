@@ -36,7 +36,7 @@ public struct Stats: Decodable {
 }
 
 extension Stats: Hashable {
-    public static func ==(lhs: Stats, rhs: Stats) -> Bool {
+    public static func == (lhs: Stats, rhs: Stats) -> Bool {
         return lhs.members == rhs.members
             && lhs.posts == rhs.posts
             && lhs.postsWip == rhs.postsWip
