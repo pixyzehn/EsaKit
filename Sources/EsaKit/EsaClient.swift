@@ -16,8 +16,8 @@ public final class EsaClient {
 
     /// An error from the Client.
     public enum Error: Swift.Error {
-        case networkError(NSError)
-        case jsonDeserializationError(NSError)
+        case networkError(Swift.Error)
+        case jsonDeserializationError(Swift.Error)
         case jsonDecodingError(DecodeError)
         case apiError(Int, Response, EsaError)
         case doesNotExist
@@ -436,7 +436,7 @@ public final class EsaClient {
         return urlSession
             .reactive
             .data(with: request)
-            .mapError(Error.networkError)
+            .mapError { Error.networkError($0.error) }
             .flatMap(.concat) { data, response -> SignalProducer<(Response, Any), Error> in
                 let response = response as! HTTPURLResponse
                 let statusCodeType = response.statusCodeType
