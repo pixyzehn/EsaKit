@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "EsaKit"
-  s.version      = "0.2.0"
+  s.version      = "0.2.1"
   s.summary      = "A Swift framework for the esa.io API."
   s.homepage     = "https://github.com/pixyzehn/EsaKit"
   s.license      = "MIT"
@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency 'Himotoki', '~> 3.0'
-  s.dependency 'ReactiveSwift', '~> 1.0.0-alpha.4'
+  s.dependency 'ReactiveSwift', '~> 1.0'
 end
