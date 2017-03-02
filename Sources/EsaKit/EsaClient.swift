@@ -98,6 +98,10 @@ public final class EsaClient {
         /// https://docs.esa.io/posts/102#10-3-0
         case removeWatch(teamName: String, postNumber: Int)
 
+        /// - Category
+        /// https://docs.esa.io/posts/102#11-1-0
+        case batchMove(teamName: String, from: String, to: String)
+
         /// - User
         /// https://docs.esa.io/posts/102#11-1-0
         case user
@@ -134,6 +138,9 @@ public final class EsaClient {
             case .watchers(_, _): return .get
             case .addWatch(_, _): return .post
             case .removeWatch(_, _): return .delete
+
+            /// - Category
+            case .batchMove(_, _, _): return .post
 
             /// - User
             case .user: return .get
@@ -202,6 +209,10 @@ public final class EsaClient {
             case let .removeWatch(teamName, postNumber):
                 return "/v1/teams/\(teamName)/posts/\(postNumber)/watch"
 
+            /// - Category
+            case let .batchMove(teamName, _, _):
+                return "/v1/teams/\(teamName)/categories/batch_move"
+
             /// - User
             case .user:
                 return "/v1/user"
@@ -235,6 +246,11 @@ public final class EsaClient {
                 return [ "comment": [ "body_md": bodyMd ] ]
             case let .addStarInPost(_, _, body):
                 return [ "body": body ]
+            case let .batchMove(_, from, to):
+                return [
+                    "from": from,
+                    "to": to
+                ]
             default:
                 return nil
             }
@@ -371,6 +387,11 @@ public final class EsaClient {
 
     public func removeWatch(postNumber: Int) -> SignalProducer<Response, Error> {
         return request(.removeWatch(teamName: teamName, postNumber: postNumber))
+    }
+
+    /// - Category
+    public func batchMove(from: String, to: String) -> SignalProducer<(Response, Categories), Error> {
+        return fetchOne(.batchMove(teamName: teamName, from: from, to: to))
     }
 
     /// - User
