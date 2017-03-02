@@ -16,8 +16,8 @@ public struct PostParameters {
         tags: [String] = [],
         category: String? = nil,
         wip: Bool = true,
-        message: String = ""
-    ) {
+        message: String = "") {
+
         self.name = name
         self.bodyMd = bodyMd
         self.tags = tags
@@ -25,6 +25,7 @@ public struct PostParameters {
         self.wip = wip
         self.message = message
     }
+
     public let name: String
     public let bodyMd: String
     public let tags: [String]
