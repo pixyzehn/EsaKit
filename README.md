@@ -147,9 +147,11 @@ client.addWatch(postNumber: 1)
 client.removeWatch(postNumber: 1)
 // #=> DELETE /v1/teams/[your_team_name]/posts/1/watch
 
+
 // Category API
 client.batchMove(from: "/foo/bar/",to: "/baz/")
 // #=> POST /v1/teams/[your_team_name]/categories/batch_move
+
 
 // Authenticated User API
 client.user()
