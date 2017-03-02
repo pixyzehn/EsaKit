@@ -9,42 +9,42 @@
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/BodyParameters.swift",
-      "line": 28,
+      "line": 29,
       "symbol": "PostParameters.name",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/BodyParameters.swift",
-      "line": 29,
+      "line": 30,
       "symbol": "PostParameters.bodyMd",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/BodyParameters.swift",
-      "line": 30,
+      "line": 31,
       "symbol": "PostParameters.tags",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/BodyParameters.swift",
-      "line": 31,
+      "line": 32,
       "symbol": "PostParameters.category",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/BodyParameters.swift",
-      "line": 32,
+      "line": 33,
       "symbol": "PostParameters.wip",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/BodyParameters.swift",
-      "line": 33,
+      "line": 34,
       "symbol": "PostParameters.message",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -93,112 +93,112 @@
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 282,
+      "line": 298,
       "symbol": "EsaClient.team()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 301,
+      "line": 317,
       "symbol": "EsaClient.post(postNumber:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 305,
+      "line": 321,
       "symbol": "EsaClient.createPost(parameters:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 309,
+      "line": 325,
       "symbol": "EsaClient.updatePost(postNumber:parameters:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 313,
+      "line": 329,
       "symbol": "EsaClient.deletePost(postNumber:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 322,
+      "line": 338,
       "symbol": "EsaClient.comment(commentId:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 326,
+      "line": 342,
       "symbol": "EsaClient.createComment(postNumber:bodyMd:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 330,
+      "line": 346,
       "symbol": "EsaClient.updateComment(commentId:bodyMd:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 334,
+      "line": 350,
       "symbol": "EsaClient.deleteCommet(commentId:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 343,
+      "line": 359,
       "symbol": "EsaClient.addStar(postNumber:body:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 347,
+      "line": 363,
       "symbol": "EsaClient.removeStar(postNumber:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 351,
+      "line": 367,
       "symbol": "EsaClient.stargazers(commentId:page:pageSize:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 355,
+      "line": 371,
       "symbol": "EsaClient.addStar(commentId:body:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 359,
+      "line": 375,
       "symbol": "EsaClient.removeStar(commentId:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 368,
+      "line": 384,
       "symbol": "EsaClient.addWatch(postNumber:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
-      "line": 372,
+      "line": 388,
       "symbol": "EsaClient.removeWatch(postNumber:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -257,6 +257,41 @@
       "line": 17,
       "symbol": "HTTPMethod.delete",
       "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/Models/Categories.swift",
+      "line": null,
+      "symbol": "Categories",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/Models/Categories.swift",
+      "line": 12,
+      "symbol": "Categories",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/Models/Categories.swift",
+      "line": 13,
+      "symbol": "Categories.count",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/Models/Categories.swift",
+      "line": 14,
+      "symbol": "Categories.from",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/Models/Categories.swift",
+      "line": 15,
+      "symbol": "Categories.to",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
