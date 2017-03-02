@@ -20,7 +20,7 @@ public enum HTTPMethod: String {
         switch self {
         case .get, .delete:
             return true
-        default:
+        case .post, .put, .patch:
             return false
         }
     }
