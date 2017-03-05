@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Ref: https://github.com/inamiy/VTree/blob/master/Scripts/generate-message.sh
 # https://github.com/krzysztofzablocki/Sourcery
 SOURCERY_VER=0.5.8
 
