@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct Comments: Decodable {
+public struct Comments: Decodable, AutoEquatable, AutoHashable {
     public let comments: [Comment]
     public let page: UInt
     public let prevPage: UInt?
@@ -26,20 +26,5 @@ public struct Comments: Decodable {
             maxPerPage: e <| "max_per_page",
             totalCount: e <| "total_count"
         )
-    }
-}
-
-extension Comments: Hashable {
-    public static func ==(lhs: Comments, rhs: Comments) -> Bool {
-        return lhs.comments == rhs.comments
-            && lhs.page == rhs.page
-            && lhs.prevPage == rhs.prevPage
-            && lhs.nextPage == rhs.nextPage
-            && lhs.maxPerPage == rhs.maxPerPage
-            && lhs.totalCount == rhs.totalCount
-    }
-
-    public var hashValue: Int {
-        return page.hashValue
     }
 }

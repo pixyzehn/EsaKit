@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct Stats: Decodable {
+public struct Stats: Decodable, AutoEquatable, AutoHashable {
     public let members: UInt
     public let posts: UInt
     public let postsWip: UInt
@@ -32,23 +32,5 @@ public struct Stats: Decodable {
             weeklyActiveUsers: e <| "weekly_active_users",
             monthlyActiveUsers: e <| "monthly_active_users"
         )
-    }
-}
-
-extension Stats: Hashable {
-    public static func ==(lhs: Stats, rhs: Stats) -> Bool {
-        return lhs.members == rhs.members
-            && lhs.posts == rhs.posts
-            && lhs.postsWip == rhs.postsWip
-            && lhs.postsShipped == rhs.postsShipped
-            && lhs.comments == rhs.comments
-            && lhs.stars == rhs.stars
-            && lhs.dailyActiveUsers == rhs.dailyActiveUsers
-            && lhs.weeklyActiveUsers == rhs.weeklyActiveUsers
-            && lhs.monthlyActiveUsers == rhs.monthlyActiveUsers
-    }
-
-    public var hashValue: Int {
-        return members.hashValue
     }
 }

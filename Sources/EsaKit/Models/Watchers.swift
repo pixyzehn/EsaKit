@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct Watchers: Decodable {
+public struct Watchers: Decodable, AutoEquatable, AutoHashable {
     public let watchers: [Watcher]
     public let page: UInt
     public let prevPage: UInt?
@@ -26,20 +26,5 @@ public struct Watchers: Decodable {
             maxPerPage: e <| "max_per_page",
             totalCount: e <| "total_count"
         )
-    }
-}
-
-extension Watchers: Hashable {
-    public static func ==(lhs: Watchers, rhs: Watchers) -> Bool {
-        return lhs.watchers == rhs.watchers
-            && lhs.page == rhs.page
-            && lhs.prevPage == rhs.prevPage
-            && lhs.nextPage == rhs.nextPage
-            && lhs.maxPerPage == rhs.maxPerPage
-            && lhs.totalCount == rhs.totalCount
-    }
-
-    public var hashValue: Int {
-        return page.hashValue
     }
 }

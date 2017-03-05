@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct Stargazers: Decodable {
+public struct Stargazers: Decodable, AutoEquatable, AutoHashable {
     public let stargazers: [Stargazer]
     public let page: UInt
     public let prevPage: UInt?
@@ -26,20 +26,5 @@ public struct Stargazers: Decodable {
             maxPerPage: e <| "max_per_page",
             totalCount: e <| "total_count"
         )
-    }
-}
-
-extension Stargazers: Hashable {
-    public static func ==(lhs: Stargazers, rhs: Stargazers) -> Bool {
-        return lhs.stargazers == rhs.stargazers
-            && lhs.page == rhs.page
-            && lhs.prevPage == rhs.prevPage
-            && lhs.nextPage == rhs.nextPage
-            && lhs.maxPerPage == rhs.maxPerPage
-            && lhs.totalCount == rhs.totalCount
-    }
-
-    public var hashValue: Int {
-        return page.hashValue
     }
 }

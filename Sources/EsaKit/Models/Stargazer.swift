@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct Stargazer: Decodable {
+public struct Stargazer: Decodable, AutoEquatable, AutoHashable {
     public let user: MinimumUser
     public let createdAt: Date
     public let body: String?
@@ -20,17 +20,5 @@ public struct Stargazer: Decodable {
             createdAt: try Transformer { try toDate($0) }.apply(e <| "created_at"),
             body: e <|? "body"
         )
-    }
-}
-
-extension Stargazer: Hashable {
-    public static func ==(lhs: Stargazer, rhs: Stargazer) -> Bool {
-        return lhs.user == rhs.user
-            && lhs.createdAt == rhs.createdAt
-            && lhs.body == rhs.body
-    }
-
-    public var hashValue: Int {
-        return user.name.hashValue
     }
 }

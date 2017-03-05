@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Response {
+public struct Response: AutoEquatable, AutoHashable {
     public let xRateLimitLimit: UInt // An esa.io API allows user to send 75 requests per 15 min.
     public let XRateLimitRemaining: UInt
 
@@ -20,16 +20,5 @@ public struct Response {
     internal init(headerFields: [String: String]) {
         xRateLimitLimit = headerFields["X-RateLimit-Limit"].flatMap { UInt($0) } ?? 0
         XRateLimitRemaining = headerFields["X-RateLimit-Remaining"].flatMap { UInt($0) } ?? 0
-    }
-}
-
-extension Response: Hashable {
-    public static func ==(lhs: Response, rhs: Response) -> Bool {
-        return lhs.xRateLimitLimit == rhs.xRateLimitLimit
-            && lhs.XRateLimitRemaining == rhs.XRateLimitRemaining
-    }
-
-    public var hashValue: Int {
-        return xRateLimitLimit.hashValue
     }
 }

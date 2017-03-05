@@ -9,7 +9,10 @@
 import Foundation
 import Himotoki
 
-public struct Categories: Decodable {
+public protocol AutoHashable { }
+public protocol AutoEquatable { }
+
+public struct Categories: Decodable, AutoEquatable, AutoHashable {
     public let count: Int
     public let from: String
     public let to: String
@@ -20,17 +23,5 @@ public struct Categories: Decodable {
             from: e <| "from",
             to: e <| "to"
         )
-    }
-}
-
-extension Categories: Hashable {
-    public static func ==(lhs: Categories, rhs: Categories) -> Bool {
-        return lhs.count == rhs.count
-            && lhs.from == rhs.from
-            && lhs.to == rhs.to
-    }
-
-    public var hashValue: Int {
-        return from.hashValue
     }
 }
