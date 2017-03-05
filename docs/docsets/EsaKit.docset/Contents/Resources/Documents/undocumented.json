@@ -50,6 +50,125 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 29,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 37,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 51,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 62,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 72,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 83,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 91,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 119,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 131,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 138,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 146,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 157,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 171,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 181,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 192,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 204,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/CodeGenerated/AutoEquatable.generated.swift",
+      "line": 211,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/EsaClient.swift",
       "line": 19,
       "symbol": "EsaClient.Error.networkError",
@@ -838,6 +957,20 @@
       "line": 15,
       "symbol": "Response.init(xRateLimitLimit:XRateLimitRemaining:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/Models/Sourcery.swift",
+      "line": 9,
+      "symbol": "AutoHashable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/pixyzehn/Developer/swift-projects/EsaKit/Sources/EsaKit/Models/Sourcery.swift",
+      "line": 10,
+      "symbol": "AutoEquatable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {

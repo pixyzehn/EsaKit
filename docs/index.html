@@ -13,7 +13,7 @@
     <a title="EsaKit  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">EsaKit Docs</a> (36% documented)</p>
+        <p><a href="index.html">EsaKit Docs</a> (30% documented)</p>
         <p class="header-right"><a href="https://github.com/pixyzehn/EsaKit"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -46,6 +46,73 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_10CategoriesS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_10MemberUserS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_10StargazersS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_11MinimumUserS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_4PostS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_4TeamS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_4UserS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_5PostsS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_5StatsS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_5TeamsS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_7CommentS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_7MembersS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_7WatcherS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_8CommentsS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_8ResponseS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_8WatchersS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_9StargazerS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:P6EsaKit13AutoEquatable">AutoEquatable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:P6EsaKit12AutoHashable">AutoHashable</a>
               </li>
             </ul>
           </li>
@@ -148,7 +215,7 @@
     <span class="p">}</span>
 </code></pre>
 
-<p>EsaKit is build with <a href="https://github.com/ReactiveCocoa/ReactiveSwift">ReactiveSwift</a> and <a href="https://github.com/ikesyo/Himotoki">Himotoki</a>.</p>
+<p>EsaKit is build with <a href="https://github.com/ReactiveCocoa/ReactiveSwift">ReactiveSwift</a>, <a href="https://github.com/ikesyo/Himotoki">Himotoki</a> and <a href="https://github.com/krzysztofzablocki/Sourcery">Sourcery</a>.</p>
 <a href='#requirements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='requirements'>Requirements</h2>
 
 <p>EsaKit requires / supports the following environments:</p>
@@ -269,6 +336,11 @@
 <span class="c1">// #=&gt; DELETE /v1/teams/[your_team_name]/posts/1/watch</span>
 
 
+<span class="c1">// Category API</span>
+<span class="n">client</span><span class="o">.</span><span class="nf">batchMove</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="s">"/foo/bar/"</span><span class="p">,</span><span class="nv">to</span><span class="p">:</span> <span class="s">"/baz/"</span><span class="p">)</span>
+<span class="c1">// #=&gt; POST /v1/teams/[your_team_name]/categories/batch_move</span>
+
+
 <span class="c1">// Authenticated User API</span>
 <span class="n">client</span><span class="o">.</span><span class="nf">user</span><span class="p">()</span>
 <span class="c1">// #=&gt; GET /v1/user</span>
@@ -286,7 +358,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://twitter.com/pixyzehn" target="_blank" rel="external">pixyzehn</a>. All rights reserved. (Last updated: 2017-03-02)</p>
+          <p>&copy; 2017 <a class="link" href="https://twitter.com/pixyzehn" target="_blank" rel="external">pixyzehn</a>. All rights reserved. (Last updated: 2017-03-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
