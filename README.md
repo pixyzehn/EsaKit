@@ -27,7 +27,7 @@ client.posts()
 	}
 ```
 
-EsaKit is build with [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift) and [Himotoki](https://github.com/ikesyo/Himotoki).
+EsaKit is build with [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift), [Himotoki](https://github.com/ikesyo/Himotoki) and [Sourcery](https://github.com/krzysztofzablocki/Sourcery).
 
 ## Requirements
 
