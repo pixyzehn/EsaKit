@@ -141,6 +141,8 @@
 		6EF3AFD11E68365C00889EA3 /* CategoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF3AFCB1E6835F400889EA3 /* CategoriesTests.swift */; };
 		6EF3AFD21E68380200889EA3 /* Categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EF3AFCE1E68362B00889EA3 /* Categories.json */; };
 		6EF3AFD31E68380300889EA3 /* Categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EF3AFCE1E68362B00889EA3 /* Categories.json */; };
+		6EF8A37C1E6CD10F004C78FE /* Sourcery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF8A37B1E6CD10F004C78FE /* Sourcery.swift */; };
+		6EF8A37D1E6CD10F004C78FE /* Sourcery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF8A37B1E6CD10F004C78FE /* Sourcery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -265,6 +267,7 @@
 		6EF3AFC81E6833D100889EA3 /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		6EF3AFCB1E6835F400889EA3 /* CategoriesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTests.swift; sourceTree = "<group>"; };
 		6EF3AFCE1E68362B00889EA3 /* Categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Categories.json; sourceTree = "<group>"; };
+		6EF8A37B1E6CD10F004C78FE /* Sourcery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourcery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,6 +469,7 @@
 		6EE856621DF31F8900A2C5AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6EF8A37B1E6CD10F004C78FE /* Sourcery.swift */,
 				6EF3AFC81E6833D100889EA3 /* Categories.swift */,
 				6EE856631DF31F8900A2C5AF /* Comment.swift */,
 				6EE856641DF31F8900A2C5AF /* Comments.swift */,
@@ -751,6 +755,7 @@
 				6EE856881DF31F8900A2C5AF /* Members.swift in Sources */,
 				6EE856981DF31F8900A2C5AF /* Stats.swift in Sources */,
 				6EE856961DF31F8900A2C5AF /* Stargazers.swift in Sources */,
+				6EF8A37D1E6CD10F004C78FE /* Sourcery.swift in Sources */,
 				6EE8567E1DF31F8900A2C5AF /* FoundationExtensions.swift in Sources */,
 				6EE8568A1DF31F8900A2C5AF /* MemberUser.swift in Sources */,
 				6EE856A01DF31F8900A2C5AF /* Watcher.swift in Sources */,
@@ -806,6 +811,7 @@
 				6EE856871DF31F8900A2C5AF /* Members.swift in Sources */,
 				6EE856971DF31F8900A2C5AF /* Stats.swift in Sources */,
 				6EE856951DF31F8900A2C5AF /* Stargazers.swift in Sources */,
+				6EF8A37C1E6CD10F004C78FE /* Sourcery.swift in Sources */,
 				6EE8567D1DF31F8900A2C5AF /* FoundationExtensions.swift in Sources */,
 				6EE856891DF31F8900A2C5AF /* MemberUser.swift in Sources */,
 				6EE8569F1DF31F8900A2C5AF /* Watcher.swift in Sources */,

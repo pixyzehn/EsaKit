@@ -9,9 +9,6 @@
 import Foundation
 import Himotoki
 
-public protocol AutoHashable { }
-public protocol AutoEquatable { }
-
 public struct Categories: Decodable, AutoEquatable, AutoHashable {
     public let count: Int
     public let from: String
