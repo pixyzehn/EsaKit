@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct MinimumUser: Decodable {
+public struct MinimumUser: Decodable, AutoEquatable, AutoHashable {
     public let name: String
     public let screenName: String
     public let icon: URL
@@ -20,17 +20,5 @@ public struct MinimumUser: Decodable {
             screenName: e <| "screen_name",
             icon: try Transformer { try toURL($0) }.apply(e <| "icon")
         )
-    }
-}
-
-extension MinimumUser: Hashable {
-    public static func ==(lhs: MinimumUser, rhs: MinimumUser) -> Bool {
-        return lhs.name == rhs.name
-            && lhs.screenName == rhs.screenName
-            && lhs.icon == rhs.icon
-    }
-
-    public var hashValue: Int {
-        return name.hashValue
     }
 }

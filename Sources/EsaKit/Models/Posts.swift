@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct Posts: Decodable {
+public struct Posts: Decodable, AutoEquatable, AutoHashable {
     public let posts: [Post]
     public let page: UInt
     public let prevPage: UInt?
@@ -28,21 +28,5 @@ public struct Posts: Decodable {
             maxPerPage: e <| "max_per_page",
             totalCount: e <| "total_count"
         )
-    }
-}
-
-extension Posts: Hashable {
-    public static func ==(lhs: Posts, rhs: Posts) -> Bool {
-        return lhs.posts == rhs.posts
-            && lhs.page == rhs.page
-            && lhs.prevPage == rhs.prevPage
-            && lhs.nextPage == rhs.nextPage
-            && lhs.perPage == rhs.perPage
-            && lhs.maxPerPage == rhs.maxPerPage
-            && lhs.totalCount == rhs.totalCount
-    }
-
-    public var hashValue: Int {
-        return page.hashValue
     }
 }

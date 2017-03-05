@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct Team: Decodable {
+public struct Team: Decodable, AutoEquatable, AutoHashable {
     public let name: String
     public let privacy: String
     public let description: String
@@ -24,20 +24,5 @@ public struct Team: Decodable {
             icon: try Transformer { try toURL($0) }.apply(e <| "icon"),
             url: try Transformer { try toURL($0) }.apply(e <| "url")
         )
-    }
-}
-
-extension Team: Hashable {
-    public static func ==(lhs: Team, rhs: Team) -> Bool {
-        return lhs.name == rhs.name
-            && lhs.privacy == rhs.privacy
-            && lhs.url == rhs.url
-            && lhs.description == rhs.description
-            && lhs.icon == rhs.icon
-            && lhs.url == rhs.url
-    }
-
-    public var hashValue: Int {
-        return name.hashValue
     }
 }

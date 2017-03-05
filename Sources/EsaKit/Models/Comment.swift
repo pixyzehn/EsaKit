@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct Comment: Decodable {
+public struct Comment: Decodable, AutoEquatable, AutoHashable {
     public let id: Int
     public let bodyMd: String
     public let bodyHTML: String
@@ -32,23 +32,5 @@ public struct Comment: Decodable {
             stargazersCount: e <| "stargazers_count",
             star: e <| "star"
         )
-    }
-}
-
-extension Comment: Hashable {
-    public static func ==(lhs: Comment, rhs: Comment) -> Bool {
-        return lhs.id == rhs.id
-            && lhs.bodyMd == rhs.bodyMd
-            && lhs.bodyHTML == rhs.bodyHTML
-            && lhs.createdAt == rhs.createdAt
-            && lhs.updatedAt == rhs.updatedAt
-            && lhs.url == rhs.url
-            && lhs.createdBy == rhs.createdBy
-            && lhs.stargazersCount == rhs.stargazersCount
-            && lhs.star == rhs.star
-    }
-
-    public var hashValue: Int {
-        return id.hashValue
     }
 }
