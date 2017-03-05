@@ -517,6 +517,7 @@
 				6E6D064D1DE31D580071FFA9 /* Frameworks */,
 				6E6D064E1DE31D580071FFA9 /* Headers */,
 				6E4C8A351DEAAD2A00A8B0B6 /* Run SwiftLint */,
+				6EF8A3771E6CCF7A004C78FE /* Run Sourcery */,
 			);
 			buildRules = (
 			);
@@ -694,7 +695,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "sh script/run-swiftlint.sh";
 		};
 		6E4C8A351DEAAD2A00A8B0B6 /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -708,9 +709,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "sh script/run-swiftlint.sh";
 		};
 		6E97398C1E6BD55A0086A80C /* Run Sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Sourcery";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh script/generate-files-from-sourcery.sh ./Sources/EsaKit ./Sources/EsaKit/CodeGenerated";
+		};
+		6EF8A3771E6CCF7A004C78FE /* Run Sourcery */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
