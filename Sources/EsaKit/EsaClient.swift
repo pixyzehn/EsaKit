@@ -11,8 +11,10 @@ import Himotoki
 import ReactiveSwift
 import Result
 
+// swiftlint:disable type_body_length
+
 /// An esa.io API Client.
-public final class EsaClient { // swiftlint:disable file_length type_body_length line_length force_cast
+public final class EsaClient { // swiftlint:disable file_length line_length force_cast
 
     /// An error from the Client.
     public enum Error: Swift.Error {

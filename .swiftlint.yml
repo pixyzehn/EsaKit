@@ -1,7 +1,5 @@
 included:
   - Sources
-disabled_rules:
-  - operator_whitespace
 variable_name:
   excluded:
     - e
