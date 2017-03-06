@@ -400,6 +400,7 @@ public final class EsaClient { // swiftlint:disable file_length type_body_length
     }
 
     // MARK: Methods for the API request.
+
     internal func request(_ endpoint: Endpoint) -> SignalProducer<Response, Error> {
         let url = URL(endpoint)
         let request = URLRequest.create(url, endpoint, credentials)
