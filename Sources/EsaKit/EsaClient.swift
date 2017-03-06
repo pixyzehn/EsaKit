@@ -12,7 +12,7 @@ import ReactiveSwift
 import Result
 
 /// An esa.io API Client.
-public final class EsaClient {
+public final class EsaClient { // swiftlint:disable file_length type_body_length line_length force_cast
 
     /// An error from the Client.
     public enum Error: Swift.Error {
@@ -400,7 +400,6 @@ public final class EsaClient {
     }
 
     // MARK: Methods for the API request.
-
     internal func request(_ endpoint: Endpoint) -> SignalProducer<Response, Error> {
         let url = URL(endpoint)
         let request = URLRequest.create(url, endpoint, credentials)
