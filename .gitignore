@@ -40,3 +40,6 @@ Carthage/Build
 Packages/
 .build/
 
+vendor/
+.bundle/config
+
