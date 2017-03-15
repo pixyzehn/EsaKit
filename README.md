@@ -1,5 +1,5 @@
 # EsaKit [![MIT license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/pixyzehn/EsaKit/master/LICENSE.md)
-A Swift framework for the esa.io API
+A Swift framework for the [esa.io](https://esa.io/) API
 
 ```swift
 let client = EsaClient(token: "your_token", teamName: "your_team_name")
