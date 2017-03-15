@@ -40,6 +40,6 @@ extension EsaError: Hashable {
     }
 
     public var hashValue: Int {
-        return error.hashValue
+        return error.hashValue ^ message.hashValue
     }
 }
