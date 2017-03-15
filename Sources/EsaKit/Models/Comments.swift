@@ -9,14 +9,16 @@
 import Foundation
 import Himotoki
 
-public struct Comments: Decodable, AutoEquatable, AutoHashable {
+public struct Comments: AutoEquatable, AutoHashable {
     public let comments: [Comment]
     public let page: UInt
     public let prevPage: UInt?
     public let nextPage: UInt?
     public let maxPerPage: UInt
     public let totalCount: UInt
+}
 
+extension Comments: Decodable {
     public static func decode(_ e: Extractor) throws -> Comments {
         return try Comments(
             comments: e <|| "comments",

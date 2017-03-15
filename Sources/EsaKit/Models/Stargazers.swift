@@ -9,14 +9,16 @@
 import Foundation
 import Himotoki
 
-public struct Stargazers: Decodable, AutoEquatable, AutoHashable {
+public struct Stargazers: AutoEquatable, AutoHashable {
     public let stargazers: [Stargazer]
     public let page: UInt
     public let prevPage: UInt?
     public let nextPage: UInt?
     public let maxPerPage: UInt
     public let totalCount: UInt
+}
 
+extension Stargazers: Decodable {
     public static func decode(_ e: Extractor) throws -> Stargazers {
         return try Stargazers(
             stargazers: e <|| "stargazers",

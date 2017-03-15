@@ -9,11 +9,13 @@
 import Foundation
 import Himotoki
 
-public struct MinimumUser: Decodable, AutoEquatable, AutoHashable {
+public struct MinimumUser: AutoEquatable, AutoHashable {
     public let name: String
     public let screenName: String
     public let icon: URL
+}
 
+extension MinimumUser: Decodable {
     public static func decode(_ e: Extractor) throws -> MinimumUser {
         return try MinimumUser(
             name: e <| "name",

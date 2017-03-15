@@ -57,6 +57,13 @@ public func == (lhs: Comments, rhs: Comments) -> Bool {
     guard lhs.totalCount == rhs.totalCount else { return false }
     return true
 }
+// MARK: - EsaError AutoEquatable
+extension EsaError: Equatable {} 
+public func == (lhs: EsaError, rhs: EsaError) -> Bool {
+    guard lhs.error == rhs.error else { return false }
+    guard lhs.message == rhs.message else { return false }
+    return true
+}
 // MARK: - MemberUser AutoEquatable
 extension MemberUser: Equatable {} 
 public func == (lhs: MemberUser, rhs: MemberUser) -> Bool {

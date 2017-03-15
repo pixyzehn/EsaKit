@@ -10,7 +10,7 @@ import Foundation
 import Himotoki
 
 /// An error from the API.
-public struct EsaError: CustomStringConvertible, Error {
+public struct EsaError: CustomStringConvertible, Error, AutoEquatable, AutoHashable {
     public let error: String
     public let message: String
 
@@ -30,16 +30,5 @@ extension EsaError: Decodable {
             error: e <| "error",
             message: e <| "message"
         )
-    }
-}
-
-extension EsaError: Hashable {
-    public static func == (lhs: EsaError, rhs: EsaError) -> Bool {
-        return lhs.error == rhs.error
-            && lhs.message == rhs.message
-    }
-
-    public var hashValue: Int {
-        return error.hashValue ^ message.hashValue
     }
 }

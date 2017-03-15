@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct User: Decodable, AutoEquatable, AutoHashable {
+public struct User: AutoEquatable, AutoHashable {
     public let id: Int
     public let name: String
     public let screenName: String
@@ -17,7 +17,9 @@ public struct User: Decodable, AutoEquatable, AutoHashable {
     public let updatedAt: Date
     public let icon: URL
     public let email: String
+}
 
+extension User: Decodable {
     public static func decode(_ e: Extractor) throws -> User {
         return try User(
             id: e <| "id",

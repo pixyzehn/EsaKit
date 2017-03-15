@@ -48,6 +48,12 @@ extension Comments: Hashable {
         return combineHashes([comments.hashValue, page.hashValue, prevPage?.hashValue ?? 0, nextPage?.hashValue ?? 0, maxPerPage.hashValue, totalCount.hashValue, 0])
     }
 }
+// MARK: - EsaError AutoHashable
+extension EsaError: Hashable {
+    public var hashValue: Int {
+        return combineHashes([error.hashValue, message.hashValue, 0])
+    }
+}
 // MARK: - MemberUser AutoHashable
 extension MemberUser: Hashable {
     public var hashValue: Int {

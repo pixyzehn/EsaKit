@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct Stats: Decodable, AutoEquatable, AutoHashable {
+public struct Stats: AutoEquatable, AutoHashable {
     public let members: UInt
     public let posts: UInt
     public let postsWip: UInt
@@ -19,7 +19,9 @@ public struct Stats: Decodable, AutoEquatable, AutoHashable {
     public let dailyActiveUsers: UInt
     public let weeklyActiveUsers: UInt
     public let monthlyActiveUsers: UInt
+}
 
+extension Stats: Decodable {
     public static func decode(_ e: Extractor) throws -> Stats {
         return try Stats(
             members: e <| "members",
