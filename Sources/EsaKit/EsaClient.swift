@@ -277,7 +277,7 @@ public final class EsaClient { // swiftlint:disable file_length line_length forc
     private let credentials: Credentials?
 
     /// The Content type for the API.
-    internal static let APIContentType = "application/json"
+    internal static let apiContentType = "application/json"
 
     /// The `URLSession` instance to use.
     private let urlSession: URLSession
