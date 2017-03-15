@@ -10,17 +10,19 @@ import Foundation
 import Himotoki
 
 /// An error from the API.
-public struct EsaError: CustomStringConvertible, Error, AutoEquatable, AutoHashable {
+public struct EsaError: Error, AutoEquatable, AutoHashable {
     public let error: String
     public let message: String
-
-    public var description: String {
-        return message
-    }
 
     public init(error: String, message: String = "") {
         self.error = error
         self.message = message
+    }
+}
+
+extension EsaError: CustomStringConvertible {
+    public var description: String {
+        return message
     }
 }
 
