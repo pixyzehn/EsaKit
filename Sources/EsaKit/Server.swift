@@ -14,11 +14,11 @@ public struct Server: CustomStringConvertible {
         return URL(string: "https://esa.io")!
     }
 
-    internal var endpoint: String {
+    public var endpoint: String {
         return "https://api.esa.io"
     }
 
     public var description: String {
-        return "\(url)"
+        return url.absoluteString
     }
 }
