@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct Post: Decodable, AutoEquatable, AutoHashable {
+public struct Post: AutoEquatable, AutoHashable {
     public let number: Int
     public let name: String
     public let fullName: String
@@ -33,7 +33,9 @@ public struct Post: Decodable, AutoEquatable, AutoHashable {
     public let watchersCount: UInt
     public let star: Bool
     public let watch: Bool
+}
 
+extension Post: Decodable {
     public static func decode(_ e: Extractor) throws -> Post {
         return try Post(
             number: e <| "number",

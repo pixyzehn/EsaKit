@@ -9,13 +9,15 @@
 import Foundation
 import Himotoki
 
-public struct Team: Decodable, AutoEquatable, AutoHashable {
+public struct Team: AutoEquatable, AutoHashable {
     public let name: String
     public let privacy: String
     public let description: String
     public let icon: URL
     public let url: URL
+}
 
+extension Team: Decodable {
     public static func decode(_ e: Extractor) throws -> Team {
         return try Team(
             name: e <| "name",

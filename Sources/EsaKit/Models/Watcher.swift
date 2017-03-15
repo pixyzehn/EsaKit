@@ -9,10 +9,12 @@
 import Foundation
 import Himotoki
 
-public struct Watcher: Decodable, AutoEquatable, AutoHashable {
+public struct Watcher: AutoEquatable, AutoHashable {
     public let user: MinimumUser
     public let createdAt: Date
+}
 
+extension Watcher: Decodable {
     public static func decode(_ e: Extractor) throws -> Watcher {
         return try Watcher(
             user: e <| "user",

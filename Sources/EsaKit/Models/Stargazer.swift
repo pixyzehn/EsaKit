@@ -9,11 +9,13 @@
 import Foundation
 import Himotoki
 
-public struct Stargazer: Decodable, AutoEquatable, AutoHashable {
+public struct Stargazer: AutoEquatable, AutoHashable {
     public let user: MinimumUser
     public let createdAt: Date
     public let body: String?
+}
 
+extension Stargazer: Decodable {
     public static func decode(_ e: Extractor) throws -> Stargazer {
         return try Stargazer(
             user: e <| "user",

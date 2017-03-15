@@ -9,14 +9,16 @@
 import Foundation
 import Himotoki
 
-public struct Teams: Decodable, AutoEquatable, AutoHashable {
+public struct Teams: AutoEquatable, AutoHashable {
     public let teams: [Team]
     public let page: UInt
     public let prevPage: UInt?
     public let nextPage: UInt?
     public let maxPerPage: UInt
     public let totalCount: UInt
+}
 
+extension Teams: Decodable {
     public static func decode(_ e: Extractor) throws -> Teams {
         return try Teams(
             teams: e <|| "teams",

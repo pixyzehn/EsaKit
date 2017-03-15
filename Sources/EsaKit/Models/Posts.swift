@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct Posts: Decodable, AutoEquatable, AutoHashable {
+public struct Posts: AutoEquatable, AutoHashable {
     public let posts: [Post]
     public let page: UInt
     public let prevPage: UInt?
@@ -17,7 +17,9 @@ public struct Posts: Decodable, AutoEquatable, AutoHashable {
     public let perPage: UInt?
     public let maxPerPage: UInt
     public let totalCount: UInt
+}
 
+extension Posts: Decodable {
     public static func decode(_ e: Extractor) throws -> Posts {
         return try Posts(
             posts: e <|| "posts",

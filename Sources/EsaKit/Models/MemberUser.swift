@@ -9,13 +9,15 @@
 import Foundation
 import Himotoki
 
-public struct MemberUser: Decodable, AutoEquatable, AutoHashable {
+public struct MemberUser: AutoEquatable, AutoHashable {
     public let name: String
     public let screenName: String
     public let icon: URL
     public let email: String
     public let postsCount: UInt
+}
 
+extension MemberUser: Decodable {
     public static func decode(_ e: Extractor) throws -> MemberUser {
         return try MemberUser(
             name: e <| "name",

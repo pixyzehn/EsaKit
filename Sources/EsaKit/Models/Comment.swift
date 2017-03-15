@@ -9,7 +9,7 @@
 import Foundation
 import Himotoki
 
-public struct Comment: Decodable, AutoEquatable, AutoHashable {
+public struct Comment: AutoEquatable, AutoHashable {
     public let id: Int
     public let bodyMd: String
     public let bodyHTML: String
@@ -19,7 +19,9 @@ public struct Comment: Decodable, AutoEquatable, AutoHashable {
     public let createdBy: MinimumUser
     public let stargazersCount: UInt
     public let star: Bool
+}
 
+extension Comment: Decodable {
     public static func decode(_ e: Extractor) throws -> Comment {
         return try Comment(
             id: e <| "id",
