@@ -47,7 +47,7 @@ extension URL {
 }
 
 extension URLRequest { // swiftlint:disable line_length
-    internal static func create(_ url: URL, _ endpoint: EsaClient.Endpoint, _ credentials: EsaClient.Credentials?, contentType: String? = EsaClient.APIContentType) -> URLRequest {
+    internal static func create(_ url: URL, _ endpoint: EsaClient.Endpoint, _ credentials: EsaClient.Credentials?, contentType: String? = EsaClient.apiContentType) -> URLRequest {
         var request = URLRequest(url: url)
 
         request.httpMethod = endpoint.method.rawValue
