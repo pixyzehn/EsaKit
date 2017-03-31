@@ -14,10 +14,8 @@ internal func decode<T: Decodable>(_ object: Any) -> Result<T, DecodeError> {
     do {
         let decoded = try T.decodeValue(object)
         return .success(decoded)
-    } catch let error as DecodeError {
-        return .failure(DecodeError.custom("\(error)"))
     } catch {
-        return .failure(DecodeError.custom("Unexpected error: \(object)"))
+        return .failure(DecodeError.custom("\(error) in \(object)"))
     }
 }
 
