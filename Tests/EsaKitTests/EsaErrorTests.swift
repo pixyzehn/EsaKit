@@ -32,7 +32,11 @@ class EsaErrorTests: QuickSpec {
                     message: "Not found"
                 )
 
-                let expectedResponse = Response(xRateLimitLimit: 0, XRateLimitRemaining: 0)
+                let expectedResponse = Response(
+                    xRateLimitLimit: 0,
+                    xRateLimitRemaining: 0,
+                    xRateLimitReset: 0
+                )
 
                 waitUntil { done in
                     let client = EsaClient(token: "token", teamName: "team")
