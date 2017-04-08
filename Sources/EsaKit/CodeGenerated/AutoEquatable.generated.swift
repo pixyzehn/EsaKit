@@ -137,7 +137,8 @@ public func == (lhs: Posts, rhs: Posts) -> Bool {
 extension Response: Equatable {} 
 public func == (lhs: Response, rhs: Response) -> Bool {
     guard lhs.xRateLimitLimit == rhs.xRateLimitLimit else { return false }
-    guard lhs.XRateLimitRemaining == rhs.XRateLimitRemaining else { return false }
+    guard lhs.xRateLimitRemaining == rhs.xRateLimitRemaining else { return false }
+    guard lhs.xRateLimitReset == rhs.xRateLimitReset else { return false }
     return true
 }
 // MARK: - Stargazer AutoEquatable

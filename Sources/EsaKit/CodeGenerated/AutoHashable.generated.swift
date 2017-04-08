@@ -87,7 +87,7 @@ extension Posts: Hashable {
 // MARK: - Response AutoHashable
 extension Response: Hashable {
     public var hashValue: Int {
-        return combineHashes([xRateLimitLimit.hashValue, XRateLimitRemaining.hashValue, 0])
+        return combineHashes([xRateLimitLimit.hashValue, xRateLimitRemaining.hashValue, xRateLimitReset.hashValue, 0])
     }
 }
 // MARK: - Stargazer AutoHashable
