@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "EsaKit"
-  s.version      = "0.2.2"
+  s.version      = "0.2.3"
   s.summary      = "A Swift framework for the esa.io API."
   s.homepage     = "https://github.com/pixyzehn/EsaKit"
   s.license      = "MIT"
