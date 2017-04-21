@@ -85,8 +85,6 @@
 		6E6D069B1DE348270071FFA9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06961DE348270071FFA9 /* Result.framework */; };
 		6E6D06AD1DE3CB050071FFA9 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06AA1DE3CB050071FFA9 /* ReactiveSwift.framework */; };
 		6E6D06AE1DE3CB050071FFA9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06AB1DE3CB050071FFA9 /* Result.framework */; };
-		6E6D06B51DE412AE0071FFA9 /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06B41DE412AE0071FFA9 /* Himotoki.framework */; };
-		6E6D06B71DE412C80071FFA9 /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D06B61DE412C80071FFA9 /* Himotoki.framework */; };
 		6E6E4EBD1E796E8E00BDFABC /* EsaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6E4EBC1E796E8E00BDFABC /* EsaError.swift */; };
 		6E6E4EBE1E796E8E00BDFABC /* EsaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6E4EBC1E796E8E00BDFABC /* EsaError.swift */; };
 		6E9739881E6BD0930086A80C /* AutoEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9739861E6BD0930086A80C /* AutoEquatable.generated.swift */; };
@@ -237,8 +235,6 @@
 		6E6D06961DE348270071FFA9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		6E6D06AA1DE3CB050071FFA9 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/Mac/ReactiveSwift.framework; sourceTree = "<group>"; };
 		6E6D06AB1DE3CB050071FFA9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
-		6E6D06B41DE412AE0071FFA9 /* Himotoki.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Himotoki.framework; path = Carthage/Build/iOS/Himotoki.framework; sourceTree = "<group>"; };
-		6E6D06B61DE412C80071FFA9 /* Himotoki.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Himotoki.framework; path = Carthage/Build/Mac/Himotoki.framework; sourceTree = "<group>"; };
 		6E6E4EBC1E796E8E00BDFABC /* EsaError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EsaError.swift; sourceTree = "<group>"; };
 		6E97395B1E6BAC250086A80C /* AutoHashable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoHashable.stencil; sourceTree = "<group>"; };
 		6E97395F1E6BB65D0086A80C /* AutoEquatable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoEquatable.stencil; sourceTree = "<group>"; };
@@ -280,7 +276,6 @@
 			files = (
 				6E6D06AD1DE3CB050071FFA9 /* ReactiveSwift.framework in Frameworks */,
 				6E6D06AE1DE3CB050071FFA9 /* Result.framework in Frameworks */,
-				6E6D06B71DE412C80071FFA9 /* Himotoki.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +296,6 @@
 			files = (
 				6E6D069A1DE348270071FFA9 /* ReactiveSwift.framework in Frameworks */,
 				6E6D069B1DE348270071FFA9 /* Result.framework in Frameworks */,
-				6E6D06B51DE412AE0071FFA9 /* Himotoki.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,8 +322,6 @@
 				6E34EC5A1DF060A1002DC3CB /* Quick.framework */,
 				6E34EC541DF06077002DC3CB /* OHHTTPStubs.framework */,
 				6E34EC521DF06074002DC3CB /* Nimble.framework */,
-				6E6D06B61DE412C80071FFA9 /* Himotoki.framework */,
-				6E6D06B41DE412AE0071FFA9 /* Himotoki.framework */,
 				6E6D06AA1DE3CB050071FFA9 /* ReactiveSwift.framework */,
 				6E6D06AB1DE3CB050071FFA9 /* Result.framework */,
 				6E6D06951DE348270071FFA9 /* ReactiveSwift.framework */,
