@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Himotoki
 import ReactiveSwift
 import Result
 
