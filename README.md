@@ -27,7 +27,7 @@ client.posts()
   }
 ```
 
-EsaKit is build with [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift), [Himotoki](https://github.com/ikesyo/Himotoki) and [Sourcery](https://github.com/krzysztofzablocki/Sourcery).
+EsaKit is build with [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift) and [Sourcery](https://github.com/krzysztofzablocki/Sourcery).
 
 ## Requirements
 
@@ -43,7 +43,7 @@ EsaKit requires / supports the following environments:
 
 - Insert `github "pixyzehn/EsaKit"` to your Cartfile.
 - Run `carthage update`.
-- Link your app with `EsaKit.framework`, `Himotoki.framework`, `ReactiveSwift.framework` and `Result.framework` in `Carthage/Build`.
+- Link your app with `EsaKit.framework`, `ReactiveSwift.framework` and `Result.framework` in `Carthage/Build`.
 
 #### [CocoaPods](https://github.com/cocoapods/cocoapods)
 
