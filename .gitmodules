@@ -13,5 +13,3 @@
 [submodule "Carthage/Checkouts/Quick"]
 	path = Carthage/Checkouts/Quick
 	url = https://github.com/Quick/Quick.git
-[submodule "Carthage/Checkouts/Himotoki"]
-	url = https://github.com/ikesyo/Himotoki.git
