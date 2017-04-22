@@ -15,6 +15,5 @@ Pod::Spec.new do |s|
   s.source_files  = "Sources/**/*.{swift,h,m}"
   s.requires_arc = true
 
-  s.dependency 'Himotoki', '~> 3.0'
   s.dependency 'ReactiveSwift', '~> 1.0'
 end

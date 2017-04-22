@@ -2,7 +2,6 @@ included:
   - Sources
 variable_name:
   excluded:
-    - e
     - id
     - to
     - ok
