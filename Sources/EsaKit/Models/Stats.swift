@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Himotoki
 
 public struct Stats: AutoEquatable, AutoHashable {
     public let members: UInt
@@ -19,20 +18,73 @@ public struct Stats: AutoEquatable, AutoHashable {
     public let dailyActiveUsers: UInt
     public let weeklyActiveUsers: UInt
     public let monthlyActiveUsers: UInt
+
+    enum Key: String {
+        case members
+        case posts
+        case postsWip = "posts_wip"
+        case postsShipped = "posts_shipped"
+        case comments
+        case stars
+        case dailyActiveUsers = "daily_active_users"
+        case weeklyActiveUsers = "weekly_active_users"
+        case monthlyActiveUsers = "monthly_active_users"
+    }
 }
 
 extension Stats: Decodable {
-    public static func decode(_ e: Extractor) throws -> Stats {
-        return try Stats(
-            members: e <| "members",
-            posts: e <| "posts",
-            postsWip: e <| "posts_wip",
-            postsShipped: e <| "posts_shipped",
-            comments: e <| "comments",
-            stars: e <| "stars",
-            dailyActiveUsers: e <| "daily_active_users",
-            weeklyActiveUsers: e <| "weekly_active_users",
-            monthlyActiveUsers: e <| "monthly_active_users"
+    // swiftlint:disable line_length
+    public static func decode(json: Any) throws -> Stats {
+        guard let dictionary = json as? [String: Any] else {
+            throw DecodeError.invalidFormat(json: json)
+        }
+
+        guard let members = dictionary[Key.members.rawValue] as? UInt else {
+            throw DecodeError.missingValue(key: Key.members.rawValue, actualValue: dictionary[Key.members.rawValue])
+        }
+
+        guard let posts = dictionary[Key.posts.rawValue] as? UInt else {
+            throw DecodeError.missingValue(key: Key.posts.rawValue, actualValue: dictionary[Key.posts.rawValue])
+        }
+
+        guard let postsWip = dictionary[Key.postsWip.rawValue] as? UInt else {
+            throw DecodeError.missingValue(key: Key.postsWip.rawValue, actualValue: dictionary[Key.postsWip.rawValue])
+        }
+
+        guard let postsShipped = dictionary[Key.postsShipped.rawValue] as? UInt else {
+            throw DecodeError.missingValue(key: Key.postsShipped.rawValue, actualValue: dictionary[Key.postsShipped.rawValue])
+        }
+
+        guard let comments = dictionary[Key.comments.rawValue] as? UInt else {
+            throw DecodeError.missingValue(key: Key.comments.rawValue, actualValue: dictionary[Key.comments.rawValue])
+        }
+
+        guard let stars = dictionary[Key.stars.rawValue] as? UInt else {
+            throw DecodeError.missingValue(key: Key.stars.rawValue, actualValue: dictionary[Key.stars.rawValue])
+        }
+
+        guard let dailyActiveUsers = dictionary[Key.dailyActiveUsers.rawValue] as? UInt else {
+            throw DecodeError.missingValue(key: Key.dailyActiveUsers.rawValue, actualValue: dictionary[Key.dailyActiveUsers.rawValue])
+        }
+
+        guard let weeklyActiveUsers = dictionary[Key.weeklyActiveUsers.rawValue] as? UInt else {
+            throw DecodeError.missingValue(key: Key.weeklyActiveUsers.rawValue, actualValue: dictionary[Key.weeklyActiveUsers.rawValue])
+        }
+
+        guard let monthlyActiveUsers = dictionary[Key.monthlyActiveUsers.rawValue] as? UInt else {
+            throw DecodeError.missingValue(key: Key.monthlyActiveUsers.rawValue, actualValue: dictionary[Key.monthlyActiveUsers.rawValue])
+        }
+
+        return Stats(
+            members: members,
+            posts: posts,
+            postsWip: postsWip,
+            postsShipped: postsShipped,
+            comments: comments,
+            stars: stars,
+            dailyActiveUsers: dailyActiveUsers,
+            weeklyActiveUsers: weeklyActiveUsers,
+            monthlyActiveUsers: monthlyActiveUsers
         )
     }
 }

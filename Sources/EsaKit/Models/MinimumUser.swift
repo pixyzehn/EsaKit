@@ -7,20 +7,43 @@
 //
 
 import Foundation
-import Himotoki
 
 public struct MinimumUser: AutoEquatable, AutoHashable {
     public let name: String
     public let screenName: String
     public let icon: URL
+
+    enum Key: String {
+        case name
+        case screenName = "screen_name"
+        case icon
+    }
 }
 
 extension MinimumUser: Decodable {
-    public static func decode(_ e: Extractor) throws -> MinimumUser {
-        return try MinimumUser(
-            name: e <| "name",
-            screenName: e <| "screen_name",
-            icon: try Transformer { try toURL($0) }.apply(e <| "icon")
+    // swiftlint:disable line_length
+    public static func decode(json: Any) throws -> MinimumUser {
+        guard let dictionary = json as? [String: Any] else {
+            throw DecodeError.invalidFormat(json: json)
+        }
+
+        guard let name = dictionary[Key.name.rawValue] as? String else {
+            throw DecodeError.missingValue(key: Key.name.rawValue, actualValue: dictionary[Key.name.rawValue])
+        }
+
+        guard let screenName = dictionary[Key.screenName.rawValue] as? String else {
+            throw DecodeError.missingValue(key: Key.screenName.rawValue, actualValue: dictionary[Key.screenName.rawValue])
+        }
+
+        guard let iconString = dictionary[Key.icon.rawValue] as? String,
+              let icon = URL(string: iconString) else {
+            throw DecodeError.missingValue(key: Key.icon.rawValue, actualValue: dictionary[Key.icon.rawValue])
+        }
+
+        return MinimumUser(
+            name: name,
+            screenName: screenName,
+            icon: icon
         )
     }
 }
