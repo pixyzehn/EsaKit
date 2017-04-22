@@ -118,14 +118,24 @@ extension Post: Decodable {
             throw DecodeError.missingValue(key: Key.revisionNumber.rawValue, actualValue: dictionary[Key.revisionNumber.rawValue])
         }
 
-        guard let createdByJSON = dictionary[Key.createdBy.rawValue],
-              let createdBy = try? MinimumUser.decode(json: createdByJSON) else {
+        guard let createdByJSON = dictionary[Key.createdBy.rawValue] else {
             throw DecodeError.missingValue(key: Key.createdBy.rawValue, actualValue: dictionary[Key.createdBy.rawValue])
         }
+        let createdBy: MinimumUser
+        do {
+            createdBy = try MinimumUser.decode(json: createdByJSON)
+        } catch {
+            throw DecodeError.custom(error.localizedDescription)
+        }
 
-        guard let updatedByJSON = dictionary[Key.updatedBy.rawValue],
-              let updatedBy = try? MinimumUser.decode(json: updatedByJSON) else {
+        guard let updatedByJSON = dictionary[Key.updatedBy.rawValue] else {
             throw DecodeError.missingValue(key: Key.updatedBy.rawValue, actualValue: dictionary[Key.updatedBy.rawValue])
+        }
+        let updatedBy: MinimumUser
+        do {
+            updatedBy = try MinimumUser.decode(json: updatedByJSON)
+        } catch {
+            throw DecodeError.custom(error.localizedDescription)
         }
 
         guard let kind = dictionary[Key.kind.rawValue] as? String else {

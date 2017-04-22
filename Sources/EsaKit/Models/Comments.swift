@@ -36,7 +36,6 @@ extension Comments: Decodable {
         guard let commentsJSON = dictionary[Key.comments.rawValue] as? [Any] else {
             throw DecodeError.missingValue(key: Key.comments.rawValue, actualValue: dictionary[Key.comments.rawValue])
         }
-
         var comments: [Comment] = []
         for commentJSON in commentsJSON {
             let comment: Comment

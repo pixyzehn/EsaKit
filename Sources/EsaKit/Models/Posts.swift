@@ -38,11 +38,13 @@ extension Posts: Decodable {
         guard let postsJSON = dictionary[Key.posts.rawValue] as? [Any] else {
             throw DecodeError.missingValue(key: Key.posts.rawValue, actualValue: dictionary[Key.posts.rawValue])
         }
-
         var posts: [Post] = []
         for postJSON in postsJSON {
-            guard let post = try? Post.decode(json: postJSON) else {
-                throw DecodeError.invalidFormat(json: postJSON)
+            let post: Post
+            do {
+                post = try Post.decode(json: postJSON)
+            } catch {
+                throw DecodeError.custom(error.localizedDescription)
             }
             posts.append(post)
         }

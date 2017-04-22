@@ -36,11 +36,13 @@ extension Watchers: Decodable {
         guard let watchersJSON = dictionary[Key.watchers.rawValue] as? [Any] else {
             throw DecodeError.missingValue(key: Key.watchers.rawValue, actualValue: dictionary[Key.watchers.rawValue])
         }
-
         var watchers: [Watcher] = []
         for watcherJSON in watchersJSON {
-            guard let watcher = try? Watcher.decode(json: watcherJSON) else {
-                throw DecodeError.invalidFormat(json: watcherJSON)
+            let watcher: Watcher
+            do {
+                watcher = try Watcher.decode(json: watcherJSON)
+            } catch {
+                throw DecodeError.custom(error.localizedDescription)
             }
             watchers.append(watcher)
         }

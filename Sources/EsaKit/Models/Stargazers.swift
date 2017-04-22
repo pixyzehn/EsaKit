@@ -36,11 +36,13 @@ extension Stargazers: Decodable {
         guard let stargazersJSON = dictionary[Key.stargazers.rawValue] as? [Any] else {
             throw DecodeError.missingValue(key: Key.stargazers.rawValue, actualValue: dictionary[Key.stargazers.rawValue])
         }
-
         var stargazers: [Stargazer] = []
         for stargazerJSON in stargazersJSON {
-            guard let stargazer = try? Stargazer.decode(json: stargazerJSON) else {
-                throw DecodeError.invalidFormat(json: stargazerJSON)
+            let stargazer: Stargazer
+            do {
+                stargazer = try Stargazer.decode(json: stargazerJSON)
+            } catch {
+                throw DecodeError.custom(error.localizedDescription)
             }
             stargazers.append(stargazer)
         }

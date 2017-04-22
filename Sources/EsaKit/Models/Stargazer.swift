@@ -26,9 +26,14 @@ extension Stargazer: Decodable {
             throw DecodeError.invalidFormat(json: json)
         }
 
-        guard let userJSON = dictionary[Key.user.rawValue],
-              let user = try? MinimumUser.decode(json: userJSON) else {
+        guard let userJSON = dictionary[Key.user.rawValue] else {
             throw DecodeError.missingValue(key: Key.user.rawValue, actualValue: dictionary[Key.user.rawValue])
+        }
+        let user: MinimumUser
+        do {
+            user = try MinimumUser.decode(json: userJSON)
+        } catch {
+            throw DecodeError.custom(error.localizedDescription)
         }
 
         guard let createdAtString = dictionary[Key.createdAt.rawValue] as? String,

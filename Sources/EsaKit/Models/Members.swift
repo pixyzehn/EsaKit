@@ -36,7 +36,6 @@ extension Members: Decodable {
         guard let membersJSON = dictionary[Key.members.rawValue] as? [Any] else {
             throw DecodeError.missingValue(key: Key.members.rawValue, actualValue: dictionary[Key.members.rawValue])
         }
-
         var members: [MemberUser] = []
         for memberJSON in membersJSON {
             let member: MemberUser

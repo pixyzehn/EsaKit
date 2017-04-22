@@ -36,11 +36,13 @@ extension Teams: Decodable {
         guard let teamsJSON = dictionary[Key.teams.rawValue] as? [Any] else {
             throw DecodeError.missingValue(key: Key.teams.rawValue, actualValue: dictionary[Key.teams.rawValue])
         }
-
         var teams: [Team] = []
         for teamJSON in teamsJSON {
-            guard let team = try? Team.decode(json: teamJSON) else {
-                throw DecodeError.invalidFormat(json: teamJSON)
+            let team: Team
+            do {
+                team = try Team.decode(json: teamJSON)
+            } catch {
+                throw DecodeError.custom(error.localizedDescription)
             }
             teams.append(team)
         }
