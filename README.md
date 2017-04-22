@@ -52,7 +52,7 @@ EsaKit requires / supports the following environments:
 
 #### [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
-- Add EsaKit as a dependency of your package in `Package.swift`. `.Package(url: "https://github.com/pixyzehn/EsaKit.git", majorVersion: 0, minor: 2)`
+- Add EsaKit as a dependency of your package in `Package.swift`. `.Package(url: "https://github.com/pixyzehn/EsaKit.git", majorVersion: 0, minor: 3)`
 
 ## Usage
 
