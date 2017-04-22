@@ -13,7 +13,7 @@
     <a title="EsaKit  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">EsaKit Docs</a> (30% documented)</p>
+        <p><a href="index.html">EsaKit Docs</a> (22% documented)</p>
         <p class="header-right"><a href="https://github.com/pixyzehn/EsaKit"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -44,6 +44,9 @@
           <li class="nav-group-name">
             <a href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/DecodeError.html">DecodeError</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Enums/HTTPMethod.html">HTTPMethod</a>
               </li>
@@ -95,6 +98,9 @@
                 <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_8CommentsS0__Sb">==(_:_:)</a>
               </li>
               <li class="nav-group-task">
+                <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_8EsaErrorS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Functions.html#/s:F6EsaKitoi2eeFTVS_8ResponseS0__Sb">==(_:_:)</a>
               </li>
               <li class="nav-group-task">
@@ -113,6 +119,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Protocols.html#/s:P6EsaKit12AutoHashable">AutoHashable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Decodable.html">Decodable</a>
               </li>
             </ul>
           </li>
@@ -189,33 +198,33 @@
             
             <a href='#esakit-a-href-https-raw-githubusercontent-com-pixyzehn-esakit-master-license-md-img-src-https-img-shields-io-badge-license-mit-lightgrey-svg-alt-mit-license-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='esakit-a-href-https-raw-githubusercontent-com-pixyzehn-esakit-master-license-md-img-src-https-img-shields-io-badge-license-mit-lightgrey-svg-alt-mit-license-a'>EsaKit <a href="https://raw.githubusercontent.com/pixyzehn/EsaKit/master/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="MIT license"></a></h1>
 
-<p>A Swift framework for the esa.io API</p>
+<p>A Swift framework for the <a href="https://esa.io/">esa.io</a> API</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">client</span> <span class="o">=</span> <span class="kt">EsaClient</span><span class="p">(</span><span class="nv">token</span><span class="p">:</span> <span class="s">"your_token"</span><span class="p">,</span> <span class="nv">teamName</span><span class="p">:</span> <span class="s">"your_team_name"</span><span class="p">)</span>
 <span class="n">client</span><span class="o">.</span><span class="nf">members</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">startWithResult</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
-        <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
-        <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">members</span><span class="p">):</span>
-            <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">response</span><span class="se">)</span><span class="s">"</span><span class="p">)</span> <span class="c1">// =&gt; Response(xRateLimitLimit: 75, XRateLimitRemaining: 71)</span>
-            <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">members</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>  <span class="c1">// =&gt; Memberss(members: [EsaKit.MemberUser(name:...</span>
-        <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
-            <span class="nf">print</span><span class="p">(</span><span class="s">"An error occured: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
-        <span class="p">}</span>
+  <span class="o">.</span><span class="n">startWithResult</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">members</span><span class="p">):</span>
+      <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">response</span><span class="se">)</span><span class="s">"</span><span class="p">)</span> <span class="c1">// =&gt; Response(xRateLimitLimit: 75, XRateLimitRemaining: 71)</span>
+      <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">members</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>  <span class="c1">// =&gt; Memberss(members: [EsaKit.MemberUser(name:...</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+      <span class="nf">print</span><span class="p">(</span><span class="s">"An error occured: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
     <span class="p">}</span>
+  <span class="p">}</span>
 
 <span class="n">client</span><span class="o">.</span><span class="n">teamName</span> <span class="o">=</span> <span class="s">"other_your_team_name"</span>
 <span class="n">client</span><span class="o">.</span><span class="nf">posts</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">startWithResult</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
-        <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
-        <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">posts</span><span class="p">):</span>
-            <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">response</span><span class="se">)</span><span class="s">"</span><span class="p">)</span> <span class="c1">// =&gt; Response(xRateLimitLimit: 75, XRateLimitRemaining: 70)</span>
-            <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">posts</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>    <span class="c1">// =&gt; Posts(posts: [EsaKit.Post(number: 11, name:...</span>
-        <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
-            <span class="nf">print</span><span class="p">(</span><span class="s">"An error occured: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
-        <span class="p">}</span>
+  <span class="o">.</span><span class="n">startWithResult</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">posts</span><span class="p">):</span>
+      <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">response</span><span class="se">)</span><span class="s">"</span><span class="p">)</span> <span class="c1">// =&gt; Response(xRateLimitLimit: 75, XRateLimitRemaining: 70)</span>
+      <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">posts</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>    <span class="c1">// =&gt; Posts(posts: [EsaKit.Post(number: 11, name:...</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+      <span class="nf">print</span><span class="p">(</span><span class="s">"An error occured: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
     <span class="p">}</span>
+  <span class="p">}</span>
 </code></pre>
 
-<p>EsaKit is build with <a href="https://github.com/ReactiveCocoa/ReactiveSwift">ReactiveSwift</a>, <a href="https://github.com/ikesyo/Himotoki">Himotoki</a> and <a href="https://github.com/krzysztofzablocki/Sourcery">Sourcery</a>.</p>
+<p>EsaKit is build with <a href="https://github.com/ReactiveCocoa/ReactiveSwift">ReactiveSwift</a> and <a href="https://github.com/krzysztofzablocki/Sourcery">Sourcery</a>.</p>
 <a href='#requirements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='requirements'>Requirements</h2>
 
 <p>EsaKit requires / supports the following environments:</p>
@@ -231,7 +240,7 @@
 <ul>
 <li>Insert <code>github &quot;pixyzehn/EsaKit&quot;</code> to your Cartfile.</li>
 <li>Run <code>carthage update</code>.</li>
-<li>Link your app with <code>EsaKit.framework</code>, <code>Himotoki.framework</code>, <code>ReactiveSwift.framework</code> and <code>Result.framework</code> in <code>Carthage/Build</code>.</li>
+<li>Link your app with <code>EsaKit.framework</code>, <code>ReactiveSwift.framework</code> and <code>Result.framework</code> in <code>Carthage/Build</code>.</li>
 </ul>
 <a href='#a-href-https-github-com-cocoapods-cocoapods-cocoapods-a' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='a-href-https-github-com-cocoapods-cocoapods-cocoapods-a'><a href="https://github.com/cocoapods/cocoapods">CocoaPods</a></h4>
 
@@ -358,7 +367,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://twitter.com/pixyzehn" target="_blank" rel="external">pixyzehn</a>. All rights reserved. (Last updated: 2017-03-06)</p>
+          <p>&copy; 2017 <a class="link" href="https://pixyzehn.com" target="_blank" rel="external">pixyzehn</a>. All rights reserved. (Last updated: 2017-04-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
