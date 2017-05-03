@@ -2,7 +2,7 @@
 
 # Ref: https://github.com/inamiy/VTree/blob/master/Scripts/generate-message.sh
 # https://github.com/krzysztofzablocki/Sourcery
-SOURCERY_VER=0.5.8
+SOURCERY_VER=0.6.0
 
 CMD=`basename $0`
 
