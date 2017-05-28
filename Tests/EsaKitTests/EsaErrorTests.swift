@@ -43,7 +43,7 @@ class EsaErrorTests: QuickSpec {
                     client.comment(commentId: 10)
                         .startWithResult { result in
                             switch result {
-                            case .success(_, _):
+                            case .success:
                                 fatalError()
                             case let .failure(error):
                                 if case let EsaClient.Error.apiError(code, response, error) = error {

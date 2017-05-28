@@ -1,5 +1,10 @@
+disabled_rules:
+  - line_length
+  - function_body_length
+
 included:
   - Sources
+  - Tests
 variable_name:
   excluded:
     - id

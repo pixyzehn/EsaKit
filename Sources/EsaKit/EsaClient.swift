@@ -110,38 +110,38 @@ public final class EsaClient { // swiftlint:disable file_length line_length forc
         var method: HTTPMethod {
             switch self {
             /// - Team
-            case .teams, .team(_): return .get
+            case .teams, .team: return .get
 
             /// - Stats
-            case .teamStats(_): return .get
+            case .teamStats: return .get
 
             /// - Member
-            case .members(_): return .get
+            case .members: return .get
 
             /// - Post
-            case .posts(_, _), .post(_, _): return .get
-            case .createPost(_, _): return .post
-            case .updatePost(_, _, _): return .patch
-            case .deletePost(_, _): return .delete
+            case .posts, .post: return .get
+            case .createPost: return .post
+            case .updatePost: return .patch
+            case .deletePost: return .delete
 
             /// - Comment
-            case .comments(_, _), .comment(_, _): return .get
-            case .createComment(_, _, _): return .post
-            case .updateComment(_, _, _): return .patch
-            case .deleteComment(_, _): return .delete
+            case .comments, .comment: return .get
+            case .createComment: return .post
+            case .updateComment: return .patch
+            case .deleteComment: return .delete
 
             /// - Star
-            case .stargazersInPost(_, _), .stargazersInComment(_, _): return .get
-            case .addStarInPost(_, _, _), .addStarInComment(_, _, _): return .post
-            case .removeStarInPost(_, _), .removeStarInComment(_, _): return .delete
+            case .stargazersInPost, .stargazersInComment: return .get
+            case .addStarInPost, .addStarInComment: return .post
+            case .removeStarInPost, .removeStarInComment: return .delete
 
             /// - Watch
-            case .watchers(_, _): return .get
-            case .addWatch(_, _): return .post
-            case .removeWatch(_, _): return .delete
+            case .watchers: return .get
+            case .addWatch: return .post
+            case .removeWatch: return .delete
 
             /// - Category
-            case .batchMove(_, _, _): return .post
+            case .batchMove: return .post
 
             /// - User
             case .user: return .get
